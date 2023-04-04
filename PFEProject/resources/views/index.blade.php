@@ -1,4 +1,4 @@
 @extends('base')
 @section('content')
-    Hello {{ auth()->user()->name }}
+    Hello {{ auth()->user()->nom }}
 @endsection

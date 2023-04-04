@@ -45,10 +45,10 @@
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="password" placeholder="Password" id="motdepasse" class="form-control"
-                                           name="motdepasse" required>
-                                    @if (isset($errors) && $errors->has('motdepasse'))
-                                        <span class="text-danger">{{ $errors->first('motdepasse') }}</span>
+                                    <input type="password" placeholder="Password" id="password" class="form-control"
+                                           name="password" required>
+                                    @if (isset($errors) && $errors->has('password'))
+                                        <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
                                 <div class="form-group mb-3">

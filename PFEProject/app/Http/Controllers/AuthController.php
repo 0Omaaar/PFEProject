@@ -20,10 +20,10 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required',
-            'password' => 'required',
+            'motdepasse' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'motdepasse');
         if (auth()->attempt($credentials)) {
             return redirect()->intended('/');
         }
@@ -40,20 +40,20 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email|unique:users',
-            'password' => 'required',
-            'name'=>'required',
-            'last_name'=>'required',
-            'phone'=>'required',
-            'address'=>'required',
+            'motdepasse' => 'required',
+            'nom'=>'required',
+            'prenom'=>'required',
+            'telephone'=>'required',
+            'ville'=>'required',
         ]);
 
         User::create([
-            'name' => $request->get('name'),
+            'nom' => $request->get('nom'),
             'email' => $request->get('email'),
-            'last_name' => $request->get('last_name'),
-            'phone' => $request->get('phone'),
-            'address' => $request->get('address'),
-            'password' => Hash::make($request->get('password'))
+            'prenom' => $request->get('prenom'),
+            'telephone' => $request->get('telephone'),
+            'ville' => $request->get('ville'),
+            'motdepasse' => Hash::make($request->get('motdepasse'))
         ]);
 
         return redirect()->intended('/');

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('modeles', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
+            $table->unsignedBigInteger('id_marque');
+            $table->foreign('id_marque')->references('id')->on('marques');
             $table->timestamps();
         });
     }

@@ -1,5 +1,5 @@
 @extends('base')
 @section('content')
-    Hello {{ auth()->user()->nom }}
+<h1>index page</h1>
     
 @endsection

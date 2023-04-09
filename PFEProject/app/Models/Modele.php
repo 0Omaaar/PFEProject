@@ -12,4 +12,8 @@ class Modele extends Model
     protected $fillable = [
         'nom'
     ];
+
+    public function marque(){
+        return $this->belongsTo(Marque::class);
+    }
 }

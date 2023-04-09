@@ -19,4 +19,12 @@ class Voiture extends Model
         'premiere_main',
         'type',
     ];
+
+    public function modele(){
+        return $this->belongsTo(Modele::class);
+    }
+
+    public function marque(){
+        return $this->belongsTo(Marque::class);
+    }
 }

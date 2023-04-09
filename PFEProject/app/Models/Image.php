@@ -12,4 +12,8 @@ class Image extends Model
     protected $fillable = [
         'chemin',
     ];
+
+    public function annonce(){
+        return $this->belongsTo(Annonce::class);
+    }
 }

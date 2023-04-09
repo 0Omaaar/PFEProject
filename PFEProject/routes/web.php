@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnnonceController;
 include_once 'auth.php';
 
 /*
@@ -15,5 +16,9 @@ include_once 'auth.php';
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
+
+//Routes des annonces
+
+// Route::get("/annonces/creer", [AnnonceController::class, "create"])->name("annonce.create");

@@ -17,4 +17,12 @@ class Annonce extends Model
         'miniature',
         'etat',
     ];
+
+    public function voiture(){
+        return $this->belongsTo(Voiture::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

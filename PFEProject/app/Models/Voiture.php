@@ -17,5 +17,6 @@ class Voiture extends Model
         'puissance_fiscale',
         'dedouanee',
         'premiere_main',
+        'type',
     ];
 }

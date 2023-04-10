@@ -12,4 +12,12 @@ class Marque extends Model
     protected $fillable = [
         'nom'
     ];
+
+    public function modele(){
+        return $this->hasMany(Modele::class);
+    }
+
+    public function voiture(){
+        return $this->hasMany(Voiture::class);
+    }
 }

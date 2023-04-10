@@ -10,10 +10,15 @@ class Modele extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom'
+        'nom',
+        'id_marque'
     ];
 
     public function marque(){
         return $this->belongsTo(Marque::class);
+    }
+
+    public function voiture(){
+        return $this->hasMany(Voiture::class);
     }
 }

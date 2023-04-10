@@ -16,6 +16,8 @@ class Annonce extends Model
         'date_creation',
         'miniature',
         'etat',
+        'id_utilisateur',
+        'id_voiture'
     ];
 
     public function voiture(){
@@ -24,5 +26,9 @@ class Annonce extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    
+    public function image(){
+        return $this->hasMany(Image::class);
     }
 }

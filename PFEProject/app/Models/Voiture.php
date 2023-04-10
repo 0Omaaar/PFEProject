@@ -18,6 +18,8 @@ class Voiture extends Model
         'dedouanee',
         'premiere_main',
         'type',
+        'id_modele',
+        'id_marque' 
     ];
 
     public function modele(){
@@ -26,5 +28,9 @@ class Voiture extends Model
 
     public function marque(){
         return $this->belongsTo(Marque::class);
+    }
+
+    public function annonce(){
+        return $this->hasMany(Annonce::class);
     }
 }

@@ -15,10 +15,12 @@ include_once 'auth.php';
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', 'HomeController@index')->name('index');
 
 //Routes des annonces
 
-// Route::get("/annonces/creer", [AnnonceController::class, "create"])->name("annonce.create");
+// Route::get('/annonces/creer', 'AnnonceController@create')->name("annonce.create");

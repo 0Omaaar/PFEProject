@@ -13,11 +13,10 @@ class Annonce extends Model
         'titre',
         'description',
         'prix',
-        'date_creation',
         'miniature',
         'etat',
-        'id_utilisateur',
-        'id_voiture'
+        'user_id',
+        'voiture_id'
     ];
 
     public function voiture(){

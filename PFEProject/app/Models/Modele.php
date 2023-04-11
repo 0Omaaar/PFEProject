@@ -11,7 +11,7 @@ class Modele extends Model
 
     protected $fillable = [
         'nom',
-        'id_marque'
+        'marque_id'
     ];
 
     public function marque(){

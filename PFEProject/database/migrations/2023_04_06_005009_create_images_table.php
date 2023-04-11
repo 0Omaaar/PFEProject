@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('chemin');
-            $table->unsignedBigInteger('id_annonce');
-            $table->foreign('id_annonce')->references('id')->on('annonces');
+            $table->unsignedBigInteger('annonce_id');
+            $table->foreign('annonce_id')->references('id')->on('annonces');
             $table->timestamps();
         });
     }

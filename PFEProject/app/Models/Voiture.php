@@ -18,8 +18,8 @@ class Voiture extends Model
         'dedouanee',
         'premiere_main',
         'type',
-        'id_modele',
-        'id_marque' 
+        'modele_id',
+        'marque_id' 
     ];
 
     public function modele(){

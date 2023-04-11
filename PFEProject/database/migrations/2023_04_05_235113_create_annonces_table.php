@@ -15,14 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('titre');
             $table->text('description');
-            $table->float('prix');
-            $table->date('date_creation');
-            $table->binary('miniature');
+            $table->integer('prix');
+            $table->string('miniature');
             $table->boolean('etat')->default(false);
-            $table->unsignedBigInteger('id_utilisateur');
-            $table->foreign('id_utilisateur')->references('id')->on('users');
-            $table->unsignedBigInteger('id_voiture');
-            $table->foreign('id_voiture')->references('id')->on('voitures');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('voiture_id');
+            $table->foreign('voiture_id')->references('id')->on('voitures');
             $table->timestamps();
         });
     }

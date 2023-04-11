@@ -21,10 +21,10 @@ return new class extends Migration
             $table->integer('puissance_fiscale');
             $table->year('dedouanee')->nullable();
             $table->string('premiere_main');
-            $table->unsignedBigInteger('id_modele');
-            $table->foreign('id_modele')->references('id')->on('modeles');
-            $table->unsignedBigInteger('id_marque');
-            $table->foreign('id_marque')->references('id')->on('marques');
+            $table->unsignedBigInteger('modele_id');
+            $table->foreign('modele_id')->references('id')->on('modeles');
+            $table->unsignedBigInteger('marque_id');
+            $table->foreign('marque_id')->references('id')->on('marques');
             $table->timestamps();
         });
     }

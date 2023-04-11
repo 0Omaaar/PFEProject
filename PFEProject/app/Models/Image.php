@@ -11,7 +11,7 @@ class Image extends Model
 
     protected $fillable = [
         'chemin',
-        'id_annonce'
+        'annonce_id'
     ];
 
     public function annonce(){

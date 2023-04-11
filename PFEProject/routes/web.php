@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\HomeController;
 include_once 'auth.php';
 
 /*
@@ -19,8 +20,12 @@ include_once 'auth.php';
 //     return view('index');
 // });
 
-Route::get('/', 'HomeController@index')->name('index');
+
+Route::get('/', [HomeController::class, 'index'])->name('index');
+
 
 //Routes des annonces
-
-// Route::get('/annonces/creer', 'AnnonceController@create')->name("annonce.create");
+Route::get('/annonces/ajouter', [AnnonceController::class, 'create'])->name('annonces.ajouter');
+Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces');
+Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
+Route::post('/annonces/creer', [AnnonceController::class, 'store'])->name('annonces.store');

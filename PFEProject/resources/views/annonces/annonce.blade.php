@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <title>Annonce</title>
-</head>
-
-<body>
+@extends('base')
+@section('title', 'Afficher l\'annonce')
+@section('content')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="container">
         <h3>Infos Annonce</h3>
@@ -21,7 +11,7 @@
                 <div class="mt-2">
                     <img src="{{ asset('images/miniature/' . $annonce->miniature) }}"
                         alt="{{ $annonce->titre }}" class="img-thumbnail w-25" onclick="showImage('{{ asset('images/miniature/' . $annonce->miniature) }}')"/>
-                    @foreach ($images as $image)
+                    @foreach ($annonce->image as $image)
                         @if ($image->annonce_id == $annonce->id)
                             <img src="{{ asset('images/images/' . $image->chemin) }}" alt="{{ $annonce->titre }}"
                                 class="img-fluid w-25 img-thumbnail" onclick="showImage('{{ asset('images/images/' . $image->chemin) }}')"/>
@@ -49,7 +39,7 @@
                         <p><strong>Créée par:</strong> {{ $annonce->user->nom }}</p>
                     </div>
                 </div>
-                <a href="{{ route('annonces') }}" class="btn btn-dark">Liste des annonces</a>
+                <a href="{{ route('annonces.index') }}" class="btn btn-dark">Liste des annonces</a>
             </div>
         </div>
     </div>
@@ -70,17 +60,16 @@
             
             var img = document.createElement('img');
             img.src = src;
-        img.style.maxWidth = '90%';
-        img.style.maxHeight = '90%';
-        img.style.objectFit = 'contain';
-        modal.appendChild(img);
-        
-        document.body.appendChild(modal);
-        
-        modal.addEventListener('click', function() {
-            modal.parentElement.removeChild(modal);
-        });
+            img.style.maxWidth = '90%';
+            img.style.maxHeight = '90%';
+            img.style.objectFit = 'contain';
+            modal.appendChild(img);
+            
+            document.body.appendChild(modal);
+            
+            modal.addEventListener('click', function() {
+                modal.parentElement.removeChild(modal);
+            });
     }
 </script>
-</body>
-</html>
+@endsection

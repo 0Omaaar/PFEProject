@@ -21,11 +21,13 @@ include_once 'auth.php';
 // });
 
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+// Route::get('/', [HomeController::class, 'index'])->name('index');
 
 
 //Routes des annonces
-Route::get('/annonces/ajouter', [AnnonceController::class, 'create'])->name('annonces.ajouter');
-Route::get('/annonces', [AnnonceController::class, 'index'])->name('annonces');
-Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
-Route::post('/annonces/creer', [AnnonceController::class, 'store'])->name('annonces.store');
+// Route::middleware(['auth'])->group(function () {
+    Route::get('/', [AnnonceController::class, 'index'])->name('annonces.index');
+    Route::get('/annonces/ajouter', [AnnonceController::class, 'create'])->name('annonces.ajouter');
+    Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
+    Route::post('/annonces/creer', [AnnonceController::class, 'store'])->name('annonces.store');
+// });

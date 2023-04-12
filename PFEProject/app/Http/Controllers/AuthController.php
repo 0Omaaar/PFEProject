@@ -13,6 +13,10 @@ class AuthController extends Controller
 {
     public function login()
     {
+        if (Auth::check()) {
+        // Rediriger l'utilisateur vers la page qu'il essayait d'atteindre avant d'être redirigé vers la page d'authentification
+        return redirect()->intended('/');
+        }
         return view('auth.login');
     }
 

@@ -3,17 +3,18 @@
 @section('content')
     <div class="container">
         <h1 class="text text-center">Ajouter une annone</h1>
-        @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <div class="form-group">
-            <form action="{{route('annonces.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('annonces.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="">Titre</label>
@@ -60,27 +61,32 @@
                     <input type="number" class="form-control" name="dedouanee">
                 </div>
                 <div>
-                    <label for="">Premiere main</label>
-                    <input type="text" class="form-control" name="premiere_main">
+                    <label for="premiere_main">Première main:</label>
+                    <select id="premiere_main" name="premiere_main" style="width: 100px; margin-left: 10px">
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
                 </div>
-                <div>
+                <div class="mt-2">
                     <label for="marque_id">Marque</label>
-                    <select id="marque_id" name="marque_id" style="height: 40px;">
+                    <select id="marque_id" name="marque_id" style="width: 100px; margin-left: 10px"
+                        onchange="filterModels()">
                         <option value=""></option>
-                        @foreach($marques as $marque)
+                        @foreach ($marques as $marque)
                             <option value="{{ $marque->id }}">{{ $marque->nom }}</option>
                         @endforeach
                     </select>
                 </div>
+
+                <div class="mt-2">
                     <label for="modele_id">Modèle</label>
-                    <select id="modele_id" name="modele_id" style="height: 40px;">
+                    <select id="modele_id" name="modele_id" style="width: 100px; margin-left: 10px">
                         <option value=""></option>
-                        @foreach($modeles as $modele)
-                            <option value="{{ $modele->id }}">{{ $modele->nom }}</option>
+                        @foreach ($modeles as $modele)
+                            <option value="{{ $modele->id }}" data-marque="{{ $modele->marque_id }}">{{ $modele->nom }}
+                            </option>
                         @endforeach
                     </select>
-                <div>
-
                 </div>
                 <div>
                     <label for="">Images</label>
@@ -88,9 +94,26 @@
                 </div>
                 <div>
                     <input type="submit" value="Ajouter" class="btn btn-primary mt-3">
-                    <a href="{{route('annonces.index')}}" class="btn btn-danger mt-3">Annuler</a>
+                    <a href="{{ route('annonces.index') }}" class="btn btn-danger mt-3">Annuler</a>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+        function filterModels() {
+            var marqueSelect = document.getElementById("marque_id");
+            var modeleSelect = document.getElementById("modele_id");
+            var modeleOptions = modeleSelect.options;
+
+            for (var i = 0; i < modeleOptions.length; i++) {
+                var modeleOption = modeleOptions[i];
+                if (modeleOption.getAttribute("data-marque") !== marqueSelect.value && marqueSelect.value !== "") {
+                    modeleOption.style.display = "none";
+                } else {
+                    modeleOption.style.display = "";
+                }
+            }
+        }
+    </script>
 @endsection

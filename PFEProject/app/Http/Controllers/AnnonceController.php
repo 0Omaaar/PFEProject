@@ -44,7 +44,7 @@ class AnnonceController extends Controller
             "titre" => "required",
             "description" => "required",
             "prix" => "required",
-            "miniature" => "required",
+            "miniature" => "required|image|max:8192",
             "annee" => "required",
             "type" => "required",
             "carburant" => "required",
@@ -55,7 +55,7 @@ class AnnonceController extends Controller
             "premiere_main" => "required",
             'marque_id' => "required",
             'modele_id' => "required",
-            "images.*" => "required|image|max:2048", "images[]",
+            "images.*" => "required|image|max:8192", "images[]",
         ]);
 
         // Créer une nouvelle voiture avec les données validées
@@ -101,7 +101,7 @@ class AnnonceController extends Controller
             $images_voiture->save();
         }
 
-        return redirect()->route('index')->with("success", "Annonce Ajoutee");
+        return redirect()->route('annonces.index')->with("success", "Annonce Ajoutee");
     }
 
     public function show(Annonce $annonce)

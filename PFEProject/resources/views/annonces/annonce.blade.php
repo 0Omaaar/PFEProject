@@ -40,6 +40,11 @@
                     </div>
                 </div>
                 <a href="{{ route('annonces.index') }}" class="btn btn-dark">Liste des annonces</a>
+                <a href="#" class="btn btn-danger btn-sm" onclick="if(confirm('Voulez-vous vraiment supprimer cette annonce ?')){document.getElementById('form-{{$annonce->id}}').submit()}">Supprimer</a>
+                        <form id="form-{{$annonce->id}}" action="{{route('annonces.supprimer', ['annonce'=>$annonce->id])}}" method="post">
+                            @csrf
+                            <input type="hidden" name="_method" value="delete">
+                        </form>
             </div>
         </div>
     </div>

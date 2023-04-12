@@ -119,8 +119,12 @@ class AnnonceController extends Controller
         //
     }
 
-    public function destroy(string $id)
+    public function destroy(Annonce $annonce)
     {
-        //
+        $annonce->voiture()->delete();
+        $annonce->image()->delete();
+        $annonce->delete();
+
+        return redirect()->route('annonces.index')->with('success', "Votre annonce '$annonce->titre' est supprimée avec succes");
     }
 }

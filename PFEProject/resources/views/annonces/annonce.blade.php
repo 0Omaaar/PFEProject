@@ -6,15 +6,17 @@
         <h3>Infos Annonce</h3>
         <div class="row">
             <div class="col-lg-4">
-                <img src="{{ asset('images/miniature/' . $annonce->miniature) }}" alt="{{ $annonce->titre }}"
-                    class="img-fluid" id="mainImage" />
+                <img src="{{ asset('images/miniature/' . $annonce->miniature) }}" alt="{{ $annonce->titre }}" class="img-fluid"
+                    id="mainImage" />
                 <div class="mt-2">
-                    <img src="{{ asset('images/miniature/' . $annonce->miniature) }}"
-                        alt="{{ $annonce->titre }}" class="img-thumbnail w-25" onclick="showImage('{{ asset('images/miniature/' . $annonce->miniature) }}')"/>
+                    <img src="{{ asset('images/miniature/' . $annonce->miniature) }}" alt="{{ $annonce->titre }}"
+                        class="img-thumbnail w-25"
+                        onclick="showImage('{{ asset('images/miniature/' . $annonce->miniature) }}')" />
                     @foreach ($annonce->image as $image)
                         @if ($image->annonce_id == $annonce->id)
                             <img src="{{ asset('images/images/' . $image->chemin) }}" alt="{{ $annonce->titre }}"
-                                class="img-fluid w-25 img-thumbnail" onclick="showImage('{{ asset('images/images/' . $image->chemin) }}')"/>
+                                class="img-fluid w-25 img-thumbnail"
+                                onclick="showImage('{{ asset('images/images/' . $image->chemin) }}')" />
                         @endif
                     @endforeach
                 </div>
@@ -39,16 +41,24 @@
                         <p><strong>Créée par:</strong> {{ $annonce->user->nom }}</p>
                     </div>
                 </div>
-                <a href="{{ route('annonces.index') }}" class="btn btn-dark">Liste des annonces</a>
-                <a href="#" class="btn btn-danger" onclick="if(confirm('Voulez-vous vraiment supprimer cette annonce ?')){document.getElementById('form-{{$annonce->id}}').submit()}">Supprimer</a>
-                        <form id="form-{{$annonce->id}}" action="{{route('annonces.supprimer', ['annonce'=>$annonce->id])}}" method="post">
-                            @csrf
-                            <input type="hidden" name="_method" value="delete">
-                        </form>
+                <div>
+                    <a href="{{ route('annonces.index') }}" class="btn btn-dark">Liste des annonces</a>
+                    <a href="#" class="btn btn-danger"
+                        onclick="if(confirm('Voulez-vous vraiment supprimer cette annonce ?')){document.getElementById('form-{{ $annonce->id }}').submit()}">Supprimer</a>
+                    <form id="form-{{ $annonce->id }}"
+                        action="{{ route('annonces.supprimer', ['annonce' => $annonce->id]) }}" method="post">
+                        @csrf
+                        <input type="hidden" name="_method" value="delete">
+                    </form>
+                    @if (Auth::check() && $annonce->user_id == Auth::user()->id)
+                        <a href="{{ route('annonces.modifier', ['annonce' => $annonce->id]) }}"
+                            class="btn btn-success mt-2">Modifier</a>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
-    
+
     <script>
         function showImage(src) {
             var modal = document.createElement('div');
@@ -62,19 +72,19 @@
             modal.style.display = 'flex';
             modal.style.justifyContent = 'center';
             modal.style.alignItems = 'center';
-            
+
             var img = document.createElement('img');
             img.src = src;
             img.style.maxWidth = '90%';
             img.style.maxHeight = '90%';
             img.style.objectFit = 'contain';
             modal.appendChild(img);
-            
+
             document.body.appendChild(modal);
-            
+
             modal.addEventListener('click', function() {
                 modal.parentElement.removeChild(modal);
             });
-    }
-</script>
+        }
+    </script>
 @endsection

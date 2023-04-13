@@ -2,7 +2,7 @@
 @section('title', 'Ajouter une annonce')
 @section('content')
     <div class="container">
-        <h1 class="text text-center">Ajouter une annone</h1>
+        <h1 class="text text-center">Ajouter une annonce</h1>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

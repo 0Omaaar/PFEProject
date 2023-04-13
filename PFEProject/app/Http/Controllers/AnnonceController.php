@@ -124,7 +124,7 @@ class AnnonceController extends Controller
             "titre" => "required",
             "description" => "required",
             "prix" => "required",
-            "miniature" => "required|image|max:8192",
+            "miniature" => "image|max:8192",
             "annee" => "required",
             "type" => "required",
             "carburant" => "required",
@@ -135,40 +135,52 @@ class AnnonceController extends Controller
             "premiere_main" => "required",
             'marque_id' => "required",
             'modele_id' => "required",
-            "images.*" => "required|image|max:8192", "images[]",
+            "images.*" => "image|max:8192", "images[]",
         ]);
 
         // Modifier la voiture associée à l'annonce
         $voiture = $annonce->voiture;
-        $voiture->annee = $validatedData['annee'];
-        $voiture->type = $validatedData['type'];
-        $voiture->carburant = $validatedData['carburant'];
-        $voiture->transmission = $validatedData['transmission'];
-        $voiture->kilometrage = $validatedData['kilometrage'];
-        $voiture->puissance_fiscale = $validatedData['puissance_fiscale'];
-        $voiture->dedouanee = $validatedData['dedouanee'];
-        $voiture->premiere_main = $validatedData['premiere_main'];
-        $voiture->modele_id = $validatedData['modele_id'];
-        $voiture->marque_id = $validatedData['marque_id'];
+        $voiture->update([
+            'annee' => $validatedData['annee'],
+            'type' => $validatedData['type'],
+            'carburant' => $validatedData['carburant'],
+            'transmission' => $validatedData['transmission'],
+            'kilometrage' => $validatedData['kilometrage'],
+            'puissance_fiscale' => $validatedData['puissance_fiscale'],
+            'dedouanee' => $validatedData['dedouanee'],
+            'premiere_main' => $validatedData['premiere_main'],
+            'modele_id' => $validatedData['modele_id'],
+            'marque_id' => $validatedData['marque_id'],
+        ]);
         $voiture->save();
-
-        // Modifier les données de l'annonce
-        $annonce->titre = $validatedData['titre'];
-        $annonce->description = $validatedData['description'];
-        $annonce->prix = $validatedData['prix'];
-        $annonce->user_id = $user_id;
-        $annonce->voiture_id = $voiture->id;
 
         // Enregistrer la miniature si elle a été modifiée
         if ($request->hasFile('miniature')) {
-            $annonce->image()->delete();
+            $old_miniature = $annonce->miniature; // récupère le nom de l'ancienne image
+            if ($old_miniature !== null) {
+                $old_path = public_path('images/miniature/' . $old_miniature);
+                if (file_exists($old_path)) {
+                    unlink($old_path); // supprime l'ancienne image
+                }
+            }
+
             $miniature = $request->file('miniature');
             $nom_miniature = uniqid() . '.' . $miniature->getClientOriginalExtension();
             $miniature->move(public_path('images/miniature'), $nom_miniature);
-
-            $annonce->miniature = $nom_miniature;
+        }
+        else{
+            $nom_miniature = $annonce->miniature;
         }
 
+        // Modifier les données de l'annonce
+        $annonce->update([
+            'titre' => $validatedData['titre'],
+            'description' => $validatedData['description'],
+            'prix' => $validatedData['prix'],
+            'miniature' => $nom_miniature,
+            'user_id' => $user_id,
+            'voiture_id' => $voiture->id
+        ]);
         $annonce->save();
 
         // Enregistrer les images de la voiture si elles ont été modifiées
@@ -186,8 +198,7 @@ class AnnonceController extends Controller
             }
         }
 
-        //redirection
-        return redirect()->route('annonces.show', $annonce->id)->with("success", "Annonce modifiée");
+        return redirect()->route('annonces.show', $annonce->id)->with('success', "Annonce modifiée");
     }
 
     public function destroy(Annonce $annonce)

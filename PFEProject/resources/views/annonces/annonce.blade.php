@@ -3,6 +3,11 @@
 @section('content')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="container">
+        @if (session()->has("success"))
+            <div class="alert alert-success">
+                <h5>{{session()->get('success')}}</h5>
+            </div>
+        @endif
         <h3>Infos Annonce</h3>
         <div class="row">
             <div class="col-lg-4">

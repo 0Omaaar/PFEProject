@@ -31,6 +31,8 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link" style="padding-left: 950px;">Profil</a>
                     </li>
+
+
                 @endguest
             </ul>
         </div>

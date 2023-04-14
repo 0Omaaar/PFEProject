@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('transmission');
             $table->integer('kilometrage');
             $table->integer('puissance_fiscale');
-            $table->year('dedouanee')->nullable();
+            $table->string('dedouanee');
             $table->string('premiere_main');
             $table->unsignedBigInteger('modele_id');
             $table->foreign('modele_id')->references('id')->on('modeles');

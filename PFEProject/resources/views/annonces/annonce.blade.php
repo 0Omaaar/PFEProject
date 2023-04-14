@@ -36,6 +36,7 @@
                         <p><strong>Kilométrage:</strong> {{ $annonce->voiture->kilometrage }}</p>
                         <p><strong>Type de carburant:</strong> {{ $annonce->voiture->carburant }}</p>
                         <p><strong>Type de transmission:</strong> {{ $annonce->voiture->transmission }}</p>
+                        <p><strong>Type :</strong> {{ $annonce->voiture->type }}</p>
                     </div>
                     <div class="col-lg-6">
                         <p><strong>Puissance fiscale:</strong> {{ $annonce->voiture->puissance_fiscale }}</p>

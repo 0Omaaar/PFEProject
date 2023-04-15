@@ -26,20 +26,21 @@
                     @else
                         @if (auth()->user()->isAdmin())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin.index')}}">Cote Admin</a>
+                                <a class="nav-link" href="{{ route('admin.index') }}">Cote Admin</a>
                             </li>
                         @endif
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('annonces.ajouter') }}">Ajouter une annonce</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('profil.show') }}" class="nav-link" style="padding-left: 950px;">Profil</a>
+                            
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('signout') }}">Logout</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" style="padding-left: 800px;">Profil</a>
-                        </li>
-
 
                     @endguest
                 </ul>

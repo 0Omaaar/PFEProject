@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\AAnnonceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnnonceController;
-// use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\HomeController;
 
 include_once 'auth.php';
 
@@ -16,7 +16,3 @@ Route::get('/annonces/modifier/{annonce}', [AnnonceController::class, 'edit'])->
 Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
 Route::post('/annonces/creer', [AnnonceController::class, 'store'])->name('annonces.store');
 Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.supprimer');
-
-//Routes de la page de profile
-Route::get('/profil/profil', [ProfilController::class, 'show'])->name('profil.show');
-Route::put('/profil/modifier', [ProfilController::class, 'update'])->name('profil.update');

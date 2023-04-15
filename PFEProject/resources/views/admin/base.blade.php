@@ -16,32 +16,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register-user') }}">Register</a>
-                        </li>
-                    @else
                         @if (auth()->user()->isAdmin())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin.index')}}">Cote Admin</a>
+                                <a class="nav-link" href="{{route('admin.users')}}">Liste des utilisateurs</a>
+                            </li>
+                            <li>
+                                <a href="{{route('admin.index')}}" class="nav-link">Liste des annonces</a>
                             </li>
                         @endif
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('annonces.ajouter') }}">Ajouter une annonce</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('signout') }}">Logout</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" style="padding-left: 800px;">Profil</a>
-                        </li>
-
-
-                    @endguest
                 </ul>
             </div>
         </div>

@@ -30,4 +30,8 @@ class Annonce extends Model
     public function image(){
         return $this->hasMany(Image::class);
     }
+
+    public function isActive(){
+        return $this->etat == 1;
+    }
 }

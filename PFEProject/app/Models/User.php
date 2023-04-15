@@ -27,7 +27,8 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function annonce(){
+    public function annonce()
+    {
         return $this->hasMany(Annonce::class);
     }
 
@@ -49,4 +50,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin()
+    {
+        return $this->type === 'admin';
+    }
 }

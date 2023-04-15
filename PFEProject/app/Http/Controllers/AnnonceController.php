@@ -152,7 +152,6 @@ class AnnonceController extends Controller
             'modele_id' => $validatedData['modele_id'],
             'marque_id' => $validatedData['marque_id'],
         ]);
-        $voiture->save();
 
         // Enregistrer la miniature si elle a été modifiée
         if ($request->hasFile('miniature')) {
@@ -181,7 +180,6 @@ class AnnonceController extends Controller
             'user_id' => $user_id,
             'voiture_id' => $voiture->id
         ]);
-        $annonce->save();
 
         // Enregistrer les images de la voiture si elles ont été modifiées
         if ($request->hasFile('images')) {

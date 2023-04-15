@@ -36,10 +36,10 @@
             </div>
             <div>
                 <label for="">Annee</label>
-                <select name="annee" id="annee" style="width: 100px; margin-left: 10px">
+                <select name="annee" id="annee" style="width: 150px; margin-left: 10px">
                     @foreach (['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990'] as $option)
                     <option value="{{ $option }}" @if ($annonce->voiture->annee == $option) selected @endif>
-                        {{ ucfirst($option) }}
+                        {{ $option }}
                     </option>
                     @endforeach
                 </select>
@@ -47,52 +47,32 @@
 
             <div class="mt-2">
                 <label for="">Type</label>
-                <select id="type" name="type" style="width: 120px; margin-left: 10px">
+                <select id="type" name="type" style="width: 150px; margin-left: 10px">
                     @foreach (['CABRIOLET', 'SUV ET 4X4', 'COUPé', 'CITADINE', 'BREAK', 'MONOSPACE', 'BERLINE', 'CC', 'MICRO-CITADINE', 'COMPACT', 'CROSSOVER', 'PICK UP', 'UTILITAIRE (MINIVAN)', 'UTILITAIRE (VAN)'] as $option)
                     <option value="{{ $option }}" @if ($annonce->voiture->type == $option) selected @endif>
-                        {{ ucfirst($option) }}
+                        {{ $option }}
                     </option>
                     @endforeach
-                    <option value="CABRIOLET">CABRIOLET</option>
-                    <option value="SUV ET 4X4">SUV ET 4X4</option>
-                    <option value="COUPé">COUPé</option>
-                    <option value="CITADINE">CITADINE</option>
-                    <option value="BREAK">BREAK</option>
-                    <option value="MONOSPACE">MONOSPACE</option>
-                    <option value="BERLINE">BERLINE</option>
-                    <option value="CC">CC</option>
-                    <option value="MICRO-CITADINE">MICRO-CITADINE</option>
-                    <option value="COMPACT">COMPACT</option>
-                    <option value="CROSSOVER">CROSSOVER</option>
-                    <option value="PICK UP">PICK UP​</option>
-                    <option value="UTILITAIRE (MINIVAN)">UTILITAIRE (MINIVAN)</option>
-                    <option value="UTILITAIRE (VAN)">UTILITAIRE (VAN)</option>
                 </select>
             </div>
             <div>
                 <label for="">Carburant</label>
-                <select style="width: 100px; margin-left: 10px" name="carburant" id="carburant" required>
+                <select style="width: 150px; margin-left: 10px" name="carburant" id="carburant" required>
                     @foreach (['Essence', 'Diesel', 'Electrique', 'Hybride'] as $option)
                     <option value="{{ $option }}" @if ($annonce->voiture->carburant == $option) selected @endif>
                         {{ ucfirst($option) }}
                     </option>
                     @endforeach
-                    <option title="Essence" value="Essence">Essence</option>
-                    <option title="Diesel" value="Diesel">Diesel</option>
-                    <option title="Electrique" value="Electrique">Electrique</option>
-                    <option title="Hybride" value="Hybride">Hybride</option>
                 </select>
             </div>
             <div>
                 <label for="">Transmission</label>
-                <select style="width: 100px; margin-left: 10px" name="transmission" id="transmission" required>
+                <select style="width: 150px; margin-left: 10px" name="transmission" id="transmission" required>
                     @foreach (['Manuelle', 'Automatique'] as $option)
                     <option value="{{ $option }}" @if ($annonce->voiture->transmission == $option) selected @endif>
                         {{ ucfirst($option) }}
                     </option>
                     @endforeach
-                    <option title="Manuelle" value="Manuelle">Manuelle</option>
-                    <option title="Automatique" value="Automatique">Automatique</option>
                 </select>
             </div>
             <div>
@@ -101,39 +81,34 @@
             </div>
             <div>
                 <label for="">Puissance Fiscale</label>
-                <select style="width: 100px; margin-left: 10px" id="puissance_fiscale" name="puissance_fiscale">
+                <select style="width: 150px; margin-left: 10px" id="puissance_fiscale" name="puissance_fiscale">
                     @foreach ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60] as $option)
                     <option value="{{ $option }}" @if ($annonce->voiture->puissance_fiscale == $option) selected @endif>
-                        {{ ucfirst($option) }}
+                        {{ $option }}
                     </option>
                     @endforeach
                 </select>
             </div>
             <div>
-                <label for="dedouanee">Dedouanee</label>
-                <select style="width: 100px; margin-left: 10px" id="dedouanee" name="dedouanee">
+                <label for="dedouanee">Dedouané</label>
+                <select style="width: 150px; margin-left: 10px" id="dedouanee" name="dedouanee">
                     @foreach ([' Non', 'Oui', 'Pas encore dédouané', 'Importé neuf'] as $option)
                     <option value="{{ $option }}" @if ($annonce->voiture->dedouanee == $option) selected @endif>
                         {{ ucfirst($option) }}
                     </option>
                     @endforeach
-                    <option value="Non">Non, acheté au maroc (ww)</option>
-                    <option value="Oui">Oui, dédouané</option>
-                    <option value="Pas encore dédouané">Pas encore dédouané</option>
-                    <option value="Importé neuf">Importé neuf</option>
                 </select>
             </div>
             <div>
                 <label for="premiere_main">Première main:</label>
-                <select id="premiere_main" name="premiere_main" style="width: 100px; margin-left: 10px">
+                <select id="premiere_main" name="premiere_main" style="width: 150px; margin-left: 10px">
                     <option value="oui" @if ($annonce->voiture->premiere_main == 'oui') selected @endif>Oui</option>
                     <option value="non" @if ($annonce->voiture->premiere_main == 'non') selected @endif>Non</option>
                 </select>
             </div>
             <div class="mt-2">
                 <label for="marque_id">Marque</label>
-                <select id="marque_id" name="marque_id" style="width: 100px; margin-left: 10px" onchange="filterModels()">
-                    <option value=""></option>
+                <select id="marque_id" name="marque_id" style="width: 150px; margin-left: 10px" onchange="filterModels()">
                     @foreach ($marques as $marque)
                     <option value="{{ $marque->id }}" {{ $marque->id == $annonce->voiture->marque->id ? 'selected' : '' }}>{{ $marque->nom }}
                     </option>
@@ -142,8 +117,7 @@
             </div>
             <div class="mt-2">
                 <label for="modele_id">Modèle</label>
-                <select id="modele_id" name="modele_id" style="width: 100px; margin-left: 10px">
-                    <option value=""></option>
+                <select id="modele_id" name="modele_id" style="width: 150px; margin-left: 10px">
                     @foreach ($modeles as $modele)
                     <option value="{{ $modele->id }}" data-marque="{{ $modele->marque_id }}" {{ $modele->id == $annonce->voiture->modele->id ? 'selected' : '' }}>{{ $modele->nom }}
                     </option>

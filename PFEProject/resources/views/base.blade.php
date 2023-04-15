@@ -10,38 +10,37 @@
     <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
         <div class="container">
             <a class="navbar-brand mr-auto" href="{{ route('annonces.index') }}">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register-user') }}">Register</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register-user') }}">Register</a>
+                    </li>
                     @else
-                        @if (auth()->user()->isAdmin())
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.index') }}">Cote Admin</a>
-                            </li>
-                        @endif
+                    @if (auth()->user()->isAdmin())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.index') }}">Espace Admin</a>
+                    </li>
+                    @endif
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('annonces.ajouter') }}">Ajouter une annonce</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('annonces.ajouter') }}">Ajouter une annonce</a>
+                    </li>
 
-                        <li class="nav-item">
-                            <a href="{{ route('profil.show') }}" class="nav-link" style="padding-left: 950px;">Profil</a>
-                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('signout') }}">Logout</a>
-                        </li>
+                    <li class="nav-item" style="margin-left: 810px;">
+                        <a class="nav-link" href="{{ route('profil.show') }}">Profil</a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signout') }}">Logout</a>
+                    </li>
                     @endguest
                 </ul>
             </div>

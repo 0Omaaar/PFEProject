@@ -8,7 +8,6 @@ use App\Models\Image;
 use App\Models\Voiture;
 use App\Models\Marque;
 use App\Models\Modele;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class AnnonceController extends Controller
@@ -16,7 +15,7 @@ class AnnonceController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['index']);
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
 

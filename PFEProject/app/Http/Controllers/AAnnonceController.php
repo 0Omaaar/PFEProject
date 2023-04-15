@@ -24,7 +24,7 @@ class AAnnonceController extends Controller
         $annonce->etat = 1;
         $annonce->save();
 
-        return redirect()->route('admin.index')->with("success", "L'annonce '$annonce->titre' est maintenant activée");
+        return redirect()->route('admin.index')->with("success", "L'annonce '$annonce->titre' est désormais activée");
     }
 
     public function desactiver(Annonce $annonce)
@@ -32,7 +32,6 @@ class AAnnonceController extends Controller
         $annonce->etat = 0;
         $annonce->save();
 
-        return redirect()->route('admin.index')->with("success", "L'annonce '$annonce->titre' est maintenant desactivée");
-
+        return redirect()->route('admin.index')->with("success", "L'annonce '$annonce->titre' est désormais desactivée");
     }
 }

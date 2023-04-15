@@ -44,10 +44,10 @@ class AuthController extends Controller
     public function customRegistration(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
             'nom'=>'required',
             'prenom'=>'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
             'telephone'=>'required',
             'ville'=>'required',
         ]);

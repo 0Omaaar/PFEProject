@@ -19,6 +19,10 @@ Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('ann
 Route::post('/annonces/creer', [AnnonceController::class, 'store'])->name('annonces.store');
 Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.supprimer');
 
+//Routes de la page de profile
+Route::get('/profil/profil', [ProfilController::class, 'show'])->name('profil.show');
+Route::put('/profil/modifier', [ProfilController::class, 'update'])->name('profil.update');
+
 //Routes d'admin
 Route::middleware(['auth', 'admin'])->group(function(){
     //Routes des utilisateurs
@@ -32,8 +36,3 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::post('/admin/annonces/{annonce}/activer', [AAnnonceController::class, 'activer'])->name('admin.activer');
     Route::post('/admin/annonces/{annonce}/desactiver', [AAnnonceController::class, 'desactiver'])->name('admin.desactiver');
 });
-
-
-//Routes de la page de profile
-Route::get('/profil/profil', [ProfilController::class, 'show'])->name('profil.show');
-Route::put('/profil/modifier', [ProfilController::class, 'update'])->name('profil.update');

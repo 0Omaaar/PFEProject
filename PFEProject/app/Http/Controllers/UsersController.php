@@ -17,7 +17,7 @@ class UsersController extends Controller
         $user->type = 'admin';
         $user->save();
 
-        return redirect()->route('admin.users')->with("success", "L'utilisateur '$user->prenom' est maintenant un admin");
+        return redirect()->route('admin.users')->with("success", "L'utilisateur '$user->prenom' est désormais un admin");
     }
 
 
@@ -25,6 +25,6 @@ class UsersController extends Controller
         $user->type = 'normal';
         $user->save();
 
-        return redirect()->route('admin.users')->with("success", "L'utilisateur '$user->prenom' est maintenant utilisateur normal");
+        return redirect()->route('admin.users')->with("success", "L'utilisateur '$user->prenom' est désormais utilisateur normal");
     }
 }

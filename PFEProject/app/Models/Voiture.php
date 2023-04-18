@@ -33,4 +33,10 @@ class Voiture extends Model
     public function annonce(){
         return $this->hasMany(Annonce::class);
     }
+
+    public function options()
+    {
+        return $this->belongsToMany(Option::class);
+    }
+
 }

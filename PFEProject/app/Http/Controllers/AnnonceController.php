@@ -8,6 +8,7 @@ use App\Models\Image;
 use App\Models\Voiture;
 use App\Models\Marque;
 use App\Models\Modele;
+use App\Models\Option;
 use Illuminate\Support\Facades\Auth;
 
 class AnnonceController extends Controller
@@ -29,8 +30,10 @@ class AnnonceController extends Controller
     {
         $modeles = Modele::all();
         $marques = Marque::all();
-        return view('annonces.ajouter_annonce', compact('modeles',  'marques'));
+        $options = Option::all();
+        return view('annonces.ajouter_annonce', compact('modeles', 'marques', 'options'));
     }
+
 
 
     public function store(Request $request)
@@ -54,7 +57,8 @@ class AnnonceController extends Controller
             "premiere_main" => "required",
             'marque_id' => "required",
             'modele_id' => "required",
-            "images.*" => "required|image|max:8192", "images[]",
+            "images.*" => "required|image|max:8192",
+            "images[]",
         ]);
 
         // Créer une nouvelle voiture avec les données validées
@@ -71,6 +75,11 @@ class AnnonceController extends Controller
             'marque_id' => $validatedData['marque_id'],
         ]);
         $voiture->save();
+
+        // Ajouter les options sélectionnées à la voiture
+        if ($request->has('options')) {
+            $voiture->options()->sync($request->input('options'));
+        }
 
         // Enregistrer la miniature dans le dossier public/images/miniature
         $miniature = $request->file('miniature');
@@ -98,21 +107,28 @@ class AnnonceController extends Controller
                 'annonce_id' => $annonce->id
             ]);
             $images_voiture->save();
-        }
 
-        return redirect()->route('annonces.index')->with("success", "Annonce Ajoutee");
+            return redirect()->route('annonces.index')->with("success", "Annonce Ajoutee");
+
+        }
     }
 
     public function show(Annonce $annonce)
     {
-        return view('annonces.annonce', compact('annonce'));
+        // Récupérer les options associées à l'annonce
+        $options = $annonce->voiture->options;
+        return view('annonces.annonce', compact('annonce', 'options'));
     }
+
 
     public function edit(Annonce $annonce)
     {
         $modeles = Modele::all();
         $marques = Marque::all();
-        return view('annonces.modifier_annonce', compact('marques', 'modeles', 'annonce'));
+        $options = Option::all();
+        $selectedOptions = $annonce->voiture->options()->pluck('option_id')->toArray();
+
+        return view('annonces.modifier_annonce', compact('marques', 'modeles', 'annonce', 'options', 'selectedOptions'));
     }
 
     public function update(Request $request, Annonce $annonce)
@@ -134,7 +150,8 @@ class AnnonceController extends Controller
             "premiere_main" => "required",
             'marque_id' => "required",
             'modele_id' => "required",
-            "images.*" => "image|max:8192", "images[]",
+            "images.*" => "image|max:8192",
+            "images[]",
         ]);
 
         // Modifier la voiture associée à l'annonce
@@ -152,6 +169,15 @@ class AnnonceController extends Controller
             'marque_id' => $validatedData['marque_id'],
         ]);
 
+        // Supprimer les options associées à la voiture de l'annonce
+        $voiture->options()->detach();
+
+        // Enregistrer les options sélectionnées pour la voiture de l'annonce
+        if ($request->has('options')) {
+            $options = $request->input('options');
+            $voiture->options()->attach($options);
+        }
+
         // Enregistrer la miniature si elle a été modifiée
         if ($request->hasFile('miniature')) {
             $old_miniature = $annonce->miniature; // récupère le nom de l'ancienne image
@@ -165,8 +191,7 @@ class AnnonceController extends Controller
             $miniature = $request->file('miniature');
             $nom_miniature = uniqid() . '.' . $miniature->getClientOriginalExtension();
             $miniature->move(public_path('images/miniature'), $nom_miniature);
-        }
-        else{
+        } else {
             $nom_miniature = $annonce->miniature;
         }
 

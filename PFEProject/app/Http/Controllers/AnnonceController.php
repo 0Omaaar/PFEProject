@@ -45,7 +45,6 @@ class AnnonceController extends Controller
         $validatedData = $request->validate([
             "titre" => "required",
             "description" => "required",
-            "prix" => "required",
             "miniature" => "required|image|max:8192",
             "annee" => "required",
             "type" => "required",
@@ -90,7 +89,7 @@ class AnnonceController extends Controller
         $annonce = new Annonce([
             'titre' => $validatedData['titre'],
             'description' => $validatedData['description'],
-            'prix' => $validatedData['prix'],
+            'prix' => $request->prix,
             'miniature' => $nom_miniature,
             'user_id' => $user_id,
             'voiture_id' => $voiture->id
@@ -138,7 +137,6 @@ class AnnonceController extends Controller
         $validatedData = $request->validate([
             "titre" => "required",
             "description" => "required",
-            "prix" => "required",
             "miniature" => "image|max:8192",
             "annee" => "required",
             "type" => "required",
@@ -199,7 +197,7 @@ class AnnonceController extends Controller
         $annonce->update([
             'titre' => $validatedData['titre'],
             'description' => $validatedData['description'],
-            'prix' => $validatedData['prix'],
+            'prix' => $request->prix,
             'miniature' => $nom_miniature,
             'user_id' => $user_id,
             'voiture_id' => $voiture->id

@@ -31,7 +31,12 @@
                 <p class="lead">{{ $annonce->description }}</p>
                 <div class="row">
                     <div class="col-lg-6">
-                        <p><strong>Prix:</strong> {{ $annonce->prix }}</p>
+                        @if ($annonce->prix == null)
+                            <p id="appeler-prix"><strong>Appelez pour le prix</strong></p>
+                            <p id="tel" style="display:none;"><strong>{{ $annonce->user->telephone }}</strong></p>
+                        @else
+                            <p><strong>Prix:</strong> {{ $annonce->prix }}</p>
+                        @endif
                         <p><strong>Année:</strong> {{ $annonce->voiture->annee }}</p>
                         <p><strong>Kilométrage:</strong> {{ $annonce->voiture->kilometrage }}</p>
                         <p><strong>Type de carburant:</strong> {{ $annonce->voiture->carburant }}</p>
@@ -109,5 +114,14 @@
                 modal.parentElement.removeChild(modal);
             });
         }
+
+
+        //Pour afficher le numero de telephone a la place du prix
+        let appelerPrix = document.getElementById('appeler-prix');
+        let tel = document.getElementById('tel');
+        appelerPrix.addEventListener('click', function() {
+            appelerPrix.style.display = 'none';
+            tel.style.display = 'block';
+        });
     </script>
 @endsection

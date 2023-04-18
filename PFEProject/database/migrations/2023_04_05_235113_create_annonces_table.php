@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('titre');
             $table->text('description');
-            $table->integer('prix');
+            $table->integer('prix')->nullable();
             $table->string('miniature');
             $table->boolean('etat')->default(false);
             $table->unsignedBigInteger('user_id');

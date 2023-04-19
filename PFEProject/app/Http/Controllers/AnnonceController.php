@@ -23,7 +23,10 @@ class AnnonceController extends Controller
     public function index()
     {
         $annonces = Annonce::all();
-        return view('index', compact('annonces'));
+        $marques = Marque::all();
+        $modeles = Modele::all();
+
+        return view('index', compact('annonces', 'marques', 'modeles'));
     }
 
     public function create()
@@ -33,7 +36,6 @@ class AnnonceController extends Controller
         $options = Option::all();
         return view('annonces.ajouter_annonce', compact('modeles', 'marques', 'options'));
     }
-
 
 
     public function store(Request $request)
@@ -108,7 +110,6 @@ class AnnonceController extends Controller
             $images_voiture->save();
 
             return redirect()->route('annonces.index')->with("success", "Annonce Ajoutee");
-
         }
     }
 
@@ -226,5 +227,44 @@ class AnnonceController extends Controller
         $annonce->delete();
 
         return redirect()->route('annonces.index')->with('success', "Votre annonce '$annonce->titre' est supprimée avec succes");
+    }
+
+    public function search(Request $request)
+    {
+        $annonces = Annonce::query();
+
+        if ($request->filled('prix_max')) {
+            $annonces->where('prix', '<=', $request->prix_max);
+        }
+
+        if ($request->filled('prix_min')) {
+            $annonces->where('prix', '>=', $request->prix_min);
+        }
+
+        if ($request->filled('ville')) {
+            $annonces->whereHas('user', function ($query) use ($request) {
+                $query->where('ville', 'like', '%' . $request->ville . '%');
+            });
+        }
+
+        if ($request->filled('marque_id')) {
+            $annonces->whereHas('voiture', function ($query) use ($request) {
+                $query->whereHas('marque', function ($query) use ($request) {
+                    $query->where('id', $request->marque_id);
+                });
+            });
+        }
+        
+        if ($request->filled('modele_id')) {
+            $annonces->whereHas('voiture', function ($query) use ($request) {
+                $query->whereHas('modele', function ($query) use ($request) {
+                    $query->where('id', $request->modele_id);
+                });
+            });
+        }
+
+        $annonces = $annonces->get();
+
+        return view('annonces.recherche', compact('annonces'));
     }
 }

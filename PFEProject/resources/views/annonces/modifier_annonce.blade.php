@@ -28,7 +28,7 @@
                 </div>
                 <div>
                     <label for="">Prix</label>
-                    <input type="number" class="form-control" name="prix" value="{{ $annonce->prix }}">
+                    <input type="number" class="form-control" name="prix" min="0" value="{{ $annonce->prix }}">
                 </div>
                 <img src="{{ asset('images/miniature/' . $annonce->miniature) }}" alt="{{ $annonce->titre }}"
                     class="img-fluid mt-3 w-25 img-thumbnail mb-1"
@@ -80,7 +80,7 @@
                 </div>
                 <div>
                     <label for="">Kilometrage</label>
-                    <input type="number" class="form-control" name="kilometrage"
+                    <input type="number" class="form-control" name="kilometrage" min="0"
                         value="{{ $annonce->voiture->kilometrage }}">
                 </div>
                 <div>

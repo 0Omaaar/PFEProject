@@ -233,12 +233,20 @@ class AnnonceController extends Controller
     {
         $annonces = Annonce::query();
 
-        if ($request->filled('prix_max')) {
-            $annonces->where('prix', '<=', $request->prix_max);
+        if ($request->filled('marque_id')) {
+            $annonces->whereHas('voiture', function ($query) use ($request) {
+                $query->whereHas('marque', function ($query) use ($request) {
+                    $query->where('id', $request->marque_id);
+                });
+            });
         }
 
-        if ($request->filled('prix_min')) {
-            $annonces->where('prix', '>=', $request->prix_min);
+        if ($request->filled('modele_id')) {
+            $annonces->whereHas('voiture', function ($query) use ($request) {
+                $query->whereHas('modele', function ($query) use ($request) {
+                    $query->where('id', $request->modele_id);
+                });
+            });
         }
 
         if ($request->filled('ville')) {
@@ -247,19 +255,47 @@ class AnnonceController extends Controller
             });
         }
 
-        if ($request->filled('marque_id')) {
+        if ($request->filled('prix_max')) {
+            $annonces->where('prix', '<=', $request->prix_max);
+        }
+
+        if ($request->filled('prix_min')) {
+            $annonces->where('prix', '>=', $request->prix_min);
+        }
+
+        if ($request->filled('carburant')) {
             $annonces->whereHas('voiture', function ($query) use ($request) {
-                $query->whereHas('marque', function ($query) use ($request) {
-                    $query->where('id', $request->marque_id);
-                });
+                $query->where('carburant', $request->carburant);
             });
         }
-        
-        if ($request->filled('modele_id')) {
+
+        if ($request->filled('transmission')) {
             $annonces->whereHas('voiture', function ($query) use ($request) {
-                $query->whereHas('modele', function ($query) use ($request) {
-                    $query->where('id', $request->modele_id);
-                });
+                $query->where('transmission', $request->transmission);
+            });
+        }
+
+        if ($request->filled('annee_min')) {
+            $annonces->whereHas('voiture', function ($query) use ($request) {
+                $query->where('annee', '>=', $request->annee_min);
+            });
+        }
+
+        if ($request->filled('annee_max')) {
+            $annonces->whereHas('voiture', function ($query) use ($request) {
+                $query->where('annee', '<=', $request->annee_max);
+            });
+        }
+
+        if ($request->filled('puissance_fiscale')) {
+            $annonces->whereHas('voiture', function ($query) use ($request) {
+                $query->where('puissance_fiscale', $request->puissance_fiscale);
+            });
+        }
+
+        if ($request->filled('type')) {
+            $annonces->whereHas('voiture', function ($query) use ($request) {
+                $query->where('type', $request->type);
             });
         }
 

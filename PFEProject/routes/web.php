@@ -10,7 +10,6 @@ use App\Http\Controllers\ProfilController;
 include_once 'auth.php';
 
 //Routes des annonces
-
 Route::get('/', [AnnonceController::class, 'index'])->name('annonces.index');
 
 Route::get('/annonces/recherche', [AnnonceController::class, 'search'])->name('annonces.recherche');
@@ -26,11 +25,10 @@ Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('a
 Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.supprimer');
 
 
-
-
 //Routes de la page de profile
 Route::get('/profil/profil', [ProfilController::class, 'show'])->name('profil.show');
 Route::put('/profil/modifier', [ProfilController::class, 'update'])->name('profil.update');
+
 
 //Routes d'admin
 Route::middleware(['auth', 'admin'])->group(function(){

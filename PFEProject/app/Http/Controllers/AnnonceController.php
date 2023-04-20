@@ -301,6 +301,9 @@ class AnnonceController extends Controller
 
         $annonces = $annonces->get();
 
-        return view('annonces.recherche', compact('annonces'));
+        $marques = Marque::all();
+        $modeles = Modele::all();
+
+        return view('annonces.recherche', compact('annonces','marques', 'modeles'));
     }
 }

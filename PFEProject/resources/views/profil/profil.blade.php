@@ -1,9 +1,9 @@
 @extends('base')
-@section('title', 'Page de profile')
+@section('title', 'Page de profil')
 @section('content')
 <div class="container mt-5">
 
-    <h1 class="text text-center">Page de profile</h1>
+    <h1 class="text text-center">Page de profil</h1>
 
     @if (session()->has("success"))
     <div class="alert alert-success">

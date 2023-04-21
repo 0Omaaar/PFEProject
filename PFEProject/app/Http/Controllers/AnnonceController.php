@@ -29,6 +29,19 @@ class AnnonceController extends Controller
         return view('index', compact('annonces', 'marques', 'modeles'));
     }
 
+    public function parMarque($id)
+    {
+        $annonces = Annonce::whereHas('voiture.marque', function ($query) use ($id) {
+            $query->where('id', $id);
+        })->get();
+
+        $marques = Marque::all();
+        $modeles = Modele::all();
+
+        return view('annonces.index', compact('annonces', 'marques', 'modeles'));
+    }
+
+
     public function create()
     {
         $modeles = Modele::all();
@@ -304,6 +317,6 @@ class AnnonceController extends Controller
         $marques = Marque::all();
         $modeles = Modele::all();
 
-        return view('annonces.recherche', compact('annonces','marques', 'modeles'));
+        return view('annonces.recherche', compact('annonces', 'marques', 'modeles'));
     }
 }

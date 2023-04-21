@@ -11,14 +11,6 @@
 
     <div class="container mt-5">
 
-        <!-- Formulaire de recherche -->
-        <div class="search-form">
-            <form action="{{ route('annonces.recherche') }}" method="GET">
-                @csrf
-                @include('includes.formulaire_recherche')
-            </form>
-        </div>
-
         {{-- Liste des marques --}}
 
         <div class="row mx-auto text-center align-items-center mt-4">
@@ -53,7 +45,7 @@
 
         @if ($annonces && $annonces->count() > 0)
             <div class="row">
-                @foreach ($annonces->chunk(3) as $chunk)
+                @foreach ($annonces->chunk(2) as $chunk)
                     @foreach ($chunk as $annonce)
                         @if ($annonce->isActive())
                             <div class="col-md-4">
@@ -135,5 +127,4 @@
             });
         });
     </script>
-
 @endsection

@@ -10,7 +10,8 @@ class Marque extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom'
+        'nom',
+        'logo'
     ];
 
     public function modele(){

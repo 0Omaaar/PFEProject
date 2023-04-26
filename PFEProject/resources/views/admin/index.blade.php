@@ -1,13 +1,16 @@
 @extends('admin.base')
-@section('title', 'Afficher l\'utilisateurs')
+@section('title', 'Liste des annonces')
 @section('content')
-
-
 
     <div class="container mt-5">
         <h2 class="text-center">LISTE DES ANNONCES</h2>
         <br>
         <div class="container">
+            <div>
+                <p>Nombre d'annonces activées : {{$annonces->where('etat', '1')->count()}}</p>
+                <p>Nombre d'annonces désactivées : {{$annonces->where('etat', '0')->count()}}</p>
+                <h6>Nombre total : {{$annonces->count()}}</h6>
+            </div>
             @if ($annonces->count() > 0)
                 <div class="row">
                     <div class="col">

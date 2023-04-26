@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Marque;
+use Illuminate\Http\Request;
+
+class MarqueController extends Controller
+{
+    public function index(){
+        $marques = Marque::all();
+
+        return view('admin.marques.marques', compact('marques'));
+    }
+
+    public function create()
+    {
+        return view('admin.marques.ajouter_marque');
+    }
+
+    public function store(Request $request)
+    {
+
+        // Validation des données envoyées par le formulaire.
+        $validatedData = $request->validate([
+            "nom" => "required",
+            "logo" => "required|image|max:2048",
+        ]);
+
+        // Enregistrer la miniature dans le dossier public/images/logos
+        $logo = $request->file('logo');
+        $nom_logo = uniqid() . '.' . $logo->getClientOriginalExtension();
+        $logo->move(public_path('images/logos'), $nom_logo);
+
+        // Créer une nouvelle marque avec les données validées
+        $marque = new Marque([
+            'nom' => $validatedData['nom'],
+            'logo' => $nom_logo
+        ]);
+        $marque->save();
+
+        return redirect()->route('admin.marques')->with("success", "La marque a été ajoutée avec succès");
+        
+    }
+
+    public function destroy(Marque $marque)
+    {
+        $marque->modele()->delete();
+        $marque->delete();
+
+        return redirect()->back()->with('success', "La marque '$marque->nom' a été supprimée avec succès");
+    }
+}

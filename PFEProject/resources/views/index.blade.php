@@ -114,8 +114,8 @@
         }
     </script>
 
-    {{-- Pour la liste des marques --}}
     <script>
+        //Pour la liste des marques
         $(document).ready(function() {
 
             var loadedBrands = 9;

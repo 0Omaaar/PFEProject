@@ -6,6 +6,8 @@ use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\MarqueController;
+use App\Http\Controllers\ModeleController;
 
 include_once 'auth.php';
 
@@ -45,4 +47,17 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/admin/annonces/{annonce}', [AAnnonceController::class, 'show'])->name('admin.afficher_annonce');
     Route::post('/admin/annonces/{annonce}/activer', [AAnnonceController::class, 'activer'])->name('admin.activer');
     Route::post('/admin/annonces/{annonce}/desactiver', [AAnnonceController::class, 'desactiver'])->name('admin.desactiver');
+
+    //Routes des marques
+    Route::get('/admin/marques', [MarqueController::class, 'index'])->name('admin.marques');
+    Route::post('/admin/marques/{marque}/supprimer', [MarqueController::class, 'destroy'])->name('admin.supprimer_marque');
+    Route::get('/admin/marques/ajouter', [MarqueController::class, 'create'])->name('admin.ajouter_marque');
+    Route::post('/admin/marques/ajouter/enregistrer', [MarqueController::class, 'store'])->name('admin.store_marque');
+
+    //Routes des modeles
+    Route::get('/admin/marques/{marque}/modeles', [ModeleController::class, 'index'])->name('admin.modeles');
+    Route::post('/admin/modeles/{modele}/supprimer', [ModeleController::class, 'destroy'])->name('admin.supprimer_modele');
+    Route::get('/admin/marques/{marque}/modeles/ajouter', [ModeleController::class, 'create'])->name('admin.ajouter_modele');
+    Route::post('/admin/marques/{marque}/modeles/ajouter/enregistrer', [ModeleController::class, 'store'])->name('admin.store_modele');
+
 });

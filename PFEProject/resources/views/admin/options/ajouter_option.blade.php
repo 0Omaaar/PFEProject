@@ -1,11 +1,8 @@
 @extends('admin.base')
-@section('title', 'Ajouter un modele')
+@section('title', 'Ajouter une option')
 @section('content')
     <div class="container">
-        <div class="text text-center">
-            <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
-        </div>
-        <h1 class="text text-center">Ajouter un nouveau modèle dans la marque {{$marque->nom}}</h1>
+        <h1 class="text text-center">Ajouter une nouvelle option</h1>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -16,7 +13,7 @@
             </div>
         @endif
         <div class="form-group">
-            <form action="{{ route('admin.store_modele', $marque->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.store_option') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="nom">Nom</label>

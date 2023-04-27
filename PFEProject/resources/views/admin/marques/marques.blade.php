@@ -47,7 +47,7 @@
                                                 @csrf
                                                 <button class="btn btn-danger btn-sm" type="submit">Supprimer</button>
                                             </form>
-                                            <a href="{{ route('admin.modeles', $marque->id) }}" class="btn btn-dark mt-2 btn-sm">Modèles</a>
+                                            <a href="{{ route('admin.modeles', $marque->id) }}" class="btn btn-dark mt-2 btn-sm">Voir les modèles</a>
                                         </td>
                                     </tr>
                             @endforeach

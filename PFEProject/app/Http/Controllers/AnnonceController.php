@@ -38,7 +38,9 @@ class AnnonceController extends Controller
         $marques = Marque::all();
         $modeles = Modele::all();
 
-        return view('annonces.index', compact('annonces', 'marques', 'modeles'));
+        $marque_choisie = Marque::find($id);
+
+        return view('annonces.index', compact('annonces', 'marques', 'modeles', 'marque_choisie'));
     }
 
 

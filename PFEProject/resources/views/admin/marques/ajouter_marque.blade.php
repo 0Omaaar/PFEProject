@@ -12,7 +12,6 @@
                 </ul>
             </div>
         @endif
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <div class="form-group">
             <form action="{{ route('admin.store_marque') }}" method="post" enctype="multipart/form-data">
                 @csrf

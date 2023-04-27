@@ -1,21 +1,18 @@
 @extends('admin.base')
-@section('title', 'Liste des marques')
+@section('title', 'Liste des options')
 @section('content')
 
 <div class="container mt-5">
-    <div class="text text-center">
-        <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
-    </div>
-    <h2 class="text-center">Liste des modèles de la marque <strong>{{$marque->nom}}</strong></h2>
+    <h2 class="text-center">Liste des options</h2>
     <br>
     <div class="container">
         <div>
-            <h6>Nombre total : {{$modeles->count()}}</h6>
+            <h6>Nombre total : {{$options->count()}}</h6>
         </div>
         <div>
-            <a href="{{ route('admin.ajouter_modele', $marque->id) }}" class="btn btn-success mt-2">Ajouter un nouveau modèle</a>
+            <a href="{{ route('admin.ajouter_option') }}" class="btn btn-success mt-2">Ajouter une nouvelle option</a>
         </div>
-        @if ($modeles->count() > 0)
+        @if ($options->count() > 0)
             <div class="row">
                 <div class="col">
                     <table class="table mt-3">
@@ -34,14 +31,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($modeles as $modele)
+                            @foreach ($options as $option)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $modele->nom }}</td>
-                                        <td>{{ $modele->created_at }}</td>
-                                        <td>{{ $modele->updated_at }}</td>
+                                        <td>{{ $option->nom }}</td>
+                                        <td>{{ $option->created_at }}</td>
+                                        <td>{{ $option->updated_at }}</td>
                                         <td>
-                                            <form action="{{ route('admin.supprimer_modele', $modele->id) }}"
+                                            <form action="{{ route('admin.supprimer_option', $option->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 <button class="btn btn-danger btn-sm" type="submit">Supprimer</button>
@@ -54,7 +51,7 @@
                 </div>
             </div>
         @else
-            <h3>Aucun modèle trouvé</h3>
+            <h3>Aucune option trouvée</h3>
         @endif
     </div>
 </div>

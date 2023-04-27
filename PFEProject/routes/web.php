@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\ModeleController;
+use App\Http\Controllers\OptionController;
 
 include_once 'auth.php';
 
@@ -29,10 +30,10 @@ Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('a
 Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.supprimer');
 
 
-
 //Routes de la page de profile
 Route::get('/profil/profil', [ProfilController::class, 'show'])->name('profil.show');
 Route::put('/profil/modifier', [ProfilController::class, 'update'])->name('profil.update');
+
 
 
 //Routes d'admin
@@ -59,5 +60,11 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::post('/admin/modeles/{modele}/supprimer', [ModeleController::class, 'destroy'])->name('admin.supprimer_modele');
     Route::get('/admin/marques/{marque}/modeles/ajouter', [ModeleController::class, 'create'])->name('admin.ajouter_modele');
     Route::post('/admin/marques/{marque}/modeles/ajouter/enregistrer', [ModeleController::class, 'store'])->name('admin.store_modele');
+
+    //Routes des options
+    Route::get('/admin/options', [OptionController::class, 'index'])->name('admin.options');
+    Route::post('/admin/options/{option}/supprimer', [OptionController::class, 'destroy'])->name('admin.supprimer_option');
+    Route::get('/admin/options/ajouter', [OptionController::class, 'create'])->name('admin.ajouter_option');
+    Route::post('/admin/options/ajouter/enregistrer', [OptionController::class, 'store'])->name('admin.store_option');
 
 });

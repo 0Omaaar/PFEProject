@@ -31,7 +31,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="optionsDropdown">
                                     <a class="dropdown-item" href="{{route('admin.marques')}}">Liste des marques</a>
-                                    <a class="dropdown-item" href="#">Liste des options</a>
+                                    <a class="dropdown-item" href="{{route('admin.options')}}">Liste des options</a>
                                 </div>
                             </li>
                         @endif

@@ -37,7 +37,7 @@
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $marque->nom }}</td>
                                         <td>
-                                            <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
+                                            <img src="{{ asset('images/logos/' . $marque->logo) }}"  width="50px" alt="{{ $marque->nom }}" />
                                         </td>
                                         <td>{{ $marque->created_at }}</td>
                                         <td>{{ $marque->updated_at }}</td>

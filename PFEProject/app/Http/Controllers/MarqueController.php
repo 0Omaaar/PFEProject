@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Marque;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Storage;
 
 
 class MarqueController extends Controller
@@ -30,11 +31,6 @@ class MarqueController extends Controller
         ]);
 
         // Enregistrer la miniature dans le dossier public/images/logos
-
-        // $logo = $request->file('logo');
-        // $nom_logo = uniqid() . '.' . $logo->getClientOriginalExtension();
-        // $logo->move(public_path('images/logos'), $nom_logo);
-
         $nom_logo = $validatedData['logo']->hashName();
         Image::make($validatedData['logo'])->resize(50, 30)->save(public_path('images/logos/'. $nom_logo));
 
@@ -51,8 +47,13 @@ class MarqueController extends Controller
 
     public function destroy(Marque $marque)
     {
-        $marque->modele()->delete();
-        $marque->delete();
+        // $marque->modele()->delete();
+        // $marque->delete();
+
+        $ancien_logo = Marque::findOrFail($marque->id)->logo;
+        Storage::disk('public')->delete('images/logos/'.$ancien_logo);
+
+        Marque::findOrFail($marque->id)->delete();
 
         return redirect()->back()->with('success', "La marque '$marque->nom' a été supprimée avec succès");
     }

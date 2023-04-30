@@ -8,7 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Marque extends Model
 {
     use HasFactory;
+    protected static function boot()
+    {
+        parent::boot();
 
+        static::deleting(function ($marque) {
+            $marque->modele()->delete();
+        });
+    }
     protected $fillable = [
         'nom',
         'logo'

@@ -10,6 +10,7 @@ use App\Models\Marque;
 use App\Models\Modele;
 use App\Models\Option;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AnnonceController extends Controller
 {
@@ -22,7 +23,7 @@ class AnnonceController extends Controller
 
     public function index()
     {
-        $annonces = Annonce::all();
+        $annonces = Annonce::latest()->get();
         $marques = Marque::all();
         $modeles = Modele::all();
 
@@ -124,8 +125,8 @@ class AnnonceController extends Controller
             ]);
             $images_voiture->save();
 
-            return redirect()->route('annonces.index')->with("success", "Annonce Ajoutee");
         }
+        return redirect()->route('annonces.index')->with("success", "Annonce Ajoutee");
     }
 
     public function show(Annonce $annonce)
@@ -239,6 +240,17 @@ class AnnonceController extends Controller
 
     public function destroy(Annonce $annonce)
     {
+
+
+        $ancien_nom = $annonce->miniature;
+        Storage::disk('public')->delete('images/miniature/' . $ancien_nom);
+
+        $images_voiture = $annonce->image;
+
+        foreach ($images_voiture as $image) {
+            Storage::disk('public')->delete('images/images/' . $image->chemin);
+            $image->delete();
+        }
         $annonce->delete();
 
         return redirect()->route('annonces.index')->with('success', "Votre annonce '$annonce->titre' est supprimée avec succes");

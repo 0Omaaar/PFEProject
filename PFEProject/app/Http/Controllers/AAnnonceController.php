@@ -9,7 +9,7 @@ class AAnnonceController extends Controller
 {
     public function index()
     {
-        $annonces = Annonce::all();
+        $annonces = Annonce::latest()->get();
 
         return view('admin.index', compact('annonces'));
     }

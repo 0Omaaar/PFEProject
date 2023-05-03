@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AAnnonceController;
+use App\Http\Controllers\Back\AAnnonceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\UsersController;

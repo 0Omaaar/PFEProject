@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 use App\Models\Annonce;
 use App\Models\Image;
@@ -131,11 +132,46 @@ class AnnonceController extends Controller
 
     public function show(Annonce $annonce)
     {
+        $commentaires = $annonce->commentaire;
         // Récupérer les options associées à l'annonce
         $options = $annonce->voiture->options;
-        return view('annonces.annonce', compact('annonce', 'options'));
+        return view('annonces.annonce', compact('annonce', 'options', 'commentaires'));
     }
 
+    //creer un commentaire
+    public function createCommentaire(Request $request)
+    {
+        $user_id = Auth::id();
+
+        $validated_data = $request->validate([
+            "contenu" => "required|max:300",
+            "annonce_id" => "required",
+        ]);
+
+        $annonce = Annonce::findOrFail($validated_data['annonce_id']);
+
+        $commentaire = new Commentaire([
+            'contenu' => $validated_data['contenu'],
+            'user_id' => $user_id,
+            'annonce_id' => $validated_data['annonce_id'],
+        ]);
+
+        $annonce->commentaire()->save($commentaire);
+
+        return redirect()->route('annonces.show', ['annonce' => $validated_data['annonce_id']])->with('success', 'Commentaire ajouté');
+    }
+
+    public function deleteCommentaire($id)
+    {
+        $commentaire = Commentaire::findOrFail($id);
+
+        if ($commentaire->user_id === auth()->user()->id) {
+            $commentaire->delete();
+            return redirect()->back()->with('success', 'Commentaire supprimé');
+        } else {
+            return redirect()->back()->with('success', 'Vous n\'êtes pas autorisé à supprimer ce commentaire');
+        }
+    }
 
     public function edit(Annonce $annonce)
     {

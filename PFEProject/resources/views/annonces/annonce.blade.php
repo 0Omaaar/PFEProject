@@ -84,6 +84,73 @@
                     @endif
                 </div>
             </div>
+            <div>
+                <section style="background-color: #f7f6f6;">
+                    <div class="container my-5 py-5 text-dark">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-12 col-lg-10 col-xl-8">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h4 class="text-dark mb-0">Commentaires</h4>
+                                    <div class="form-outline">
+                                        <form action="{{ route('annonces.commentaire') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="annonce_id" value="{{ $annonce->id }}">
+                                            <input type="text" id="addANote" class="form-control"
+                                                placeholder="Ajouter un commentaire..." name="contenu" />
+                                            <input type="submit" value="Ajouter" class="btn btn-outline-secondary btn-sm">
+                                        </form>
+                                    </div>
+                                </div>
+                                @if ($commentaires->count() > 0)
+                                    @foreach ($commentaires as $commentaire)
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <div class="d-flex flex-start">
+                                                    <div class="w-100">
+                                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                                            <h6 class="text-primary fw-bold mb-0">
+                                                                {{ $commentaire->user->prenom . ' ' . $commentaire->user->prenom }}
+                                                                <span
+                                                                    class="text-dark ms-2">{{ $commentaire->contenu }}</span>
+                                                            </h6>
+                                                            <p class="mb-0">
+                                                                @if ($commentaire->created_at->diffInDays() > 0)
+                                                                    Posté il y a
+                                                                    {{ $commentaire->created_at->diffInDays() }} jours
+                                                                @else
+                                                                    Posté il y a
+                                                                    {{ $commentaire->created_at->diff()->format('%h heures et %i minutes') }}
+                                                                @endif
+                                                            </p>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <p class="small mb-0" style="color: #aaa;">
+                                                                @if (auth()->user()->id === $commentaire->user_id)
+                                                                    <form
+                                                                        action="{{ route('annonces.commentaires.delete', ['id' => $commentaire->id]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                        <input type="submit" value="Supprimer"
+                                                                            class="btn btn-sm btn-outline-danger">
+                                                                    </form>
+                                                                @endif
+                                                            </p>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <p>Aucun commentaire pour le moment.</p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 

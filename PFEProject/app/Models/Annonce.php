@@ -19,22 +19,31 @@ class Annonce extends Model
         'miniature',
         'etat',
         'user_id',
-        'voiture_id'
+        'voiture_id',
     ];
 
-    public function voiture(){
+    public function voiture()
+    {
         return $this->belongsTo(Voiture::class);
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    
-    public function image(){
+
+    public function image()
+    {
         return $this->hasMany(Image::class);
     }
 
-    public function isActive(){
+    public function commentaire()
+    {
+        return $this->hasMany(Commentaire::class);
+    }
+
+    public function isActive()
+    {
         return $this->etat == 1;
     }
 }

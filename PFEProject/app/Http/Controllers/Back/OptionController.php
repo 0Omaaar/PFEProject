@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use App\Models\Option;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OptionController extends Controller
 {

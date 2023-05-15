@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use App\Models\Marque;
 use App\Models\Modele;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class ModeleController extends Controller
 {

@@ -3,12 +3,12 @@
 use App\Http\Controllers\Back\AAnnonceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnnonceController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Back\UsersController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\MarqueController;
-use App\Http\Controllers\ModeleController;
-use App\Http\Controllers\OptionController;
+use App\Http\Controllers\Back\MarqueController;
+use App\Http\Controllers\Back\ModeleController;
+use App\Http\Controllers\Back\OptionController;
 
 include_once 'auth.php';
 

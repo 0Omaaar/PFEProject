@@ -29,7 +29,7 @@ Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('a
 
 Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.supprimer');
 
-Route::post('/commentaire', [AnnonceController::class, 'createCommentaire'])->name('annonces.commentaire');
+Route::post('/commentaire/{annonce}', [AnnonceController::class, 'createCommentaire'])->name('annonces.commentaire');
 Route::delete('/commentaire/{id}', [AnnonceController::class, 'deleteCommentaire'])->name('annonces.commentaires.delete');
 
 

@@ -92,12 +92,11 @@
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <h4 class="text-dark mb-0">Commentaires</h4>
                                     <div class="form-outline">
-                                        <form action="{{ route('annonces.commentaire') }}" method="post">
+                                        <form action="{{ route('annonces.commentaire', ['annonce' => $annonce->id]) }}" method="post">
                                             @csrf
-                                            <input type="hidden" name="annonce_id" value="{{ $annonce->id }}">
-                                            <input type="text" id="addANote" class="form-control"
-                                                placeholder="Ajouter un commentaire..." name="contenu" />
-                                            <input type="submit" value="Ajouter" class="btn btn-outline-secondary btn-sm">
+                                            <textarea name="contenu" id="addANote" class="form-control mb-2" cols="50" rows="2" placeholder="Entrez votre commentaire ici..."></textarea>
+                                            
+                                            <input type="submit" value="Ajouter" class="btn btn-primary btn-sm">
                                         </form>
                                     </div>
                                 </div>

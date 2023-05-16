@@ -139,26 +139,23 @@ class AnnonceController extends Controller
     }
 
     //creer un commentaire
-    public function createCommentaire(Request $request)
+    public function createCommentaire(Request $request, Annonce $annonce)
     {
         $user_id = Auth::id();
 
         $validated_data = $request->validate([
             "contenu" => "required|max:300",
-            "annonce_id" => "required",
         ]);
-
-        $annonce = Annonce::findOrFail($validated_data['annonce_id']);
 
         $commentaire = new Commentaire([
             'contenu' => $validated_data['contenu'],
             'user_id' => $user_id,
-            'annonce_id' => $validated_data['annonce_id'],
+            'annonce_id' => $annonce->id,
         ]);
 
         $annonce->commentaire()->save($commentaire);
 
-        return redirect()->route('annonces.show', ['annonce' => $validated_data['annonce_id']])->with('success', 'Commentaire ajouté');
+        return redirect()->route('annonces.show', ['annonce' => $annonce->id])->with('success', 'Commentaire ajouté');
     }
 
     public function deleteCommentaire($id)

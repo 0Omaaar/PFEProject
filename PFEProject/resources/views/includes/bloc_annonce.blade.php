@@ -1,9 +1,8 @@
 <div class="col-md-4">
     <div class="card" style="width: 18rem;">
-        <img src="{{ asset('images/miniature/' . $annonce->miniature) }}" alt="{{ $annonce->titre }}" />
+        <img src="{{ asset('images/miniature/' . $annonce->miniature) }}" alt="{{ $annonce->titre }}" style="object-fit: cover; width: 100%; height: 190px;" />
         <div class="card-body">
             <h5 class="card-title">{{ $annonce->titre }}</h5>
-            <p class="card-text">{{ $annonce->description }}</p>
             @if ($annonce->prix == null)
             <p id="appeler-prix" class="card-text"><strong><a href="#" style="text-decoration: none;">Appelez pour le prix</a></strong></p>
             <p id="tel" class="card-text" style="display:none;">

@@ -12,11 +12,8 @@
     <div class="container mt-5">
 
         <!-- Formulaire de recherche -->
-        <div class="search-form">
-            <form action="{{ route('annonces.recherche') }}" method="GET">
-                @csrf
+        <div class="find-car">
                 @include('includes.formulaire_recherche')
-            </form>
         </div>
 
         {{-- Liste des marques --}}

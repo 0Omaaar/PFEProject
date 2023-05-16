@@ -32,14 +32,14 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="prix_min">Prix minimal</label>
-                        <input type="number" name="prix_min" id="prix_min" min="0">
+                        <input type="number" class="nice-select" name="prix_min" id="prix_min" min="0" >
                     </div>
                 </div>
 
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="prix_max">Prix maximale</label>
-                        <input type="number" name="prix_max" id="prix_max" min="0">
+                        <input type="number" class="nice-select" name="prix_max" id="prix_max" min="0">
                     </div>
                 </div>
 
@@ -131,7 +131,6 @@
                 </div>
 
                 <div class="col-lg-3 align-self-end">
-                <i class="fas fa-volume-up"></i>
                     <button class="theme-btn" type="submit"><span class="far fa-search"></span>Lancer la recherche</button>
                 </div>
 

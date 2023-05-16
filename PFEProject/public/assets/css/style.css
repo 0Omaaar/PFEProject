@@ -1603,6 +1603,7 @@ label {
 
 .find-car-form {
     padding: 30px;
+    margin-top: 125px;
     background: var(--color-white);
     border-radius: 12px;
     box-shadow: var(--box-shadow)

@@ -171,7 +171,7 @@
                 <p>Aucune annonce trouvée.</p>
             @endif
         </div>
-
+    </div>
         <script>
             //Pour afficher le numero de telephone a la place du prix
             let appelerPrix = document.getElementById('appeler-prix');

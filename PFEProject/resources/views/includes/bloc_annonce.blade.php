@@ -11,6 +11,7 @@
                     <li>{{ $annonce->voiture->transmission }}</li>
                     <li>{{ $annonce->voiture->annee }}</li>
                     <li>{{ $annonce->voiture->carburant }}</li>
+                    <li>{{ $annonce->voiture->kilometrage }}</li>
                 </ul>
                 <div class="car-footer">
                     @if ($annonce->prix == null)

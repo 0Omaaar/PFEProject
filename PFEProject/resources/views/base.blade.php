@@ -18,19 +18,21 @@
 </head>
 
 <body>
+
     <div class="preloader">
         <div class="loader-ripple">
             <div></div>
             <div></div>
         </div>
     </div>
+
     @include('includes.header')
+
     <main class="main">
 
         @yield('content')
 
     </main>
-
 
     @include('includes.footer')
 

@@ -26,12 +26,12 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container position-relative">
                 <a class="navbar-brand" href="{{ route('annonces.index') }}">
-                    <img src="assets/img/logo/logo.png" alt="logo">
+                    <img src="" alt="logo">
                 </a>
                 <div class="mobile-menu-right">
-                    <div class="search-btn">
+                    {{-- <div class="search-btn">
                         <button type="button" class="nav-right-link"></button>
-                    </div>
+                    </div> --}}
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-mobile-icon"></span>
@@ -67,9 +67,9 @@
                     </li>
                     </ul>
                     <div class="nav-right">
-                        <div class="search-btn">
+                        {{-- <div class="search-btn">
                             <button type="button" class="nav-right-link"></button>
-                        </div>
+                        </div> --}}
                         <div class="nav-right-btn mt-2">
                             <a href="{{ route('annonces.ajouter') }}" class="theme-btn">Vendre une
                                 voiture</a>
@@ -83,7 +83,7 @@
                     <form action="#">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Type Keyword...">
-                            <button type="submit" class="search-icon-btn"></button>
+                            {{-- <button type="submit" class="search-icon-btn"></button> --}}
                         </div>
                     </form>
                 </div>

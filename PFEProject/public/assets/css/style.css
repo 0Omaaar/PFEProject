@@ -43,7 +43,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     box-sizing: border-box
 }
 
@@ -1603,7 +1603,7 @@ label {
 
 .find-car-form {
     padding: 30px;
-    margin-top: 125px;
+    /* margin-top: 125px; */
     background: var(--color-white);
     border-radius: 12px;
     box-shadow: var(--box-shadow)

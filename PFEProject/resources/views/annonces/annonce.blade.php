@@ -92,10 +92,12 @@
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <h4 class="text-dark mb-0">Commentaires</h4>
                                     <div class="form-outline">
-                                        <form action="{{ route('annonces.commentaire', ['annonce' => $annonce->id]) }}" method="post">
+                                        <form action="{{ route('annonces.commentaire', ['annonce' => $annonce->id]) }}"
+                                            method="post">
                                             @csrf
-                                            <textarea name="contenu" id="addANote" class="form-control mb-2" cols="50" rows="2" placeholder="Entrez votre commentaire ici..."></textarea>
-                                            
+                                            <textarea name="contenu" id="addANote" class="form-control mb-2" cols="50" rows="2"
+                                                placeholder="Entrez votre commentaire ici..."></textarea>
+
                                             <input type="submit" value="Ajouter" class="btn btn-primary btn-sm">
                                         </form>
                                     </div>
@@ -124,7 +126,7 @@
                                                         </div>
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             <p class="small mb-0" style="color: #aaa;">
-                                                                @if (auth()->user()->id === $commentaire->user_id)
+                                                                @if (Auth::check() && auth()->user()->id === $commentaire->user_id)
                                                                     <form
                                                                         action="{{ route('annonces.commentaires.delete', ['id' => $commentaire->id]) }}"
                                                                         method="post">
@@ -135,7 +137,6 @@
                                                                     </form>
                                                                 @endif
                                                             </p>
-
                                                         </div>
                                                     </div>
                                                 </div>

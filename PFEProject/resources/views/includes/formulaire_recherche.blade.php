@@ -1,3 +1,4 @@
+<div class="container">
     <div class="find-car-form">
         <h4 class="find-car-title">Trouvez votre voiture comme vous la désirez</h4>
         <form action="{{ route('annonces.recherche') }}" method="GET">
@@ -145,46 +146,46 @@
         </form>
     </div>
 
-<script>
-    document.getElementById('btn-recherche-avancee').addEventListener('click', function() {
-        document.getElementById('div-recherche-avancee').style.display = 'block';
-        document.getElementById('btn-annuler-recherche-avancee').style.display = 'block';
-        document.getElementById('btn-recherche-avancee').style.display = 'none';
+    <script>
+        document.getElementById('btn-recherche-avancee').addEventListener('click', function() {
+            document.getElementById('div-recherche-avancee').style.display = 'block';
+            document.getElementById('btn-annuler-recherche-avancee').style.display = 'block';
+            document.getElementById('btn-recherche-avancee').style.display = 'none';
 
-    });
-
-    document.getElementById('btn-annuler-recherche-avancee').addEventListener('click', function() {
-        document.getElementById('btn-recherche-avancee').style.display = 'block';
-        document.getElementById('div-recherche-avancee').style.display = 'none';
-        document.getElementById('btn-annuler-recherche-avancee').style.display = 'none';
-
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('#annee_min').on('change', function() {
-            var selectedYear = parseInt($(this).val());
-            $('#annee_max option').each(function() {
-                var optionYear = parseInt($(this).val());
-                if (optionYear < selectedYear) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
-                }
-            });
         });
 
-        $('#annee_max').on('change', function() {
-            var selectedYear = parseInt($(this).val());
-            $('#annee_min option').each(function() {
-                var optionYear = parseInt($(this).val());
-                if (optionYear > selectedYear) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
-                }
+        document.getElementById('btn-annuler-recherche-avancee').addEventListener('click', function() {
+            document.getElementById('btn-recherche-avancee').style.display = 'block';
+            document.getElementById('div-recherche-avancee').style.display = 'none';
+            document.getElementById('btn-annuler-recherche-avancee').style.display = 'none';
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#annee_min').on('change', function() {
+                var selectedYear = parseInt($(this).val());
+                $('#annee_max option').each(function() {
+                    var optionYear = parseInt($(this).val());
+                    if (optionYear < selectedYear) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            });
+
+            $('#annee_max').on('change', function() {
+                var selectedYear = parseInt($(this).val());
+                $('#annee_min option').each(function() {
+                    var optionYear = parseInt($(this).val());
+                    if (optionYear > selectedYear) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>

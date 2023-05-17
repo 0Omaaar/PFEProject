@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="col-lg-3 align-self-end">
-                    <button class="theme-btn" type="submit"><span class="far fa-search"></span>Lancer la
+                    <button class="theme-btn" type="submit"></span>Lancer la
                         recherche</button>
                 </div>
 

@@ -46,7 +46,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::post('/admin/users/{user}/rendreAdmin', [UsersController::class, 'rendreAdmin'])->name('users.rendreAdmin');
     Route::post('/admin/users/{user}/rendreNormal', [UsersController::class, 'rendreNormal'])->name('users.rendreNormal');
 
-    //Routes des annonces 
+    //Routes des annonces
     Route::get('/admin/annonces', [AAnnonceController::class, 'index'])->name('admin.index');
     Route::get('/admin/annonces/{annonce}', [AAnnonceController::class, 'show'])->name('admin.afficher_annonce');
     Route::post('/admin/annonces/{annonce}/activer', [AAnnonceController::class, 'activer'])->name('admin.activer');
@@ -69,5 +69,6 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::post('/admin/options/{option}/supprimer', [OptionController::class, 'destroy'])->name('admin.supprimer_option');
     Route::get('/admin/options/ajouter', [OptionController::class, 'create'])->name('admin.ajouter_option');
     Route::post('/admin/options/ajouter/enregistrer', [OptionController::class, 'store'])->name('admin.store_option');
+
 
 });

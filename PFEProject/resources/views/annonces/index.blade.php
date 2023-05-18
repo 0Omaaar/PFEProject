@@ -69,7 +69,7 @@
     <script>
         $(document).ready(function() {
 
-            var loadedBrands = 9;
+            var loadedBrands = 12;
 
             //Quand le bouton suivant est cliqué
             $("#loadMore").click(function(e) {
@@ -78,7 +78,7 @@
                 $("#marquesHidden").show();
                 $("#loadMore").hide();
 
-                loadedBrands += 9;
+                loadedBrands += 12;
 
                 if (loadedBrands >= {{ $marques->count() }}) {
                     $("#loadMore").hide();

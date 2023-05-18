@@ -128,31 +128,9 @@
         @include('includes.formulaire_recherche')
     </div>
 
-    <!-- Liste des marques -->
-    <div class="row mx-auto text-center align-items-center mt-4">
-        @foreach ($marques->take(9) as $marque)
-            <div class="col-md-4">
-                <a href="{{ route('annonces.parmarque', $marque->id) }}"><img
-                        src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" /></a>
-            </div>
-        @endforeach
-    </div>
+    {{-- Liste des marques --}}
 
-    @if ($marques->count() > 9)
-        <div class="text-center">
-            <a href="#" id="loadMore" class="btn btn-primary mt-4">Suivant</a>
-        </div>
-
-        <div class="row mx-auto text-center align-items-center mb-5" id="marquesHidden" style="display:none">
-            @foreach ($marques->skip(9)->take(9) as $marque)
-                <div class="col-md-4">
-                    <a href="{{ route('annonces.parmarque', $marque->id) }}"><img
-                            src="{{ asset('images/logos/' . $marque->logo) }}" width="50px"
-                            alt="{{ $marque->nom }}" /></a>
-                </div>
-            @endforeach
-        </div>
-    @endif
+    @include('includes.liste_marques')
 
     <!-- Liste des annonces -->
     <div class="car-area bg py-120">
@@ -214,7 +192,7 @@
         //Pour la liste des marques
         $(document).ready(function() {
 
-            var loadedBrands = 9;
+            var loadedBrands = 12;
 
             //Quand le bouton suivant est cliqué
             $("#loadMore").click(function(e) {
@@ -223,7 +201,7 @@
                 $("#marquesHidden").show();
                 $("#loadMore").hide();
 
-                loadedBrands += 9;
+                loadedBrands += 12;
 
                 if (loadedBrands >= {{ $marques->count() }}) {
                     $("#loadMore").hide();

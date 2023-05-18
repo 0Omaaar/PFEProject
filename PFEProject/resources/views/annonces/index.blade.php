@@ -9,39 +9,14 @@
         </div>
     @endif
 
-    <div class="container mt-5">
+    <div class="container">
 
         {{-- Liste des marques --}}
 
-        <div class="row mx-auto text-center align-items-center mt-4">
-            @foreach ($marques->take(9) as $marque)
-                <div class="col-md-4">
-                    <a href="{{ route('annonces.parmarque', $marque->id) }}">
-                        <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
-                    </a>
-                </div>
-            @endforeach
-        </div>
-
-        @if ($marques->count() > 9)
-            <div class="text-center">
-                <a href="#" id="loadMore" class="btn btn-primary mt-4">Suivant</a>
-            </div>
-
-            <div class="row mx-auto text-center align-items-center mb-5" id="marquesHidden" style="display:none">
-                @foreach ($marques->skip(9)->take(9) as $marque)
-                    <div class="col-md-4">
-                        <a href="{{ route('annonces.parmarque', $marque->id) }}">
-                            <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px"
-                            alt="{{ $marque->nom }}" />
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        @endif
+        @include('includes.liste_marques')
 
 
-        <h2>Découvrez les dérnières annonces de la marque <strong>{{$marque_choisie->nom}}</strong></h2>
+        <h2>Découvrez les dérnières annonces de la marque <strong>{{ $marque_choisie->nom }}</strong></h2>
         <div class="text text-center">
             <img src="{{ asset('images/logos/' . $marque_choisie->logo) }}" width="80px" alt="{{ $marque_choisie->nom }}" />
         </div>

@@ -7,7 +7,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="marque_id">Marque</label>
-                        <select class="select" name="marque_id" id="marque_id" onchange="filterModels()">
+                        <select class="nice-select" name="marque_id" id="marque_id" onchange="filterModels()">
                             <option value="">Toutes les marques</option>
                             @foreach ($marques as $marque)
                             <option value="{{ $marque->id }}">{{ $marque->nom }}</option>
@@ -19,7 +19,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="modele_id">Modèle</label>
-                        <select class="select" name="modele_id" id="modele_id">
+                        <select class="nice-select" name="modele_id" id="modele_id">
                             <option value="">Tous les modèles Model</option>
                             @foreach ($modeles as $modele)
                             <option value="{{ $modele->id }}" data-marque="{{ $modele->marque_id }}">
@@ -47,7 +47,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="type">Année minimale</label>
-                        <select class="select" name="annee_min" id="annee_min">
+                        <select class="nice-select" name="annee_min" id="annee_min">
                             <option value="">Toutes les années</option>
                             @foreach (['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990'] as $option)
                             <option value="{{ $option }}">{{ $option }}</option>
@@ -59,7 +59,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="type">Année maximale</label>
-                        <select class="select" name="annee_max" id="annee_max">
+                        <select class="nice-select" name="annee_max" id="annee_max">
                             <option value="">Toutes les années</option>
                             @foreach (['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990'] as $option)
                             <option value="{{ $option }}">{{ $option }}</option>
@@ -71,7 +71,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                         <label for="ville">Ville :</label>
-                        <select class="select" name="ville" id="ville">
+                        <select class="nice-select" name="ville" id="ville">
                             <option value="">Toutes les villes</option>
                             @foreach (['agadir', 'ait benhaddou', 'ait daoud', 'ait ourir', 'azrou', 'ben slimane', 'benguerir', 'beni mellal', 'berkane', 'berrechid', 'bouskoura', 'bouznika', 'casablanca', 'chefchaouen', 'chemaia', 'chichaoua', 'dakhla', 'dar bouazza', 'demnate', 'el hajeb', 'el jadida', 'errachidia', 'essaouira', 'fes', 'ifrane', 'kenitra', 'khemis zemamra', 'khemisset', 'larache', 'marrakech', 'martil', 'meknes', 'midelt', 'mohammedia', 'moulay bousselham', 'ouarzazate', 'ouezzane', 'oujda', 'settat', 'sidi slimane', 'tanger', 'taounate', 'taznakht', 'temara', 'tetouan'] as $option)
                             <option value="{{ $option }}">{{ $option }}</option>
@@ -91,7 +91,7 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="carburant">Carburant :</label>
-                                <select class="select" name="carburant" id="carburant">
+                                <select class="nice-select" name="carburant" id="carburant">
                                     <option value="">Sélectionnez le carburant</option>
                                     <option title="Essence" value="Essence">Essence</option>
                                     <option title="Diesel" value="Diesel">Diesel</option>
@@ -104,7 +104,7 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="transmission">Transmission</label>
-                                <select class="select" name="transmission" id="transmission">
+                                <select class="nice-select" name="transmission" id="transmission">
                                     <option value="">Toutes les transmissions</option>
                                     <option title="Manuelle" value="Manuelle">
                                         Manuelle </option>
@@ -117,7 +117,7 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="puissance_fiscale">Puissance Fiscale :</label>
-                                <select class="select" name="puissance_fiscale" id="puissance_fiscale">
+                                <select class="nice-select" name="puissance_fiscale" id="puissance_fiscale">
                                     <option value="">Toutes les puissances</option>
                                     @foreach ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60] as $option)
                                     <option value="{{ $option }}">{{ $option }}</option>
@@ -129,7 +129,7 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="type">Type</label>
-                                <select class="select" name="type" id="type">
+                                <select class="nice-select" name="type" id="type">
                                     <option value="">Toutes les puissances</option>
                                     @foreach (['CABRIOLET', 'SUV ET 4X4', 'COUPé', 'CITADINE', 'BREAK', 'MONOSPACE', 'BERLINE', 'CC', 'MICRO-CITADINE', 'COMPACT', 'CROSSOVER', 'PICK UP', 'UTILITAIRE (MINIVAN)', 'UTILITAIRE (VAN)'] as $option)
                                     <option value="{{ $option }}">{{ $option }}</option>
@@ -141,52 +141,9 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <p><a class="btn btn-primary btn-sm mt-3" href="#" id="recherche-avancee-link" onclick="toggleRechercheAvancee()">Recherche avancée</a></p>
+                    <p><a href="#" class="btn btn-primary btn-sm mt-3" id="recherche-avancee-link" onclick="toggleRechercheAvancee(event)">Recherche avancée</a></p>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
-<script>
-    function toggleRechercheAvancee() {
-        var rechercheAvanceeDiv = document.getElementById('recherche-avancee');
-        var rechercheAvanceeLink = document.getElementById('recherche-avancee-link');
-
-        if (rechercheAvanceeDiv.style.display === 'block') {
-            rechercheAvanceeDiv.style.display = 'none';
-            rechercheAvanceeLink.textContent = 'Recherche avancée';
-        } else {
-            rechercheAvanceeDiv.style.display = 'block';
-            rechercheAvanceeLink.textContent = 'Annuler';
-        }
-    }
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('#annee_min').on('change', function() {
-            var selectedYear = parseInt($(this).val());
-            $('#annee_max option').each(function() {
-                var optionYear = parseInt($(this).val());
-                if (optionYear < selectedYear) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
-                }
-            });
-        });
-
-        $('#annee_max').on('change', function() {
-            var selectedYear = parseInt($(this).val());
-            $('#annee_min option').each(function() {
-                var optionYear = parseInt($(this).val());
-                if (optionYear > selectedYear) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
-                }
-            });
-        });
-    });
-</script>

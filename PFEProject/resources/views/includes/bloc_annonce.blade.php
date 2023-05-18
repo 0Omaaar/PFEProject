@@ -16,7 +16,7 @@
                 <div class="car-footer">
                     @if ($annonce->prix == null)
                         <p id="appeler-prix" class="car-price">
-                            <strong><a href="#" onclick="afficherNumero()" style="text-decoration: none;">Appelez pour le prix</a></strong>
+                            <strong><a href="#" onclick="afficherNumero(event)" style="text-decoration: none;">Appelez pour le prix</a></strong>
                         </p>
                         <p id="tel" class="car-price" style="display:none;">
                             <strong>{{ $annonce->user->telephone }}</strong>

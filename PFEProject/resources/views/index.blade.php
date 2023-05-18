@@ -40,8 +40,7 @@
                         <div class="col-md-12 col-lg-6">
                             <div class="hero-right">
                                 <div class="hero-img">
-                                    {{-- <img src="assets/img/slider/hero-1.png" alt data-animation="fadeInRight"
-                                        data-delay=".25s"> --}}
+                                    {{-- <img src="assets/img/slider/hero-1.png" alt data-animation="fadeInRight" data-delay=".25s"> --}}
                                 </div>
                             </div>
                         </div>
@@ -61,8 +60,7 @@
                                     Best Way To Find Your <span>Dream</span> Car
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay=".75s">
-                                    There are many variations of passages orem psum available but the majority have suffered
-                                    alteration in some form by injected humour.
+                                    There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour.
                                 </p>
                                 <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                     <a href="#" class="theme-btn">
@@ -77,8 +75,7 @@
                         <div class="col-md-12 col-lg-6">
                             <div class="hero-right">
                                 <div class="hero-img">
-                                    {{-- <img src="assets/img/slider/hero-2.png" alt data-animation="fadeInRight"
-                                        data-delay=".25s"> --}}
+                                    {{-- <img src="assets/img/slider/hero-2.png" alt data-animation="fadeInRight" data-delay=".25s"> --}}
                                 </div>
                             </div>
                         </div>
@@ -97,8 +94,7 @@
                                     Best Way To Find Your <span>Dream</span> Car
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay=".75s">
-                                    There are many variations of passages orem psum available but the majority have suffered
-                                    alteration in some form by injected humour.
+                                    There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour.
                                 </p>
                                 <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                     <a href="#" class="theme-btn">
@@ -113,8 +109,7 @@
                         <div class="col-md-12 col-lg-6">
                             <div class="hero-right">
                                 <div class="hero-img">
-                                    {{-- <img src="assets/img/slider/hero-4.png" alt data-animation="fadeInRight"
-                                        data-delay=".25s"> --}}
+                                    {{-- <img src="assets/img/slider/hero-4.png" alt data-animation="fadeInRight" data-delay=".25s"> --}}
                                 </div>
                             </div>
                         </div>
@@ -133,8 +128,9 @@
     <div class="row mx-auto text-center align-items-center mt-4">
         @foreach ($marques->take(9) as $marque)
             <div class="col-md-4">
-                <a href="{{ route('annonces.parmarque', $marque->id) }}"><img
-                        src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" /></a>
+                <a href="{{ route('annonces.parmarque', $marque->id) }}">
+                    <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
+                </a>
             </div>
         @endforeach
     </div>
@@ -147,9 +143,9 @@
         <div class="row mx-auto text-center align-items-center mb-5" id="marquesHidden" style="display:none">
             @foreach ($marques->skip(9)->take(9) as $marque)
                 <div class="col-md-4">
-                    <a href="{{ route('annonces.parmarque', $marque->id) }}"><img
-                            src="{{ asset('images/logos/' . $marque->logo) }}" width="50px"
-                            alt="{{ $marque->nom }}" /></a>
+                    <a href="{{ route('annonces.parmarque', $marque->id) }}">
+                        <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
+                    </a>
                 </div>
             @endforeach
         </div>

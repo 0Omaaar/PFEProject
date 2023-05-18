@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <p><a class="btn btn-primary btn-sm mt-3" href="#" onclick="toggleRechercheAvancee()">Recherche avancée</a></p>
+                    <p><a class="btn btn-primary btn-sm mt-3" href="#" id="recherche-avancee-link" onclick="toggleRechercheAvancee()">Recherche avancée</a></p>
                 </div>
             </div>
         </form>
@@ -151,10 +151,14 @@
 <script>
     function toggleRechercheAvancee() {
         var rechercheAvanceeDiv = document.getElementById('recherche-avancee');
+        var rechercheAvanceeLink = document.getElementById('recherche-avancee-link');
+
         if (rechercheAvanceeDiv.style.display === 'block') {
             rechercheAvanceeDiv.style.display = 'none';
+            rechercheAvanceeLink.textContent = 'Recherche avancée';
         } else {
             rechercheAvanceeDiv.style.display = 'block';
+            rechercheAvanceeLink.textContent = 'Annuler';
         }
     }
 </script>

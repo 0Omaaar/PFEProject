@@ -1,4 +1,4 @@
-@extends('base')
+@extends('admin.base')
 @section('title', 'Afficher l\'annonce')
 @section('content')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -45,10 +45,21 @@
                         <p><strong>Modele:</strong> {{ $annonce->voiture->modele->nom }}</p>
                         <p><strong>Marque:</strong> {{ $annonce->voiture->marque->nom }}</p>
                         <p><strong>Créée par:</strong> {{ $annonce->user->nom }}</p>
+
+                        @if ($options->count() > 0)
+                            <p><strong>Options :</strong></p>
+                            <ul>
+                                @foreach ($options as $option)
+                                    <li>{{ $option->nom }}</li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <p><strong>Aucune option n'est disponible</strong></p>
+                        @endif
                     </div>
                 </div>
                 <div>
-                    <a href="{{ route('admin.index') }}" class="btn btn-dark mb-2">Annuler</a>
+                    <a href="{{ route('admin.annonces') }}" class="btn btn-dark mb-2">Annuler</a>
                     @if (!$annonce->isActive())
                         <form action="{{ route('admin.activer', $annonce->id) }}" method="POST">
                             @csrf

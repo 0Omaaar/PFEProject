@@ -29,6 +29,9 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
+        if(auth()->attempt($credentials) && auth()->user() && auth()->user()->isAdmin()){
+            return redirect()->route('admin.index');
+        }
         if (auth()->attempt($credentials)) {
             return redirect()->intended('/');
         }

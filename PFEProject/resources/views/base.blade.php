@@ -37,6 +37,83 @@
 
     @include('includes.footer')
 
+    <script>
+        // Afficher les modèles selon la marque séléctionnée
+        function filterModels() {
+            var marqueSelect = document.getElementById("marque_id");
+            var modeleSelect = document.getElementById("modele_id");
+            var modeleOptions = modeleSelect.options;
+
+            for (var i = 0; i < modeleOptions.length; i++) {
+                var modeleOption = modeleOptions[i];
+                if (modeleOption.getAttribute("data-marque") !== marqueSelect.value && marqueSelect.value !== "") {
+                    modeleOption.style.display = "none";
+                } else {
+                    modeleOption.style.display = "";
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // Afficher les années selon la sélection
+        $(document).ready(function() {
+            $('#annee_min').on('change', function() {
+                var selectedYear = parseInt($(this).val());
+                $('#annee_max option').each(function() {
+                    var optionYear = parseInt($(this).val());
+                    if (optionYear < selectedYear) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            });
+
+            $('#annee_max').on('change', function() {
+                var selectedYear = parseInt($(this).val());
+                $('#annee_min option').each(function() {
+                    var optionYear = parseInt($(this).val());
+                    if (optionYear > selectedYear) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // Afficher les champs de la recherche avancée
+        function toggleRechercheAvancee(event) {
+            event.preventDefault(); // Empêche le déplacement de la page vers le haut
+
+            var rechercheAvanceeDiv = document.getElementById('recherche-avancee');
+            var rechercheAvanceeLink = document.getElementById('recherche-avancee-link');
+
+            if (rechercheAvanceeDiv.style.display === 'block') {
+                rechercheAvanceeDiv.style.display = 'none';
+                rechercheAvanceeLink.textContent = 'Recherche avancée';
+            } else {
+                rechercheAvanceeDiv.style.display = 'block';
+                rechercheAvanceeLink.textContent = 'Annuler';
+            }
+        }
+    </script>
+
+    <script>
+        //Pour afficher le numero de telephone à la place du prix
+        function afficherNumero(event) {
+            event.preventDefault(); // Empêche le déplacement de la page vers le haut
+
+            let appelerPrix = document.getElementById('appeler-prix');
+            let tel = document.getElementById('tel');
+            appelerPrix.style.display = 'none';
+            tel.style.display = 'block';
+        }
+    </script>
+
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>

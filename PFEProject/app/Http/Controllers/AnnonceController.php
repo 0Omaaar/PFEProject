@@ -18,7 +18,7 @@ class AnnonceController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'show', 'parMarque']);
+        $this->middleware('auth')->except(['index', 'show', 'parMarque', 'search']);
     }
 
 

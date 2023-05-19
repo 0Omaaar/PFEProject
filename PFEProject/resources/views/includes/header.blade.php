@@ -1,5 +1,4 @@
 <header class="header">
-
     <div class="header-top">
         <div class="container">
             <div class="header-top-wrapper">
@@ -32,8 +31,7 @@
                     {{-- <div class="search-btn">
                         <button type="button" class="nav-right-link"></button>
                     </div> --}}
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-mobile-icon"></span>
                     </button>
                 </div>

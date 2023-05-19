@@ -3,46 +3,267 @@
 
 <head>
     <title>@yield('title')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <!-- GOOGLE FONTS -->
+    <link href="{{ asset('admin/https://fonts.googleapis.com/css?family=Karla:400,700|Roboto') }}" rel="stylesheet">
+    <link href="{{ asset('admin/plugins/material/css/materialdesignicons.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/plugins/simplebar/simplebar.css') }}" rel="stylesheet" />
+
+    <!-- PLUGINS CSS STYLE -->
+    <link href="{{ asset('admin/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('admin/plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css') }}"
+        rel="stylesheet" />
+
+    <link href="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('admin/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet" />
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <link href="{{ asset('admin/plugins/toaster/toastr.min.css') }}" rel="stylesheet" />
+
+    <!-- MONO CSS -->
+    <link id="main-css-href" rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
+
+    <!-- FAVICON -->
+    <link href="{{ asset('admin/images/favicon.png') }}" rel="shortcut icon" />
+
+    <script src="{{ asset('admin/plugins/nprogress/nprogress.js') }}"></script>
 </head>
 
-<body>
-    <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
-        <div class="container">
-            <a class="navbar-brand mr-auto" href="{{ route('annonces.index') }}">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                        @if (auth()->user()->isAdmin())
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin.users')}}">Liste des utilisateurs</a>
-                            </li>
-                            <li>
-                                <a href="{{route('admin.index')}}" class="nav-link">Liste des annonces</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="optionsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Gestion supplémentaire
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="optionsDropdown">
-                                    <a class="dropdown-item" href="{{route('admin.marques')}}">Liste des marques</a>
-                                    <a class="dropdown-item" href="{{route('admin.options')}}">Liste des options</a>
-                                </div>
-                            </li>
-                        @endif
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('signout') }}">Logout</a>
+<body class="navbar-fixed sidebar-fixed" id="body">
+    <script>
+        NProgress.configure({
+            showSpinner: false
+        });
+        NProgress.start();
+    </script>
+
+
+    {{-- Wrapper --}}
+    <div class="wrapper">
+        <!-- ====================================
+          ——— LEFT SIDEBAR WITH OUT FOOTER
+        ===================================== -->
+        <aside class="left-sidebar sidebar-dark" id="left-sidebar">
+            <div id="sidebar" class="sidebar sidebar-with-footer">
+                <!-- Aplication Brand -->
+                <div class="app-brand">
+                    <a href="{{route('admin.index')}}">
+                        <span class="brand-name">ADMIN</span>
+                    </a>
+                </div>
+                <!-- begin sidebar scrollbar -->
+                <div class="sidebar-left" data-simplebar style="height: 100%;">
+                    <!-- sidebar menu -->
+                    <ul class="nav sidebar-inner" id="sidebar-menu">
+
+                        <li class="">
+                            <a class="sidenav-item-link" href="{{route('admin.index')}}">
+                                <i class="mdi mdi-briefcase-account-outline"></i>
+                                <span class="nav-text">Accueil</span>
+                            </a>
                         </li>
-                </ul>
+
+                        <li class="section-title">
+                            Gestion
+                        </li>
+
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="{{ asset('admin/javascript:void(0)') }}"
+                                data-toggle="collapse" data-target="#formations" aria-expanded="false"
+                                aria-controls="formations">
+                                <i class="mdi mdi-folder-outline"></i>
+                                <span class="nav-text">Annonces</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="formations" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{route('admin.annonces')}}">
+                                            <span class="nav-text">Liste des annonces</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{route('admin.stats.annonce')}}">
+                                            <span class="nav-text">Stats Annonces</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="{{ asset('admin/javascript:void(0)') }}"
+                                data-toggle="collapse" data-target="#familles" aria-expanded="false"
+                                aria-controls="familles">
+                                <i class="mdi mdi-folder-outline"></i>
+                                <span class="nav-text">Utilisateurs</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="familles" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{route('admin.users')}}">
+                                            <span class="nav-text">Liste des utilisateurs</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{route('admin.stats.users')}}">
+                                            <span class="nav-text">Stats Utilisateurs</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="{{ asset('admin/javascript:void(0)') }}"
+                                data-toggle="collapse" data-target="#sousfamilles" aria-expanded="false"
+                                aria-controls="sousfamilles">
+                                <i class="mdi mdi-folder-outline"></i>
+                                <span class="nav-text">Gestion Supplementaire</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="sousfamilles" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{route('admin.marques')}}">
+                                            <span class="nav-text">Liste des marques</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{route('admin.options')}}">
+                                            <span class="nav-text">Liste des options</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="{{ asset('admin/javascript:void(0)') }}"
+                                data-toggle="collapse" data-target="#messagerie" aria-expanded="false"
+                                aria-controls="messagerie">
+                                <i class="mdi mdi-folder-outline"></i>
+                                <span class="nav-text">Messagerie</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="messagerie" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="">
+                                            <span class="nav-text">Contacts</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="sidenav-item-link" href="">
+                                            <span class="nav-text">Réclamations</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li class="has-sub">
+                            <a class="sidenav-item-link" href="{{ asset('admin/javascript:void(0)') }}"
+                                data-toggle="collapse" data-target="#charts" aria-expanded="false"
+                                aria-controls="charts">
+                                <i class="mdi mdi-chart-pie"></i>
+                                <span class="nav-text">Charts</span> <b class="caret"></b>
+                            </a>
+                            <ul class="collapse" id="charts" data-parent="#sidebar-menu">
+                                <div class="sub-menu">
+                                    <li>
+                                        <a class="sidenav-item-link" href="{{ asset('admin/apex-charts.html') }}">
+                                            <span class="nav-text">Apex Charts</span>
+
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li class="section-title">
+                            Pages
+                        </li>
+
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    @yield('content')
+        </aside>
+        <div class="page-wrapper">
+            <!-- Header -->
+            <header class="main-header" id="header">
+                <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+                    <!-- Sidebar toggle button -->
+                    <button id="sidebar-toggler" class="sidebar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                    </button>
+                    <span class="page-title">dashboard</span>
+                    <div class="navbar-right ">
+                        <ul class="nav navbar-nav">
+                            <!-- User Account -->
+                            <li class="dropdown user-menu">
+                                <button class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <span class="d-none d-lg-inline-block">Admin</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-footer">
+                                        <a class="dropdown-link-item" href="{{route('signout')}}"> <i class="mdi mdi-logout"></i>
+                                            Se deconnecter
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            @yield('content')
+
+
+
+
+
+            <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
+            <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ asset('admin/plugins/simplebar/simplebar.min.js') }}"></script>
+            <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+
+            <script src="{{ asset('admin/plugins/apexcharts/apexcharts.js') }}"></script>
+
+            <script src="{{ asset('admin/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js') }}"></script>
+
+            <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js') }}"></script>
+            <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
+            <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-us-aea.js') }}"></script>
+
+            <script src="{{ asset('admin/plugins/daterangepicker/moment.min.js') }}"></script>
+            <script src="{{ asset('admin/plugins/daterangepicker/daterangepicker.js') }}"></script>
+            <script>
+                jQuery(document).ready(function() {
+                    jQuery('input[name="dateRange"]').daterangepicker({
+                        autoUpdateInput: false,
+                        singleDatePicker: true,
+                        locale: {
+                            cancelLabel: 'Clear'
+                        }
+                    });
+                    jQuery('input[name="dateRange"]').on('apply.daterangepicker', function(ev, picker) {
+                        jQuery(this).val(picker.startDate.format('MM/DD/YYYY'));
+                    });
+                    jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function(ev, picker) {
+                        jQuery(this).val('');
+                    });
+                });
+            </script>
+
+            <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+            <script src="{{ asset('admin/plugins/toaster/toastr.min.js') }}"></script>
+
+            <script src="{{ asset('admin/js/mono.js') }}"></script>
+            <script src="{{ asset('admin/js/chart.js') }}"></script>
+            <script src="{{ asset('admin/js/map.js') }}"></script>
+            <script src="{{ asset('admin/js/custom.js') }}"></script>
 
 </body>
 

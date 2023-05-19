@@ -31,7 +31,8 @@
                     {{-- <div class="search-btn">
                         <button type="button" class="nav-right-link"></button>
                     </div> --}}
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-mobile-icon"></span>
                     </button>
                 </div>
@@ -39,7 +40,8 @@
                     @if (Auth::check())
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link padd" href="{{route('profil.show')}}" data-bs-toggle="dropdown">My Account&nbsp;&nbsp;&nbsp;</a>
+                                <a class="nav-link padd" href="{{ route('profil.show') }}" data-bs-toggle="dropdown">My
+                                    Account&nbsp;&nbsp;&nbsp;</a>
                             </li>
                         </ul>
                     @endif

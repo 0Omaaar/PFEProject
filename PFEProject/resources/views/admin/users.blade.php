@@ -6,11 +6,6 @@
     <h2 class="text-center">LISTE DES UTILISATEURS</h2>
     <br>
     <div class="container">
-        <div>
-            <p>Nombre d'utilisateurs normaux : {{$users->where('type', 'normal')->count()}}</p>
-            <p>Nombre d'admins : {{$users->where('type', 'admin')->count()}}</p>
-            <h6>Nombre total : {{$users->count()}}</h6>
-        </div>
         @if ($users->count() > 0)
             <div class="row">
                 <div class="col">

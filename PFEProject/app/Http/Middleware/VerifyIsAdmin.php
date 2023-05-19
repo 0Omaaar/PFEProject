@@ -22,7 +22,7 @@ class VerifyIsAdmin
         $user = auth()->user();
 
         if ($user && !$user->isAdmin()) {
-            return redirect()->route('annonces.index');
+            return redirect()->route('admin.index');
         }
         
         

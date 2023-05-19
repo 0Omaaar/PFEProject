@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Front\Controllers;
 
 use App\Models\Commentaire;
 use Illuminate\Http\Request;
@@ -10,6 +10,7 @@ use App\Models\Voiture;
 use App\Models\Marque;
 use App\Models\Modele;
 use App\Models\Option;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 

@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Front\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Annonce;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+
 
 class ProfilController extends Controller
 {

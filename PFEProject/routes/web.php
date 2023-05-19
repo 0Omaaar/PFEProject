@@ -2,10 +2,9 @@
 
 use App\Http\Controllers\Back\AAnnonceController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\Front\AnnonceController;
 use App\Http\Controllers\Back\UsersController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\Front\ProfilController;
 use App\Http\Controllers\Back\MarqueController;
 use App\Http\Controllers\Back\ModeleController;
 use App\Http\Controllers\Back\OptionController;

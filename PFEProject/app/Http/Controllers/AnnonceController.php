@@ -125,7 +125,6 @@ class AnnonceController extends Controller
                 'annonce_id' => $annonce->id
             ]);
             $images_voiture->save();
-
         }
         return redirect()->route('annonces.index')->with("success", "Annonce Ajoutee");
     }
@@ -299,6 +298,7 @@ class AnnonceController extends Controller
                     $query->where('id', $request->marque_id);
                 });
             });
+            $marque_id = $request->input('marque_id');
         }
 
         if ($request->filled('modele_id')) {
@@ -307,56 +307,66 @@ class AnnonceController extends Controller
                     $query->where('id', $request->modele_id);
                 });
             });
+            $modele_id = $request->input('modele_id');
         }
 
         if ($request->filled('ville')) {
             $annonces->whereHas('user', function ($query) use ($request) {
                 $query->where('ville', 'like', '%' . $request->ville . '%');
             });
+            $ville = $request->input('ville');
         }
 
         if ($request->filled('prix_max')) {
             $annonces->where('prix', '<=', $request->prix_max);
+            $prix_max = $request->input('prix_max');
         }
 
         if ($request->filled('prix_min')) {
             $annonces->where('prix', '>=', $request->prix_min);
+            $prix_min = $request->input('prix_min');
         }
 
         if ($request->filled('carburant')) {
             $annonces->whereHas('voiture', function ($query) use ($request) {
                 $query->where('carburant', $request->carburant);
             });
+            $carburant = $request->input('carburant');
         }
 
         if ($request->filled('transmission')) {
             $annonces->whereHas('voiture', function ($query) use ($request) {
                 $query->where('transmission', $request->transmission);
             });
+            $transmission = $request->input('transmission');
         }
 
         if ($request->filled('annee_min')) {
             $annonces->whereHas('voiture', function ($query) use ($request) {
                 $query->where('annee', '>=', $request->annee_min);
             });
+            $annee_min = $request->input('annee_min');
         }
 
         if ($request->filled('annee_max')) {
             $annonces->whereHas('voiture', function ($query) use ($request) {
                 $query->where('annee', '<=', $request->annee_max);
             });
+            $annee_max = $request->input('annee_max');
         }
 
         if ($request->filled('puissance_fiscale')) {
             $annonces->whereHas('voiture', function ($query) use ($request) {
                 $query->where('puissance_fiscale', $request->puissance_fiscale);
             });
+            $puissance_fiscale = $request->input('puissance_fiscale');
         }
 
         if ($request->filled('type')) {
             $annonces->whereHas('voiture', function ($query) use ($request) {
                 $query->where('type', $request->type);
             });
+            $type = $request->input('type');
         }
 
         $annonces = $annonces->get();
@@ -364,6 +374,23 @@ class AnnonceController extends Controller
         $marques = Marque::all();
         $modeles = Modele::all();
 
-        return view('annonces.recherche', compact('annonces', 'marques', 'modeles'));
+        $parameters = [
+            'annonces' => $annonces,
+            'marques' => $marques,
+            'modeles' => $modeles,
+            'marque_id' => isset($marque_id) ? $marque_id : null,
+            'modele_id' => isset($modele_id) ? $modele_id : null,
+            'ville' => isset($ville) ? $ville : null,
+            'prix_max' => isset($prix_max) ? $prix_max : null,
+            'prix_min' => isset($prix_min) ? $prix_min : null,
+            'carburant' => isset($carburant) ? $carburant : null,
+            'transmission' => isset($transmission) ? $transmission : null,
+            'annee_min' => isset($annee_min) ? $annee_min : null,
+            'annee_max' => isset($annee_max) ? $annee_max : null,
+            'puissance_fiscale' => isset($puissance_fiscale) ? $puissance_fiscale : null,
+            'type' => isset($type) ? $type : null,
+        ];
+
+        return view('annonces.recherche', $parameters);
     }
 }

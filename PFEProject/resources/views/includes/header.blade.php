@@ -40,7 +40,7 @@
                     @if (Auth::check())
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link padd" href="{{ route('profil.show') }}" data-bs-toggle="dropdown">My
+                                <a class="nav-link padd" href="{{ route('profil.show') }}">My
                                     Account&nbsp;&nbsp;&nbsp;</a>
                             </li>
                         </ul>

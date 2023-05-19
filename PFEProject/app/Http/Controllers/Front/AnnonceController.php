@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Front\Controllers;
+namespace App\Http\Controllers\Front;
 
 use App\Models\Commentaire;
 use Illuminate\Http\Request;

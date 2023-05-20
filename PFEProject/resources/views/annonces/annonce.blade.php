@@ -1,8 +1,7 @@
 @extends('base')
 @section('title', 'Afficher l\'annonce')
 @section('content')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <main class="main">
         @if (session()->has('success'))
             <div class="alert alert-success">
@@ -46,7 +45,7 @@
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 col-6">
                                                 <div class="car-key-item">
-                                                    <div class="car-key-icon">        
+                                                    <div class="car-key-icon">
                                                     </div>
                                                     <div class="car-key-content">
                                                         <span>Type de voiture</span>
@@ -267,6 +266,24 @@
                                         <h4 class="car-single-price">Prix : {{ $annonce->prix }}</h4>
                                 @endif
                             </div>
+                            @if (Auth::check() && $annonce->user_id == Auth::user()->id)
+                                <div class="car-single-widget">
+                                    <ul class="car-single-meta">
+                                        <li>
+                                            <a href="#" class="theme-btn"
+                                                onclick="if(confirm('Voulez-vous vraiment supprimer cette annonce ?')){document.getElementById('form-{{ $annonce->id }}').submit()}">Supprimer</a>
+                                            <form id="form-{{ $annonce->id }}"
+                                                action="{{ route('annonces.supprimer', ['annonce' => $annonce->id]) }}"
+                                                method="post">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="delete">
+                                            </form>
+                                            <a href="{{ route('annonces.modifier', ['annonce' => $annonce->id]) }}"
+                                                class="theme-btn">Modifier</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endif
                         </div>
                     </div>
     </main>

@@ -127,7 +127,7 @@ class AnnonceController extends Controller
             ]);
             $images_voiture->save();
         }
-        return redirect()->route('annonces.index')->with("success", "Annonce Ajoutee");
+        return redirect()->route('annonces.index')->with("success", "Votre annonce a été ajoutée avec succès. Elle sera examinée par l'administrateur avant d'être activée.");
     }
 
     public function show(Annonce $annonce)

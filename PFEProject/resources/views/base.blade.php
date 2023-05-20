@@ -39,6 +39,11 @@
 
     <script>
         // Afficher les modèles selon la marque séléctionnée
+
+        document.addEventListener('DOMContentLoaded', function() {
+            filterModels();
+        });
+
         function filterModels() {
             var marqueSelect = document.getElementById("marque_id");
             var modeleSelect = document.getElementById("modele_id");
@@ -57,31 +62,36 @@
 
     <script>
         // Afficher les années selon la sélection
-        $(document).ready(function() {
-            $('#annee_min').on('change', function() {
-                var selectedYear = parseInt($(this).val());
-                $('#annee_max option').each(function() {
-                    var optionYear = parseInt($(this).val());
-                    if (optionYear < selectedYear) {
-                        $(this).hide();
-                    } else {
-                        $(this).show();
-                    }
-                });
-            });
-
-            $('#annee_max').on('change', function() {
-                var selectedYear = parseInt($(this).val());
-                $('#annee_min option').each(function() {
-                    var optionYear = parseInt($(this).val());
-                    if (optionYear > selectedYear) {
-                        $(this).hide();
-                    } else {
-                        $(this).show();
-                    }
-                });
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            filterMinYear();
+            filterMaxYear();
         });
+
+        function filterMinYear() {
+            var selectedMaxYear = parseInt($('#annee_max').val());
+            $('#annee_min option').each(function() {
+                var optionYear = parseInt($(this).val());
+                if (optionYear > selectedMaxYear && selectedMaxYear !== 0) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        }
+
+        function filterMaxYear() {
+            var selectedMinYear = parseInt($('#annee_min').val());
+            $('#annee_max option').each(function() {
+                var optionYear = parseInt($(this).val());
+                if (optionYear < selectedMinYear) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        }
+        $('#annee_min').on('change', filterMinYear);
+        $('#annee_max').on('change', filterMaxYear);
     </script>
 
     <script>

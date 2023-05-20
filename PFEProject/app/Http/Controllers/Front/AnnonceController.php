@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Models\Commentaire;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
 use App\Models\Annonce;
 use App\Models\Image;
 use App\Models\Voiture;
 use App\Models\Marque;
 use App\Models\Modele;
 use App\Models\Option;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Commentaire;
+
 
 class AnnonceController extends Controller
 {
@@ -318,14 +321,38 @@ class AnnonceController extends Controller
             $ville = $request->input('ville');
         }
 
-        if ($request->filled('prix_max')) {
-            $annonces->where('prix', '<=', $request->prix_max);
-            $prix_max = $request->input('prix_max');
-        }
-
-        if ($request->filled('prix_min')) {
-            $annonces->where('prix', '>=', $request->prix_min);
+        if ($request->filled('prix_min') && $request->filled('prix_max')) {
             $prix_min = $request->input('prix_min');
+            $prix_max = $request->input('prix_max');
+        
+            $validator = Validator::make($request->all(), [
+                'prix_min' => 'numeric',
+                'prix_max' => 'numeric',
+            ]);
+            
+            $validator->after(function ($validator) use ($request) {
+                $prix_min = $request->input('prix_min');
+                $prix_max = $request->input('prix_max');
+
+                if ($prix_min > $prix_max) {
+                    $validator->errors()->add('prix_max', 'Le prix maximal doit être supérieur au prix minimal');
+                }
+            });
+            
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+            $annonces->where('prix', '>=', $prix_min)->where('prix', '<=', $prix_max);
+
+        }
+        elseif ($request->filled('prix_min')) {
+            $prix_min = $request->input('prix_min');
+            $annonces->where('prix', '>=', $prix_min);
+        }
+        elseif ($request->filled('prix_max')) {
+            $prix_max = $request->input('prix_max');
+            $annonces->where('prix', '<=', $prix_max);
         }
 
         if ($request->filled('carburant')) {

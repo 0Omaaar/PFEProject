@@ -293,6 +293,67 @@ if (splinaArea4 !== null) {
   randerSplinaArea4.render();
 }
 
+// /*======== 4. SPLINA AREA CHART 05 ========*/
+var splinaArea5 = document.querySelector("#spline-area-5");
+if (splinaArea5 !== null) {
+  var splinaAreaOptions5 = {
+    chart: {
+      id: "spline-area-5",
+      group: "social",
+      height: 135,
+      width: "100%",
+      background: "#5893ec",
+      type: "area",
+      sparkline: {
+        enabled: true,
+      },
+    },
+    yaxis: {
+      labels: {
+        minWidth: 40,
+      },
+    },
+    stroke: {
+      width: 2,
+    },
+    colors: ["#ffffff"],
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.7,
+        opacityTo: 0.3,
+        stops: [0, 90, 100],
+      },
+    },
+    tooltip: {
+      followCursor: false,
+      theme: "dark",
+      x: {
+        show: false,
+      },
+      marker: {
+        show: false,
+      },
+      y: {
+        title: {
+          formatter: function () {
+            return "";
+          },
+        },
+      },
+    },
+
+    series: [
+      {
+        data: [0, 3, 8, 15, 20, 10, 12, 10, 5],
+      },
+    ],
+  };
+  var randerSplinaArea5 = new ApexCharts(splinaArea5, splinaAreaOptions5);
+  randerSplinaArea5.render();
+}
+
 //   /*======== 5. MIXED CHART 01 ========*/
 var mixedChart1 = document.querySelector("#mixed-chart-1");
 if (mixedChart1 !== null) {

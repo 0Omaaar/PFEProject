@@ -87,6 +87,11 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a class="sidenav-item-link" href="{{route('admin.annoncesSupp')}}">
+                                            <span class="nav-text">Liste des annonces supprimées</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a class="sidenav-item-link" href="{{route('admin.stats.annonce')}}">
                                             <span class="nav-text">Stats Annonces</span>
                                         </a>

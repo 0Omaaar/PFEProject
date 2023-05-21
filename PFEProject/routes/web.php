@@ -40,6 +40,7 @@ Route::put('/profil/modifier', [ProfilController::class, 'update'])->name('profi
 
 //Routes d'admin
 Route::middleware(['auth', 'admin'])->group(function(){
+    
     //Routes des utilisateurs
     Route::get('/admin/users', [UsersController::class, 'index'])->name('admin.users');
     Route::post('/admin/users/{user}/rendreAdmin', [UsersController::class, 'rendreAdmin'])->name('users.rendreAdmin');
@@ -47,6 +48,11 @@ Route::middleware(['auth', 'admin'])->group(function(){
 
     //Routes des annonces
     Route::get('/admin/annonces', [AAnnonceController::class, 'annonces'])->name('admin.annonces');
+    Route::get('/admin/annoncesSupprimees', [AAnnonceController::class, 'annoncesSupp'])->name('admin.annoncesSupp');
+    Route::post('/admin/restore/{annonce}', [AAnnonceController::class, 'restore'])->name('admin.restore');
+    Route::delete('/admin/annoncesSupprimees/{annonce}/supprimer', [AAnnonceController::class, 'SupprimerDef'])->name('admin.SupprimerDef');
+
+
     Route::get('/admin/annonces/{annonce}', [AAnnonceController::class, 'show'])->name('admin.afficher_annonce');
     Route::post('/admin/annonces/{annonce}/activer', [AAnnonceController::class, 'activer'])->name('admin.activer');
     Route::post('/admin/annonces/{annonce}/desactiver', [AAnnonceController::class, 'desactiver'])->name('admin.desactiver');
@@ -73,7 +79,6 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/admin/accueil', [AAnnonceController::class, 'index'])->name('admin.index');
     Route::get('/admin/stats/annonces', [AAnnonceController::class, 'statsAnnonce'])->name('admin.stats.annonce');
     Route::get('/admin/stats/utilisateurs', [AAnnonceController::class, 'statsUser'])->name('admin.stats.users');
-
 
 
 });

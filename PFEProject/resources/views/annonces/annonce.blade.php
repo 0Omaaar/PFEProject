@@ -18,10 +18,9 @@
                             <div class="car-single-top">
                                 <h3 class="car-single-title">{{ $annonce->titre }}</h3>
                                 <ul class="car-single-meta">
-                                    <li>Postée le : {{ $annonce->created_at }}</li>
+                                    <li><i class="mdi mdi-calendar-today mdi-18px"></i> Publiée le : {{ \Carbon\Carbon::parse($annonce->created_at)->format('d-m-Y') }}</li>
                                 </ul>
                             </div>
-
                             <div class="car-single-slider">
                                 <div class="item-gallery">
                                     <div class="flexslider-thumbnails">
@@ -42,12 +41,14 @@
                             </div>
                         </div>
                         <div class="car-single-widget">
-                            <h4 class="mb-4">Informations</h4>
+                            <i class="mdi mdi-information-slab-circle"></i>
+                            <h4 class="mb-4"><i class="mdi mdi-information"></i> Informations</h4>
                             <div class="car-key-info">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
+                                                <i class="mdi mdi-car-estate"></i>
                                             </div>
                                             <div class="car-key-content">
                                                 <span>Type de voiture</span>
@@ -58,6 +59,7 @@
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
+                                                <i class="mdi mdi-gauge"></i>
                                             </div>
                                             <div class="car-key-content">
                                                 <span>Kilométrage</span>
@@ -65,19 +67,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-4 col-6">
+                                    <!-- <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
+                                                <i class="mdi mdi-calendar-outline"></i>
                                             </div>
                                             <div class="car-key-content">
                                                 <span>Année</span>
                                                 <h6>{{ $annonce->voiture->annee }}</h6>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
+                                                <i class="mdi mdi-gas-station"></i>
                                             </div>
                                             <div class="car-key-content">
                                                 <span>Carburant</span>
@@ -88,6 +92,7 @@
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
+                                                <i class="mdi mdi-cogs"></i>
                                             </div>
                                             <div class="car-key-content">
                                                 <span>Transmission</span>
@@ -98,6 +103,7 @@
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
+                                                <i class="mdi mdi-engine"></i>
                                             </div>
                                             <div class="car-key-content">
                                                 <span>Puissance fiscale</span>
@@ -108,6 +114,7 @@
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
+                                                <i class="mdi mdi-file-document-check-outline"></i>
                                             </div>
                                             <div class="car-key-content">
                                                 <span>Dédouanée</span>
@@ -118,6 +125,7 @@
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
+                                                <i class="mdi mdi-key-variant"></i>
                                             </div>
                                             <div class="car-key-content">
                                                 <span>Première main:</span>
@@ -125,7 +133,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-4 col-6">
+                                    <!-- <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
                                             </div>
@@ -134,8 +142,8 @@
                                                 <h6>{{ $annonce->voiture->modele->nom }}</h6>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-6">
+                                    </div> -->
+                                    <!-- <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
                                             </div>
@@ -144,44 +152,44 @@
                                                 <h6>{{ $annonce->voiture->marque->nom }}</h6>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
                         <div class="car-single-widget">
                             <div class="car-single-overview">
-                                <h4 class="mb-3">Description</h4>
+                                <!-- <h4 class="mb-3">Description</h4>
                                 <div class="mb-4">
                                     <p>{{ $annonce->description }}</p>
-                                </div>
-                                <h4 class="mb-3">Caractéristiques de la voiture</h4>
+                                </div> -->
+                                <h4 class="mb-3"><i class="mdi mdi-feature-search"></i> Caractéristiques de la voiture</h4>
                                 @if ($options->count() > 0)
                                 <div class="row mb-3">
                                     <div class="col-lg-4">
                                         <ul class="car-single-list">
                                             @foreach ($options->take(4) as $option)
-                                            <li>{{ $option->nom }}</li>
+                                            <li> <i class="mdi mdi-check-circle-outline"></i>{{ $option->nom }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
                                     <div class="col-lg-4">
                                         <ul class="car-single-list">
                                             @foreach ($options->skip(4)->take(4) as $option)
-                                            <li>{{ $option->nom }}</li>
+                                            <li> <i class="mdi mdi-check-circle-outline"></i>{{ $option->nom }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
                                     <div class="col-lg-4">
                                         <ul class="car-single-list">
                                             @foreach ($options->skip(8)->take(4) as $option)
-                                            <li>{{ $option->nom }}</li>
+                                            <li> <i class="mdi mdi-check-circle-outline"></i>{{ $option->nom }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
                                     <div class="col-lg-4">
                                         <ul class="car-single-list">
                                             @foreach ($options->skip(12)->take(4) as $option)
-                                            <li>{{ $option->nom }}</li>
+                                            <li> <i class="mdi mdi-check-circle-outline"></i>{{ $option->nom }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -194,13 +202,13 @@
                         <div class="car-single-widget">
                             <div class="car-single-review">
                                 <div class="blog-comments mb-0">
-                                    <h4>Commentaires</h4>
+                                    <h4><i class="mdi mdi-comment-multiple"></i> Commentaires</h4>
                                     <div class="blog-comments-wrapper">
                                         @if ($commentaires->count() > 0)
                                         @foreach ($commentaires as $commentaire)
                                         <div class="blog-comments-single">
                                             <div class="blog-comments-content">
-                                                <h5>{{ $commentaire->user->prenom . ' ' . $commentaire->user->prenom }}
+                                                <h5><i class="mdi mdi-account"></i> {{ $commentaire->user->prenom . ' ' . $commentaire->user->prenom }}
                                                 </h5>
                                                 <span>
                                                     @if ($commentaire->created_at->diffInDays() > 0)
@@ -237,7 +245,7 @@
                                                     <div class="form-group mt-4">
                                                         <textarea class="form-control" rows="5" placeholder="Votre Commentaire*" name="contenu"></textarea>
                                                     </div>
-                                                    <button type="submit" class="theme-btn"><span class="far fa-paper-plane"></span> Envoyer</button>
+                                                    <button type="submit" class="theme-btn"><i class="mdi mdi-send"></i> Envoyer</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -249,19 +257,26 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="car-single-widget">
-                        <ul class="car-single-meta">
-                            <li>{{ $annonce->voiture->kilometrage }} Km
-                            </li>
-                            <li>25/B Milford, New York</li>
-                        </ul>
+                        <h6>{{ $annonce->voiture->modele->nom }} {{ $annonce->voiture->marque->nom }} {{ $annonce->voiture->annee }}</h6>
                         @if ($annonce->prix == null)
                         <h4 id="appeler-prix" style="cursor: pointer;"><strong>Appelez pour le prix</strong>
                         </h4>
                         <h4 id="tel" class="car-single-price" style="display:none;">
                             <strong>{{ $annonce->user->telephone }}</strong></p>
                             @else
-                            <h4 class="car-single-price">Prix : {{ $annonce->prix }}</h4>
+                            <h4 class="car-single-price">{{ $annonce->prix }} DH</h4>
                             @endif
+                        </h4>
+                        <ul class="car-single-meta">
+                            <li><i class="mdi mdi-gauge mdi-18px"></i> {{ $annonce->voiture->kilometrage }} Km</li>
+                            <li><i class="mdi mdi-map-marker-outline mdi-18px"></i> {{ $annonce->user->ville }}</li>
+                        </ul>
+                    </div>
+                    <div class="car-single-widget">
+                        <h4 class="mb-3">Description</h4>
+                        <div class="mb-4">
+                            <p>{{ $annonce->description }}</p>
+                        </div>
                     </div>
                     @if (Auth::check() && $annonce->user_id == Auth::user()->id)
                     <div class="car-single-widget">

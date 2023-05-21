@@ -3830,6 +3830,12 @@ label {
     border-radius: 10px
 }
 
+.car-single-slider .slides img {
+    object-fit: cover;
+	width: 100%;
+	height: 418px;
+}
+
 .car-single-slider .flex-control-thumbs img {
     padding: 0
 }
@@ -4478,7 +4484,7 @@ label {
 .shop-item-single .flexslider-thumbnails img {
     width: 100%;
     border-radius: 10px;
-    background: #fef6ef
+    background: #f2effe
 }
 
 .shop-item-single .flex-control-thumbs {

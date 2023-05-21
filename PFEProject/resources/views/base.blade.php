@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/nice-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/flex-slider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     {{-- <div class="preloader">
         <div class="loader-ripple">
@@ -113,7 +113,7 @@
     </script>
 
     <script>
-        //Pour afficher le numero de telephone à la place du prix
+        // Pour afficher le numero de telephone à la place du prix
         function afficherNumero(event) {
             event.preventDefault(); // Empêche le déplacement de la page vers le haut
 
@@ -123,6 +123,37 @@
             tel.style.display = 'block';
         }
     </script>
+
+    <script>
+        // Pour afficher les images en taille réelle
+        function showImage(src) {
+            var modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            modal.style.zIndex = '999';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+
+            var img = document.createElement('img');
+            img.src = src;
+            img.style.maxWidth = '90%';
+            img.style.maxHeight = '90%';
+            img.style.objectFit = 'contain';
+            modal.appendChild(img);
+
+            document.body.appendChild(modal);
+
+            modal.addEventListener('click', function() {
+                modal.parentElement.removeChild(modal);
+            });
+        }
+    </script>
+
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
@@ -136,6 +167,7 @@
     <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/js/flex-slider.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>

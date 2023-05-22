@@ -24,28 +24,27 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Titre</label>
-                                        <input type="text" name="titre" class="form-control"
+                                        <input type="text" name="titre" class="form-control nice-select-2"
                                             value="{{ $annonce->titre }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input type="text" name="description" class="form-control"
-                                            value="{{ $annonce->description }}">
+                                        <textarea class="form-control nice-select-2" name="description" id="description" rows="4" cols="50">{{$annonce->description}}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Prix</label>
-                                        <input type="number" name="prix" class="form-control"
+                                        <input type="number" name="prix" class="form-control nice-select-2"
                                             value="{{ $annonce->prix }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label>Kilometrage</label>
-                                        <input type="number" name="kilometrage" class="form-control"
+                                        <input type="number" name="kilometrage" class="form-control nice-select-2"
                                             value="{{ $annonce->voiture->kilometrage }}">
                                     </div>
                                 </div>

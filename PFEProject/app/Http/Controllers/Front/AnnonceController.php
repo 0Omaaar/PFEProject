@@ -271,7 +271,7 @@ class AnnonceController extends Controller
             }
         }
 
-        return redirect()->route('annonces.show', $annonce->id)->with('success', "Annonce modifiée");
+        return redirect()->route('annonces.show', $annonce->id)->with('success', "Votre annonce est modifiée avec succes");
     }
 
     public function destroy(Annonce $annonce)

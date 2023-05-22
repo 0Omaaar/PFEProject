@@ -1448,8 +1448,17 @@ label {
     left: 40px
 }
 
+.hero-slider.owl-theme .owl-nav .owl-prev::after {
+    font-family: 'fontAwesome';
+    content: "\f177";
+}
+
 .hero-slider.owl-theme .owl-nav .owl-next {
     right: 40px
+}
+.hero-slider.owl-theme .owl-nav .owl-next::after {
+    font-family: 'fontAwesome';
+    content: "\f178";
 }
 
 .hero-slider.owl-theme .owl-nav .owl-prev,
@@ -3276,7 +3285,7 @@ label {
     width: 100%;
     text-align: center;
     margin-bottom: 25px;
-    padding: 20px;
+    padding: 15px;
     border-radius: 20px;
     box-shadow: var(--box-shadow);
     transition: var(--transition)

@@ -44,7 +44,7 @@
                         <label for="prix_max">Prix maximal</label>
                         <input type="number" class="nice-select" name="prix_max" id="prix_max" min="0" value="{{ $prix_max ?? '' }}" placeholder="Prix maximal">
                         @error('prix_max')
-                            <div class="text-danger small">{{ $message }}</div>
+                        <div class="text-danger small">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -86,13 +86,14 @@
                 </div>
 
                 <div class="col-lg-3 align-self-end">
-                    <button class="theme-btn" type="submit"><i class="mdi mdi-database-search"></i> Lancer la recherche</button>
+                    <button class="theme-btn" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i> Lancer la recherche
+                    </button>
                 </div>
 
                 <!-- Recherche avancée -->
                 <div id="recherche-avancee" style="display: none;">
                     <div class="row">
-
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="carburant">Carburant :</label>

@@ -11,8 +11,8 @@
                             We are many variations of passages available but the majority have suffered alteration in some form by injected humour words believable.
                         </p>
                         <ul class="footer-contact">
-                            <li><a href="tel:+21236547898"><i class="far fa-phone"></i>+2 123 654 7898</a></li>
-                            <li><i class="far fa-map-marker-alt"></i>25/B Milford Road, New York</li>
+                            <li><a href="tel:+21236547898"><i class="fa-solid fa-phone"></i></i>+2 123 654 7898</a></li>
+                            <li><i class="fa-solid fa-location-dot"></i>25/B Milford Road, New York</li>
                             <li><a href="/cdn-cgi/l/email-protection#f891969e97b89d80999588949dd69b9795">
                                     <i class="far fa-envelope"></i><span class="__cf_email__" data-cfemail="5d34333b321d38253c302d3138733e3230">[email&#160;protected]</span>
                                 </a>

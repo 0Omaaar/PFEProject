@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}"> --}}
-    <!-- <link rel="stylesheet" href="{{ asset('assets/css/all-fontawesome.min.css') }}"> -->
-    <link href="{{ asset('admin/plugins/material/css/materialdesignicons.min.css') }}" rel="stylesheet"/>
+    <!-- <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('assets/css/all-fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/plugins/material/css/materialdesignicons.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">

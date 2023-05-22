@@ -1572,6 +1572,10 @@ label {
     color: var(--body-text-color)
 }
 
+.nice-select-2{
+    cursor: pointer;
+}
+
 .nice-select::after {
     width: 9px;
     height: 9px;

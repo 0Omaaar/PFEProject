@@ -24,11 +24,11 @@
                 <div class="page" id="page1">
                     <div>
                         <label for="titre">Titre</label>
-                        <input type="text" class="form-control nice-select" name="titre">
+                        <input type="text" class="form-control nice-select-2" name="titre">
                     </div>
                     <div>
                         <label for="description">Description</label>
-                        <textarea class="form-control nice-select" name="description" id="description"></textarea>
+                        <textarea class="form-control nice-select-2" name="description" id="description" rows="4" cols="50"></textarea>
                     </div>
                     <div>
                         <label for="prix">Prix</label>
@@ -123,7 +123,6 @@
                             @endforeach
                         </select>
                     </div>
-
                     <div class="mt-2">
                         <label for="modele_id">Modèle</label>
                         <select id="modele_id" name="modele_id" class="nice-select">
@@ -147,7 +146,6 @@
                             </div>
                         @endforeach
                     </div>
-
                     <div>
                         <label for="images[]">Images</label>
                         <input type="file" class="form-control" name="images[]" multiple>

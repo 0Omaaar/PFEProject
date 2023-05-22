@@ -1,8 +1,23 @@
 @extends('admin.base')
 @section('title', 'Liste des annonces')
 @section('content')
-
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
     <div class="container mt-5">
+        <div>
+            <form id="searchForm" class="mb-3">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="recherche" placeholder="Rechercher une annonce">
+                    <div class="input-group-append">
+                        <button id="searchButton" class="btn btn-primary" type="button"><i
+                                class="mdi mdi-account-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
         <h2 class="text-center">LISTE DES ANNONCES</h2>
         <br>
         <div class="container">
@@ -28,21 +43,23 @@
                             </thead>
                             <tbody>
                                 @foreach ($annonces as $annonce)
-                                    <tr>
+                                    <tr class="user user-row" data-titre="{{ $annonce->titre }}"
+                                        data-description="{{ $annonce->description }}" data-etat="{{ $annonce->etat }}">
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $annonce->titre }}</td>
                                         <td>{{ $annonce->description }}</td>
                                         <td>
                                             @if ($annonce->isActive())
-                                                Activé
+                                                <p class="active">Activé</p>
                                             @else
-                                                Désactivé
+                                                <p class="desactive"> Désactivé</p>
                                             @endif
                                         </td>
                                         <td>{{ $annonce->created_at }}</td>
                                         <td>{{ $annonce->updated_at }}</td>
                                         <td>
-                                            <a href="{{route('admin.afficher_annonce', ['annonce' => $annonce->id])}}" class="btn btn-dark btn-sm mb-1">Afficher</a>
+                                            <a href="{{ route('admin.afficher_annonce', ['annonce' => $annonce->id]) }}"
+                                                class="btn btn-dark btn-sm mb-1">Afficher</a>
                                             @if (!$annonce->isActive())
                                                 <form action="{{ route('admin.activer', $annonce->id) }}" method="POST">
                                                     @csrf
@@ -50,7 +67,8 @@
                                                     </button>
                                                 </form>
                                             @else
-                                                <form action="{{ route('admin.desactiver', $annonce->id) }}" method="POST">
+                                                <form action="{{ route('admin.desactiver', $annonce->id) }}"
+                                                    method="POST">
                                                     @csrf
                                                     <button class="btn btn-danger btn-sm" type="submit">Desactiver
                                                     </button>
@@ -68,10 +86,27 @@
             @endif
         </div>
     </div>
-
-
-
     </body>
 
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function() {
+            var searchValue = document.getElementById('searchInput').value.toLowerCase();
+            var userRows = document.getElementsByClassName('user-row');
 
+            for (var i = 0; i < userRows.length; i++) {
+                var userRow = userRows[i];
+                var titre = userRow.getAttribute('data-titre').toLowerCase();
+                var description = userRow.getAttribute('data-description').toLowerCase();
+                var etat = userRow.getAttribute('data-etat');
+
+                if (titre.includes(searchValue) || description.includes(searchValue) || etat === searchValue || (
+                        searchValue === "activé" && etat === "1") || (searchValue === "désactivé" && etat ===
+                    "0")) {
+                    userRow.classList.remove('hidden');
+                } else {
+                    userRow.classList.add('hidden');
+                }
+            }
+        });
+    </script>
 @endsection

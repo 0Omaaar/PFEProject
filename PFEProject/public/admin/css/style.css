@@ -59,6 +59,29 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.active{
+  background-color: #0ACB8E;
+  text-align: center;
+  border-radius: 20px;
+  padding: 3px;
+  color: black;
+  font-weight: bold;
+}
+
+.desactive{
+  background-color: #fe5461;
+  text-align: center;
+  border-radius: 20px;
+  padding: 3px;
+  color: black;
+  font-weight: bold;
+}
+
+.recherche{
+  padding: 2px;
+  
+}
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }

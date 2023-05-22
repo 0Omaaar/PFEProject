@@ -5004,6 +5004,11 @@ body.rtl-mode .price-wrapper {
     box-shadow: var(--box-shadow)
 }
 
+.login-area{
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
 .login-form .login-header {
     text-align: center;
     margin-bottom: 50px

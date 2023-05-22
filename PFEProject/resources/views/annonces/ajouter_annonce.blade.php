@@ -7,7 +7,7 @@
         }
     </style>
     <div class="container card mb-5 mt-4">
-        <h1 class="text text-center card-header" id="card-header">Ajouter une annonce</h1>
+        <h3 class="text text-center card-header" id="card-header">Ajouter une annonce</h3>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

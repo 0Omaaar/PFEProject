@@ -41,18 +41,13 @@
         });
         NProgress.start();
     </script>
-
-
     {{-- Wrapper --}}
     <div class="wrapper">
-        <!-- ====================================
-          ——— LEFT SIDEBAR WITH OUT FOOTER
-        ===================================== -->
         <aside class="left-sidebar sidebar-dark" id="left-sidebar">
             <div id="sidebar" class="sidebar sidebar-with-footer">
                 <!-- Aplication Brand -->
                 <div class="app-brand">
-                    <a href="{{route('admin.index')}}">
+                    <a href="{{ route('admin.index') }}">
                         <span class="brand-name">ADMIN</span>
                     </a>
                 </div>
@@ -60,18 +55,15 @@
                 <div class="sidebar-left" data-simplebar style="height: 100%;">
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-
                         <li class="">
-                            <a class="sidenav-item-link" href="{{route('admin.index')}}">
+                            <a class="sidenav-item-link" href="{{ route('admin.index') }}">
                                 <i class="mdi mdi-briefcase-account-outline"></i>
                                 <span class="nav-text">Accueil</span>
                             </a>
                         </li>
-
                         <li class="section-title">
                             Gestion
                         </li>
-
                         <li class="has-sub">
                             <a class="sidenav-item-link" href="{{ asset('admin/javascript:void(0)') }}"
                                 data-toggle="collapse" data-target="#formations" aria-expanded="false"
@@ -82,17 +74,17 @@
                             <ul class="collapse" id="formations" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li>
-                                        <a class="sidenav-item-link" href="{{route('admin.annonces')}}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.annonces') }}">
                                             <span class="nav-text">Liste des annonces</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="sidenav-item-link" href="{{route('admin.annoncesSupp')}}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.annoncesSupp') }}">
                                             <span class="nav-text">Liste des annonces supprimées</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="sidenav-item-link" href="{{route('admin.stats.annonce')}}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.stats.annonce') }}">
                                             <span class="nav-text">Stats Annonces</span>
                                         </a>
                                     </li>
@@ -109,12 +101,12 @@
                             <ul class="collapse" id="familles" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li>
-                                        <a class="sidenav-item-link" href="{{route('admin.users')}}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.users') }}">
                                             <span class="nav-text">Liste des utilisateurs</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="sidenav-item-link" href="{{route('admin.stats.users')}}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.stats.users') }}">
                                             <span class="nav-text">Stats Utilisateurs</span>
                                         </a>
                                     </li>
@@ -131,12 +123,12 @@
                             <ul class="collapse" id="sousfamilles" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li>
-                                        <a class="sidenav-item-link" href="{{route('admin.marques')}}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.marques') }}">
                                             <span class="nav-text">Liste des marques</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="sidenav-item-link" href="{{route('admin.options')}}">
+                                        <a class="sidenav-item-link" href="{{ route('admin.options') }}">
                                             <span class="nav-text">Liste des options</span>
                                         </a>
                                     </li>
@@ -165,30 +157,6 @@
                                 </div>
                             </ul>
                         </li>
-
-                        <li class="has-sub">
-                            <a class="sidenav-item-link" href="{{ asset('admin/javascript:void(0)') }}"
-                                data-toggle="collapse" data-target="#charts" aria-expanded="false"
-                                aria-controls="charts">
-                                <i class="mdi mdi-chart-pie"></i>
-                                <span class="nav-text">Charts</span> <b class="caret"></b>
-                            </a>
-                            <ul class="collapse" id="charts" data-parent="#sidebar-menu">
-                                <div class="sub-menu">
-                                    <li>
-                                        <a class="sidenav-item-link" href="{{ asset('admin/apex-charts.html') }}">
-                                            <span class="nav-text">Apex Charts</span>
-
-                                        </a>
-                                    </li>
-                                </div>
-                            </ul>
-                        </li>
-
-                        <li class="section-title">
-                            Pages
-                        </li>
-
                     </ul>
                 </div>
             </div>
@@ -211,7 +179,8 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li class="dropdown-footer">
-                                        <a class="dropdown-link-item" href="{{route('signout')}}"> <i class="mdi mdi-logout"></i>
+                                        <a class="dropdown-link-item" href="{{ route('signout') }}"> <i
+                                                class="mdi mdi-logout"></i>
                                             Se deconnecter
                                         </a>
                                     </li>
@@ -223,9 +192,6 @@
             </header>
 
             @yield('content')
-
-
-
 
 
             <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>

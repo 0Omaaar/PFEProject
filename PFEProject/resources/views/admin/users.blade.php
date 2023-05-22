@@ -11,7 +11,8 @@
             <div class="input-group">
                 <input type="text" id="searchInput" class="recherche" placeholder="Rechercher un utilisateur">
                 <div class="input-group-append">
-                    <button id="searchButton" class="btn btn-primary" type="button"><i class="mdi mdi-account-search"></i></button>
+                    <button id="searchButton" class="btn btn-primary" type="button"><i
+                            class="mdi mdi-account-search"></i></button>
                 </div>
             </div>
         </form>
@@ -36,8 +37,8 @@
                                     <th>Email</th>
                                     <th>Telephone</th>
                                     <th>Ville</th>
+                                    <th>Type</th>
                                     <th>Crée a</th>
-                                    <th>Mise a jour a</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -47,15 +48,21 @@
                                         <tr class="user user-row" data-name="{{ $user->nom }}"
                                             data-prenom="{{ $user->prenom }}"
                                             data-email="{{ $user->email }}"data-telephone="{{ $user->telephone }}"
-                                            data-ville="{{ $user->ville }}">
+                                            data-ville="{{ $user->ville }}" data-type="{{ $user->type }}">
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ $user->nom }}</td>
                                             <td>{{ $user->prenom }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->telephone }}</td>
                                             <td>{{ $user->ville }}</td>
+                                            <td>
+                                                @if ($user->type == 'normal')
+                                                    <p class="active">{{ $user->type }}</p>
+                                                @else
+                                                    <p class="desactive">{{ $user->type }}</p>
+                                                @endif
+                                            </td>
                                             <td>{{ $user->created_at }}</td>
-                                            <td>{{ $user->updated_at }}</td>
                                             <td>
                                                 @if (!$user->isAdmin())
                                                     <form action="{{ route('users.rendreAdmin', $user->id) }}"
@@ -102,9 +109,10 @@
                 var email = userRow.getAttribute('data-email').toLowerCase();
                 var telephone = userRow.getAttribute('data-telephone').toLowerCase();
                 var ville = userRow.getAttribute('data-ville').toLowerCase();
+                var type = userRow.getAttribute('data-type').toLowerCase();
 
                 if (nom.includes(searchValue) || prenom.includes(searchValue) || ville.includes(searchValue) ||
-                    email.includes(searchValue) || telephone.includes(searchValue)) {
+                    email.includes(searchValue) || telephone.includes(searchValue) || type.includes(searchValue)) {
                     userRow.classList.remove('hidden');
                 } else {
                     userRow.classList.add('hidden');

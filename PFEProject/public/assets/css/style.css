@@ -2099,6 +2099,12 @@ label {
 .process-area .col-lg-3:last-child .process-single::before {
     display: none
 }
+.col-lg-13{
+    margin-right: 100px;
+}
+.col-lg-7 .kk{
+    margin-left: 80px;
+}
 
 .choose-area {
     position: relative;

@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="col-lg-3 align-self-end">
-                    <button class="theme-btn" type="submit"></span>Lancer la recherche</button>
+                    <button class="theme-btn" type="submit"><i class="mdi mdi-database-search"></i> Lancer la recherche</button>
                 </div>
 
                 <!-- Recherche avancée -->

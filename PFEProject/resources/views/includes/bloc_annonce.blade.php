@@ -16,7 +16,7 @@
                 <div class="car-footer">
                     @if ($annonce->prix == null)
                         <p id="appeler-prix" class="car-price">
-                            <strong><a href="#" onclick="afficherNumero(event)" style="text-decoration: none;">Appelez pour le prix</a></strong>
+                            <strong><a href="#" onclick="afficherNumero(event)" style="text-decoration: none;">Appelez <br> pour le prix</a></strong>
                         </p>
                         <p id="tel" class="car-price" style="display:none;">
                             <strong>{{ $annonce->user->telephone }}</strong>
@@ -24,7 +24,7 @@
                     @else
                         <p class="car-price"><strong>Prix:</strong> {{ $annonce->prix }}</p>
                     @endif
-                    <a href="{{ route('annonces.show', ['annonce' => $annonce->id]) }}" class="theme-btn">Details</a>
+                    <a href="{{ route('annonces.show', ['annonce' => $annonce->id]) }}" class="theme-btn"><i class="mdi mdi-eye mdi-18px"></i> Details</a>
                 </div>
             </div>
         </div>

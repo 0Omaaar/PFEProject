@@ -67,17 +67,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-lg-3 col-md-4 col-6">
-                                        <div class="car-key-item">
-                                            <div class="car-key-icon">
-                                                <i class="mdi mdi-calendar-outline"></i>
-                                            </div>
-                                            <div class="car-key-content">
-                                                <span>Année</span>
-                                                <h6>{{ $annonce->voiture->annee }}</h6>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                     <div class="col-lg-3 col-md-4 col-6">
                                         <div class="car-key-item">
                                             <div class="car-key-icon">
@@ -133,35 +122,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-lg-3 col-md-4 col-6">
-                                        <div class="car-key-item">
-                                            <div class="car-key-icon">
-                                            </div>
-                                            <div class="car-key-content">
-                                                <span>Modele:</span>
-                                                <h6>{{ $annonce->voiture->modele->nom }}</h6>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="col-lg-3 col-md-4 col-6">
-                                        <div class="car-key-item">
-                                            <div class="car-key-icon">
-                                            </div>
-                                            <div class="car-key-content">
-                                                <span>Marque</span>
-                                                <h6>{{ $annonce->voiture->marque->nom }}</h6>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
                         <div class="car-single-widget">
                             <div class="car-single-overview">
-                                <!-- <h4 class="mb-3">Description</h4>
-                                <div class="mb-4">
-                                    <p>{{ $annonce->description }}</p>
-                                </div> -->
                                 <h4 class="mb-3"><i class="mdi mdi-feature-search"></i> Caractéristiques de la voiture</h4>
                                 @if ($options->count() > 0)
                                 <div class="row mb-3">

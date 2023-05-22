@@ -27,7 +27,7 @@
         </div>
         @if ($marques->count() > 12)
             <div class="text-center">
-                <a href="#" id="loadMore" class="theme-btn">Suivant</a>
+                <a href="#" id="loadMore" class="theme-btn">Suivant<i class="mdi mdi-skip-next"></i></a>
             </div>
             <div class="row mx-auto text-center align-items-center mb-5" id="marquesHidden" style="display:none">
                 @foreach ($marques->skip(12)->take(15) as $marque)

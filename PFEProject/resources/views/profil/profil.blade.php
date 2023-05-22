@@ -65,11 +65,10 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button type="button" class="theme-btn"
-                                        id="btn-changer-mot-de-passe">Changer le mot de passe</button>
+                                    <button type="button" class="theme-btn" id="btn-changer-mot-de-passe">Changer le mot de
+                                        passe</button>
                                     <button type="button" class="theme-btn" id="modifier">Modifier</button>
-                                    <input type="submit" class="theme-btn" id="enregistrer" value="Enregister" 
-                                        disabled>
+                                    <input type="submit" class="theme-btn" id="enregistrer" value="Enregister" disabled>
                                 </div>
                         </div>
                     </div>
@@ -95,16 +94,79 @@
                                         id="password_confirmation"
                                         placeholder="Saisissez votre nouveau mot de passe à nouveau" disabled>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
-               
-            </form>
-
+                </form>
+                <div>
+                    <h3>Liste de vos annonces</h3>
+                    @if ($annonces && $annonces->count() > 0)
+                        <div class="row">
+                            @foreach ($annonces->chunk(3) as $chunk)
+                                @foreach ($chunk as $annonce)
+                                    @if ($annonce->isActive())
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="car-item wow fadeInUp" data-wow-delay=".25s">
+                                                <div class="car-img">
+                                                    <a href="{{ route('annonces.show', ['annonce' => $annonce->id]) }}">
+                                                        <img src="{{ asset('images/miniature/' . $annonce->miniature) }}"
+                                                            alt="{{ $annonce->titre }}" />
+                                                    </a>
+                                                </div>
+                                                <div class="car-content">
+                                                    <div class="car-top">
+                                                        <h4><a
+                                                                href="{{ route('annonces.show', ['annonce' => $annonce->id]) }}">{{ $annonce->titre }}</a>
+                                                        </h4>
+                                                    </div>
+                                                    <ul class="car-list">
+                                                        <li>{{ $annonce->voiture->transmission }}</li>
+                                                        <li>{{ $annonce->voiture->annee }}</li>
+                                                        <li>{{ $annonce->voiture->carburant }}</li>
+                                                        <li>{{ $annonce->voiture->kilometrage }}</li>
+                                                    </ul>
+                                                    <div class="car-footer">
+                                                        @if ($annonce->prix == null)
+                                                            <p id="appeler-prix" class="car-price">
+                                                                <strong><a href="#" onclick="afficherNumero(event)"
+                                                                        style="text-decoration: none;">Appelez <br> pour le
+                                                                        prix</a></strong>
+                                                            </p>
+                                                            <p id="tel" class="car-price" style="display:none;">
+                                                                <strong>{{ $annonce->user->telephone }}</strong>
+                                                            </p>
+                                                        @else
+                                                            <p class="car-price"><strong>Prix:</strong>
+                                                                {{ $annonce->prix }}</p>
+                                                        @endif
+                                                    </div>
+                                                    <div>
+                                                        <a href="{{ route('annonces.modifier', ['annonce' => $annonce->id]) }}"
+                                                            class="theme-btn">Modifier</a>
+                                                        <a href="#" class="theme-btn" style="background-color: red"
+                                                            onclick="if(confirm('Voulez-vous vraiment supprimer cette annonce ?')){document.getElementById('form-{{ $annonce->id }}').submit()}">Supprimer</a>
+                                                        <form id="form-{{ $annonce->id }}"
+                                                            action="{{ route('annonces.supprimer', ['annonce' => $annonce->id]) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        </div>
+                    @else
+                        <p>Aucune annonce trouvée.</p>
+                    @endif
+                </div>
             </div>
         </div>
+    </div>
     </div>
     <script>
         var boutonModifier = document.getElementById("modifier");

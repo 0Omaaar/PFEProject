@@ -9,7 +9,7 @@
     <div class="container card col-lg-8 my-5">
         <h3 class="text text-center card-header" id="card-header">Créer une annonce</h3>
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert alert-danger mt-2 text-center">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -168,21 +168,4 @@
     </div>
 
     <script src="{{ asset('js/ajouter_annonce.js') }}"></script>
-
-    <script>
-        function filterModels() {
-            var marqueSelect = document.getElementById("marque_id");
-            var modeleSelect = document.getElementById("modele_id");
-            var modeleOptions = modeleSelect.options;
-
-            for (var i = 0; i < modeleOptions.length; i++) {
-                var modeleOption = modeleOptions[i];
-                if (modeleOption.getAttribute("data-marque") !== marqueSelect.value && marqueSelect.value !== "") {
-                    modeleOption.style.display = "none";
-                } else {
-                    modeleOption.style.display = "";
-                }
-            }
-        }
-    </script>
 @endsection

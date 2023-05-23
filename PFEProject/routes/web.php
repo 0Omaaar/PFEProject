@@ -24,12 +24,17 @@ Route::post('/annonces/creer', [AnnonceController::class, 'store'])->name('annon
 Route::get('/annonces/{annonce}', [AnnonceController::class, 'show'])->name('annonces.show');
 
 Route::get('/annonces/modifier/{annonce}', [AnnonceController::class, 'edit'])->name('annonces.modifier');
+
 Route::put('/annonces/{annonce}', [AnnonceController::class, 'update'])->name('annonces.update');
 
 Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->name('annonces.supprimer');
 
 Route::post('/commentaire/{annonce}', [AnnonceController::class, 'createCommentaire'])->name('annonces.commentaire');
+
 Route::delete('/commentaire/{id}', [AnnonceController::class, 'deleteCommentaire'])->name('annonces.commentaires.delete');
+
+Route::delete('/image/{id}', [AnnonceController::class, 'deleteImage'])->name('annonces.images.delete');
+
 
 
 //Routes de la page de profile

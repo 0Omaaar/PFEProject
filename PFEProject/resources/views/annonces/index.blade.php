@@ -1,10 +1,9 @@
 @extends('base')
 @section('title', 'Page d\'acceuil')
 @section('content')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     @if (session()->has('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success mt-2 text-center">
             <h5>{{ session()->get('success') }}</h5>
         </div>
     @endif

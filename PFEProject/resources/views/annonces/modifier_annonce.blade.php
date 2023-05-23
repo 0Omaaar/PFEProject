@@ -4,9 +4,11 @@
 
 <div class="container col-lg-7 my-5">
     <div class="user-profile-card card-body">
-        <h4 class="user-profile-card-title"><i class="fa-solid fa-pen-to-square"></i> Modifier votre annonce</h4>
+        <h4 class="user-profile-card-title">
+            <i class="fa-solid fa-pen-to-square"></i> Modifier votre annonce
+        </h4>
         @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger mt-2 text-center">
             <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

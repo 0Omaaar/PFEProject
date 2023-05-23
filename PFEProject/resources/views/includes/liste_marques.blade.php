@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
-                    <span class="site-title-tagline">Car Category</span>
+                    <span class="site-title-tagline">Explorez les voitures selon votre marque préférée</span>
                     <h2 class="site-title">Voiture par <span>marque</span></h2>
                     <div class="heading-divider"></div>
                 </div>

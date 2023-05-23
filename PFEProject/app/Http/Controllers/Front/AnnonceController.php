@@ -271,13 +271,11 @@ class AnnonceController extends Controller
             }
         }
 
-        return redirect()->route('annonces.show', $annonce->id)->with('success', "Votre annonce est modifiée avec succes");
+        return redirect()->route('annonces.show', $annonce->id)->with('success', "Votre annonce a été modifiée avec succès");
     }
 
     public function destroy(Annonce $annonce)
     {
-
-
         $ancien_nom = $annonce->miniature;
         Storage::disk('public')->delete('images/miniature/' . $ancien_nom);
 
@@ -289,7 +287,7 @@ class AnnonceController extends Controller
         }
         $annonce->delete();
 
-        return redirect()->route('annonces.index')->with('success', "Votre annonce '$annonce->titre' est supprimée avec succes");
+        return redirect()->route('annonces.index')->with('success', "Votre annonce '$annonce->titre' a été supprimée avec succès");
     }
 
     public function search(Request $request)

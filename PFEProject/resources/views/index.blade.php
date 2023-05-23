@@ -20,7 +20,7 @@
                         <div class="col-md-12 col-lg-6">
                             <div class="hero-content">
                                 <h6 class="hero-sub-title" data-animation="fadeInUp" data-delay=".25s">
-                                    Bienvenue à votre marché de voitures
+                                    Bienvenue à votre marché de voitures !
                                 </h6>
                                 <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
                                     Meilleure façon de trouver la voiture <span>de vos rêves</span>
@@ -51,21 +51,20 @@
                         <div class="col-md-12 col-lg-6">
                             <div class="hero-content">
                                 <h6 class="hero-sub-title" data-animation="fadeInUp" data-delay=".25s">
-                                    Welcome To Motex!
+                                    Bienvenue à votre marché de voitures !
                                 </h6>
                                 <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
-                                    Best Way To Find Your <span>Dream</span> Car
+                                    Meilleure façon de trouver la voiture <span>de vos rêves</span>
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay=".75s">
-                                    There are many variations of passages orem psum available but the majority have suffered
-                                    alteration in some form by injected humour.
+                                    There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour.
                                 </p>
                                 <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                     <a href="#" class="theme-btn">
-                                        About More<i class="fas fa-arrow-right-long"></i>
+                                        À propos de nous<i class="fas fa-arrow-right-long"></i>
                                     </a>
                                     <a href="#" class="theme-btn theme-btn2">
-                                        Learn More<i class="fas fa-arrow-right-long"></i>
+                                        En savoir plus<i class="fas fa-arrow-right-long"></i>
                                     </a>
                                 </div>
                             </div>
@@ -86,21 +85,21 @@
                     <div class="row align-items-center">
                         <div class="col-md-12 col-lg-6">
                             <div class="hero-content">
-                                <h6 class="hero-sub-title" data-animation="fadeInUp" data-delay=".25s">Welcome To Motex!
+                                <h6 class="hero-sub-title" data-animation="fadeInUp" data-delay=".25s">
+                                    Bienvenue à votre marché de voitures !
                                 </h6>
                                 <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
-                                    Best Way To Find Your <span>Dream</span> Car
+                                    Meilleure façon de trouver la voiture <span>de vos rêves</span>
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay=".75s">
-                                    There are many variations of passages orem psum available but the majority have suffered
-                                    alteration in some form by injected humour.
+                                    There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour.
                                 </p>
                                 <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                     <a href="#" class="theme-btn">
-                                        About More<i class="fas fa-arrow-right-long"></i>
+                                        À propos de nous<i class="fas fa-arrow-right-long"></i>
                                     </a>
                                     <a href="#" class="theme-btn theme-btn2">
-                                        Learn More<i class="fas fa-arrow-right-long"></i>
+                                        En savoir plus<i class="fas fa-arrow-right-long"></i>
                                     </a>
                                 </div>
                             </div>

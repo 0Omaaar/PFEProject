@@ -7,14 +7,14 @@
                 @guest
                     <div class="header-top-right">
                         <div class="header-top-link">
-                            <a href="{{ route('login') }}">Login</a>
-                            <a href="{{ route('register-user') }}">Register</a>
+                            <a href="{{ route('login') }}">S'authentifier</a>
+                            <a href="{{ route('register-user') }}">Créer un compte</a>
                         </div>
                     </div>
                 @else
                     <div class="header-top-right">
                         <div class="header-top-link">
-                            <a href="{{ route('signout') }}">Logout</a>
+                            <a href="{{ route('signout') }}">Se déconnecter</a>
                         </div>
                     </div>
                 @endguest
@@ -40,21 +40,20 @@
                     @if (Auth::check())
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link padd" href="{{ route('profil.show') }}">My
-                                    Account&nbsp;&nbsp;&nbsp;</a>
+                                <a class="nav-link padd" href="{{ route('profil.show') }}">Mon compte&nbsp;&nbsp;&nbsp;</a>
                             </li>
                         </ul>
                     @endif
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="#" data-bs-toggle="dropdown">Pages</a>
                         <ul class="dropdown-menu fade-down">
-                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="about.html">À propos de nous</a></li>
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item " href="#">Contact</a>
                             </li>
                             @guest
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item " href="#">Authentication</a>
+                                    <a class="dropdown-item " href="#">Authentification</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="login.html">Login</a></li>
                                         <li><a class="dropdown-item" href="register.html">Register</a></li>

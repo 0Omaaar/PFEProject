@@ -2,8 +2,6 @@
 @section('title', 'Page d\'acceuil')
 @section('content')
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     @if (session()->has('success'))
         <div class="alert alert-success mt-2 text-center">
             <h5>{{ session()->get('success') }}</h5>
@@ -22,18 +20,17 @@
                         <div class="col-md-12 col-lg-6">
                             <div class="hero-content">
                                 <h6 class="hero-sub-title" data-animation="fadeInUp" data-delay=".25s">
-                                    Welcome To Motex!
+                                    Bienvenue à votre marché de voitures
                                 </h6>
                                 <h1 class="hero-title" data-animation="fadeInRight" data-delay=".50s">
-                                    Best Way To Find Your <span>Dream</span> Car
+                                    Meilleure façon de trouver la voiture <span>de vos rêves</span>
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay=".75s">
-                                    There are many variations of passages orem psum available but the majority have suffered
-                                    alteration in some form by injected humour.
+                                    There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour.
                                 </p>
                                 <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
-                                    <a href="#" class="theme-btn">About More</a>
-                                    <a href="#" class="theme-btn theme-btn2">Learn More</a>
+                                    <a href="#" class="theme-btn">À propos de nous</a>
+                                    <a href="#" class="theme-btn theme-btn2">En savoir plus</a>
                                 </div>
                             </div>
                         </div>

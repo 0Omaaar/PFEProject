@@ -1,11 +1,11 @@
 @extends('base')
 @section('content')
-    <div class="login-area">
+    <div class="login-area my-5">
         <div class="container">
             <div class="col-md-5 mx-auto">
                 <div class="login-form">
                     <div class="login-header">
-                        <p>Créer un compte</p>
+                        <h3>Créer un compte</h3>
                     </div>
                     <form action="{{ route('register.custom') }}" method="POST">
                         @csrf
@@ -58,7 +58,9 @@
                             @endif
                         </div>
                         <div class="d-flex align-items-center">
-                            <button type="submit" class="theme-btn">Créer<i class="mdi mdi-login-variant"></i></button>
+                            <button type="submit" class="theme-btn d-flex align-items-center justify-content-center">
+                                Créer <i class="fa-solid fa-right-to-bracket"></i>
+                            </button>
                         </div>
                     </form>
                     <div class="login-footer">

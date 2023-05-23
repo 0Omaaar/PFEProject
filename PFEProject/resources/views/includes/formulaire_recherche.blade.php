@@ -87,7 +87,7 @@
 
                 <div class="col-lg-3 align-self-end">
                     <button class="theme-btn" type="submit">
-                    <i class="fa-solid fa-magnifying-glass"></i> Lancer la recherche
+                        <i class="fa-solid fa-magnifying-glass"></i> Lancer la recherche
                     </button>
                 </div>
 
@@ -145,7 +145,9 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <p><a href="#" class="btn btn-primary btn-sm mt-3" id="recherche-avancee-link" onclick="toggleRechercheAvancee(event)">Recherche avancée</a></p>
+                    <p>
+                        <a href="#" class="theme-btn mt-3 btn-sm" id="recherche-avancee-link" onclick="toggleRechercheAvancee(event)">Recherche avancée</a>
+                    </p>
                 </div>
             </div>
         </form>

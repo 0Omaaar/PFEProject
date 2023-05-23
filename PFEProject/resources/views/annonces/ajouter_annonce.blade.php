@@ -1,13 +1,13 @@
 @extends('base')
-@section('title', 'Ajouter une annonce')
+@section('title', 'Créer une annonce')
 @section('content')
     <style>
         .page {
             display: none;
         }
     </style>
-    <div class="container card mb-5 mt-4">
-        <h3 class="text text-center card-header" id="card-header">Ajouter une annonce</h3>
+    <div class="container card col-lg-8 my-5">
+        <h3 class="text text-center card-header" id="card-header">Créer une annonce</h3>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -17,7 +17,7 @@
                 </ul>
             </div>
         @endif
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
         <div class="form-group card-body">
             <form action="{{ route('annonces.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -47,7 +47,9 @@
                             @endforeach
                         </select>
                     </div>
-                    <button class="next theme-btn mt-2" type="button">Suivant</button>
+                    <button class="next theme-btn mt-4" type="button">
+                        Suivant <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
                 <div class="page" id="page2">
                     <div class="mt-2">
@@ -93,8 +95,12 @@
                             @endforeach
                         </select>
                     </div>
-                    <button class="prev theme-btn mt-2" type="button">Précédent</button>
-                    <button class="next theme-btn mt-2" type="button">Suivant</button>
+                    <button class="prev theme-btn mt-4" type="button">
+                        <i class="fa-solid fa-arrow-left"></i> Précédent
+                    </button>
+                    <button class="next theme-btn mt-4" type="button">
+                        Suivant <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
                 <div class="page" id="page3">
                     <div>
@@ -150,8 +156,12 @@
                         <label for="images[]">Images</label>
                         <input type="file" class="form-control" name="images[]" multiple>
                     </div>
-                    <button class="prev theme-btn mt-2" type="button">Précédent</button>
-                    <button type="submit" class="theme-btn mt-2">Ajouter</button>
+                    <button class="prev theme-btn mt-4" type="button">
+                        <i class="fa-solid fa-arrow-left"></i> Précédent
+                    </button>
+                    <button class="theme-btn mt-4" type="submit">
+                        Enregistrer <i class="fa-solid fa-cloud-arrow-down"></i>
+                    </button>
                 </div>
             </form>
         </div>

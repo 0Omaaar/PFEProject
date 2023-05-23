@@ -8,23 +8,27 @@
                     <h4><a href="{{ route('annonces.show', ['annonce' => $annonce->id]) }}">{{ $annonce->titre }}</a></h4>
                 </div>
                 <ul class="car-list">
-                    <li>{{ $annonce->voiture->transmission }}</li>
-                    <li>{{ $annonce->voiture->annee }}</li>
-                    <li>{{ $annonce->voiture->carburant }}</li>
-                    <li>{{ $annonce->voiture->kilometrage }}</li>
+                    <li><i class="fa-solid fa-gears"></i> {{ $annonce->voiture->transmission}}</li>
+                    <li><i class="fa-solid fa-calendar-days"></i> {{ $annonce->voiture->annee}}</li>
+                </ul>
+                <ul class="car-list">
+                    <li><i class="fa-solid fa-gas-pump"></i> {{ $annonce->voiture->carburant}}</li>
+                    <li><i class="fa-solid fa-gauge-high"></i> {{ $annonce->voiture->kilometrage}}</li>
                 </ul>
                 <div class="car-footer">
                     @if ($annonce->prix == null)
-                        <p id="appeler-prix" class="car-price">
-                            <strong><a href="#" onclick="afficherNumero(event)" style="text-decoration: none;">Appelez <br> pour le prix</a></strong>
-                        </p>
-                        <p id="tel" class="car-price" style="display:none;">
-                            <strong>{{ $annonce->user->telephone }}</strong>
-                        </p>
+                    <p id="appeler-prix" class="car-price">
+                        <strong><a href="#" onclick="afficherNumero(event)" style="text-decoration: none;">Appelez <br> pour le prix</a></strong>
+                    </p>
+                    <p id="tel" class="car-price" style="display:none;">
+                        <strong>{{ $annonce->user->telephone }}</strong>
+                    </p>
                     @else
-                        <p class="car-price"><strong>Prix:</strong> {{ $annonce->prix }}</p>
+                    <p class="car-price">{{ $annonce->prix }} DH</p>
                     @endif
-                    <a href="{{ route('annonces.show', ['annonce' => $annonce->id]) }}" class="theme-btn"><i class="mdi mdi-eye mdi-18px"></i> Details</a>
+                    <a href="{{ route('annonces.show', ['annonce' => $annonce->id]) }}" class="theme-btn">
+                        <i class="fa-solid fa-eye fa-sm"></i> Détails
+                    </a>
                 </div>
             </div>
         </div>

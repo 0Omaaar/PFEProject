@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class OptionController extends Controller
 {
     public function index(){
-        $options = Option::all();
+        $options = Option::paginate(4);
 
         return view('admin.options.options', compact('options'));
     }

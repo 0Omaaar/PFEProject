@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class MarqueController extends Controller
 {
     public function index(){
-        $marques = Marque::all();
+        $marques = Marque::paginate(4);
 
         return view('admin.marques.marques', compact('marques'));
     }

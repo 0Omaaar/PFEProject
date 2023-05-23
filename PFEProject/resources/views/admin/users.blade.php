@@ -57,9 +57,9 @@
                                             <td>{{ $user->ville }}</td>
                                             <td>
                                                 @if ($user->type == 'normal')
-                                                    <p class="active">{{ $user->type }}</p>
+                                                    <p class="active etat">{{ $user->type }}</p>
                                                 @else
-                                                    <p class="desactive">{{ $user->type }}</p>
+                                                    <p class="desactive etat">{{ $user->type }}</p>
                                                 @endif
                                             </td>
                                             <td>{{ $user->created_at }}</td>
@@ -83,6 +83,7 @@
                                         </tr>
                                     @endif
                                 @endforeach
+                                
                             </tbody>
                         </table>
                     </div>
@@ -91,8 +92,11 @@
                 <h3>Aucun utilisateur</h3>
             @endif
         </div>
+        <div class="pagin">
+            {{$users->links()}}
+        </div>
     </div>
-
+    
 
 
     </body>

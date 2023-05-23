@@ -1,6 +1,8 @@
 <div class="container">
     <div class="find-car-form">
-        <h4 class="find-car-title">Trouvez votre voiture comme vous la désirez</h4>
+        <h4 class="find-car-title">
+            <i class="fa-solid fa-magnifying-glass"></i> Trouvez votre voiture comme vous la désirez
+        </h4>
         <form action="{{ route('annonces.recherche') }}" method="GET">
             @csrf
             <div class="row">

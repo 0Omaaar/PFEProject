@@ -3616,12 +3616,14 @@ label {
 }
 
 .car-list {
-    margin-top: 12px
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
 }
 
 .car-list li {
     display: inline-block;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     margin-bottom: 5px;
     font-size: 14px
 }

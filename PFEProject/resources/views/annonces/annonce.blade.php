@@ -245,14 +245,17 @@
                     </div>
                     @if (Auth::check() && $annonce->user_id == Auth::user()->id)
                     <div class="car-single-widget">
-                        <ul class="car-single-meta">
+                        <h4 class="mb-3">Opérations</h4>
+                        <ul class="car-single-meta" style="display: flex; justify-content: space-between;">
+                            <li>
+                                <a href="{{ route('annonces.modifier', ['annonce' => $annonce->id]) }}" class="theme-btn">Modifier</a>
+                            </li>
                             <li>
                                 <a href="#" class="theme-btn" onclick="if(confirm('Voulez-vous vraiment supprimer cette annonce ?')){document.getElementById('form-{{ $annonce->id }}').submit()}">Supprimer</a>
                                 <form id="form-{{ $annonce->id }}" action="{{ route('annonces.supprimer', ['annonce' => $annonce->id]) }}" method="post">
                                     @csrf
                                     <input type="hidden" name="_method" value="delete">
                                 </form>
-                                <a href="{{ route('annonces.modifier', ['annonce' => $annonce->id]) }}" class="theme-btn">Modifier</a>
                             </li>
                         </ul>
                     </div>

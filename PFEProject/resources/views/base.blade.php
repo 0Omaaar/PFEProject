@@ -43,7 +43,6 @@
 
     <script>
         // Afficher les modèles selon la marque séléctionnée
-
         document.addEventListener('DOMContentLoaded', function() {
             filterModels();
         });
@@ -159,6 +158,19 @@
     </script>
 
     <script>
+        // Get the value of the data attribute and parse it as a JavaScript array
+        var dataVariable = JSON.parse(document.getElementById('data-variable').getAttribute('data-value'));
+
+        $('.favori-button').each(function() {
+            var annonceId = $(this).data('annonce-id');
+            // Vérifier si l'annonce est déjà un favori de l'utilisateur
+            if (dataVariable.includes(annonceId)) {
+                // $(this).addClass('favori-added');
+                $(this).css('background', '#ff3157');
+            }
+        });
+    </script>
+    <script>
         // Écouteur d'événement pour le clic sur le bouton favori
         $('.favori-button').click(function(event) {
             event.preventDefault();
@@ -168,38 +180,47 @@
 
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-            // Envoi de la requête AJAX
-            $.ajax({
-                url: url,
-                method: 'POST',
-                data: {
-                    annonce_id: annonceId
-                },
-                headers: {
-                    // Inclure le jeton CSRF dans l'en-tête X-CSRF-Token
-                    'X-CSRF-Token': csrfToken
-                },
-                success: function(response) {
-                    // Traitement de la réponse du serveur
-                    if (response.success) {
-                        // La modification du favori a été effectuée avec succès
-                        if (response.action === 'added') {
-                            // Le favori a été ajouté
-                            $(event.target).addClass('favori-added');
-                        } else if (response.action === 'removed') {
-                            // Le favori a été supprimé
-                            $(event.target).removeClass('favori-added');
+            // Vérifier si l'utilisateur est authentifié
+            var isAuthenticated = "{{ auth()->check() }}";
+
+            // L'utilisateur est authentifié, effectuer la requête AJAX
+            if (isAuthenticated) {
+                // Envoi de la requête AJAX
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    data: {
+                        annonce_id: annonceId
+                    },
+                    headers: {
+                        // Inclure le jeton CSRF dans l'en-tête X-CSRF-Token
+                        'X-CSRF-Token': csrfToken
+                    },
+                    success: function(response) {
+                        // Traitement de la réponse du serveur
+                        if (response.success) {
+                            // La modification du favori a été effectuée avec succès
+                            if (response.action === 'added') {
+                                // Le favori a été ajouté
+                                $(event.target).closest('.favori-button').css('background', '#ff3157');
+                            } else if (response.action === 'removed') {
+                                // Le favori a été supprimé
+                                $(event.target).closest('.favori-button').removeAttr('style');
+                            }
+                        } else {
+                            // La modification du favori a échoué
+                            console.error(response.message);
                         }
-                    } else {
-                        // La modification du favori a échoué
-                        console.error(response.message);
+                    },
+                    error: function(xhr, status, error) {
+                        // Gestion des erreurs de la requête AJAX
+                        console.error(error);
                     }
-                },
-                error: function(xhr, status, error) {
-                    // Gestion des erreurs de la requête AJAX
-                    console.error(error);
-                }
-            });
+                });
+            } else {
+                // L'utilisateur n'est pas authentifié, rediriger vers la page d'authentification
+                window.location.href = "{{ route('login') }}";
+            }
         });
     </script>
 

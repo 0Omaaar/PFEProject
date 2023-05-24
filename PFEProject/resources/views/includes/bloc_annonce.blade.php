@@ -2,6 +2,13 @@
         <div class="car-item wow fadeInUp" data-wow-delay=".25s">
             <div class="car-img">
                 <img src="{{ asset('images/miniature/' . $annonce->miniature) }}" alt="{{ $annonce->titre }}" />
+                <div class="car-btns">
+                    <!-- <a href="#"><i class="far fa-xmark"></i></a> -->
+                    <a href="#" class="favori-button" data-annonce-id="{{ $annonce->id }}">
+                        <i class="far fa-heart"></i>
+                    </a>
+                    <!-- <a href="#"><i class="far fa-arrows-repeat"></i></a> -->
+                </div>
             </div>
             <div class="car-content">
                 <div class="car-top">

@@ -15,6 +15,7 @@ use App\Models\Marque;
 use App\Models\Modele;
 use App\Models\Option;
 use App\Models\Commentaire;
+use App\Models\Favori;
 
 
 class AnnonceController extends Controller
@@ -322,12 +323,12 @@ class AnnonceController extends Controller
         if ($request->filled('prix_min') && $request->filled('prix_max')) {
             $prix_min = $request->input('prix_min');
             $prix_max = $request->input('prix_max');
-        
+
             $validator = Validator::make($request->all(), [
                 'prix_min' => 'numeric',
                 'prix_max' => 'numeric',
             ]);
-            
+
             $validator->after(function ($validator) use ($request) {
                 $prix_min = $request->input('prix_min');
                 $prix_max = $request->input('prix_max');
@@ -336,19 +337,16 @@ class AnnonceController extends Controller
                     $validator->errors()->add('prix_max', 'Le prix maximal doit être supérieur au prix minimal');
                 }
             });
-            
+
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
 
             $annonces->where('prix', '>=', $prix_min)->where('prix', '<=', $prix_max);
-
-        }
-        elseif ($request->filled('prix_min')) {
+        } elseif ($request->filled('prix_min')) {
             $prix_min = $request->input('prix_min');
             $annonces->where('prix', '>=', $prix_min);
-        }
-        elseif ($request->filled('prix_max')) {
+        } elseif ($request->filled('prix_max')) {
             $prix_max = $request->input('prix_max');
             $annonces->where('prix', '<=', $prix_max);
         }
@@ -418,5 +416,34 @@ class AnnonceController extends Controller
         ];
 
         return view('annonces.recherche', $parameters);
+    }
+
+    public function toggle(Request $request)
+    {
+        $annonceId = $request->input('annonce_id');
+        $user = auth()->user();
+
+        // Vérifie si l'utilisateur a déjà ajouté ce favori
+        $favori = Favori::where('user_id', $user->id)
+            ->where('annonce_id', $annonceId)
+            ->first();
+
+        if ($favori) {
+            // Le favori existe, donc on le supprime
+            $favori->delete();
+            $action = 'removed';
+        } else {
+            // Le favori n'existe pas, donc on le crée
+            Favori::create([
+                'user_id' => $user->id,
+                'annonce_id' => $annonceId,
+            ]);
+            $action = 'added';
+        }
+
+        return response()->json([
+            'success' => true,
+            'action' => $action,
+        ]);
     }
 }

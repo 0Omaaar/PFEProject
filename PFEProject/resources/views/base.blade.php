@@ -6,10 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <!-- <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('assets/css/all-fontawesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/plugins/material/css/materialdesignicons.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('admin/plugins/material/css/materialdesignicons.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
@@ -157,7 +158,52 @@
         }
     </script>
 
-    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script>
+        // Écouteur d'événement pour le clic sur le bouton favori
+        $('.favori-button').click(function(event) {
+            event.preventDefault();
+
+            var annonceId = $(this).data('annonce-id');
+            var url = "{{ route('favoris.toggle') }}";
+
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+            // Envoi de la requête AJAX
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: {
+                    annonce_id: annonceId
+                },
+                headers: {
+                    // Inclure le jeton CSRF dans l'en-tête X-CSRF-Token
+                    'X-CSRF-Token': csrfToken
+                },
+                success: function(response) {
+                    // Traitement de la réponse du serveur
+                    if (response.success) {
+                        // La modification du favori a été effectuée avec succès
+                        if (response.action === 'added') {
+                            // Le favori a été ajouté
+                            $(event.target).addClass('favori-added');
+                        } else if (response.action === 'removed') {
+                            // Le favori a été supprimé
+                            $(event.target).removeClass('favori-added');
+                        }
+                    } else {
+                        // La modification du favori a échoué
+                        console.error(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Gestion des erreurs de la requête AJAX
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+
+    <!-- <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script> -->
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
@@ -167,7 +213,7 @@
     <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/js/counter-up.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script> -->
     <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('assets/js/flex-slider.js') }}"></script>

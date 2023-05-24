@@ -46,6 +46,12 @@ class Annonce extends Model
         return $this->hasMany(Commentaire::class);
     }
 
+    public function utilisateurs()
+    {
+        return $this->belongsToMany(User::class, 'favoris', 'annonce_id', 'user_id')->withTimestamps();
+    }
+
+
     public function isActive()
     {
         return $this->etat == 1;

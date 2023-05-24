@@ -33,7 +33,7 @@ Route::post('/commentaire/{annonce}', [AnnonceController::class, 'createCommenta
 
 Route::delete('/commentaire/{id}', [AnnonceController::class, 'deleteCommentaire'])->name('annonces.commentaires.delete');
 
-Route::delete('/image/{id}', [AnnonceController::class, 'deleteImage'])->name('annonces.images.delete');
+Route::post('/annonces/favoris/toggle', [AnnonceController::class, 'toggle'])->name('favoris.toggle');
 
 
 

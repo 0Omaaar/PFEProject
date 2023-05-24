@@ -51,7 +51,11 @@ class Annonce extends Model
         return $this->belongsToMany(User::class, 'favoris', 'annonce_id', 'user_id')->withTimestamps();
     }
 
-
+    public function vues()
+    {
+        return $this->hasMany(Vue::class);
+    }
+    
     public function isActive()
     {
         return $this->etat == 1;

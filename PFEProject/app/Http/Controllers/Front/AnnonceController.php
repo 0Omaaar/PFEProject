@@ -136,8 +136,16 @@ class AnnonceController extends Controller
 
     public function show(Annonce $annonce)
     {
+        if (auth()->check()) {
+            $user = auth()->user();
+
+            if (!$user->vues()->where('annonce_id', $annonce->id)->exists()) {
+                $annonce->increment('vues');
+                $user->vues()->attach($annonce->id);
+            }
+        }
+
         $commentaires = $annonce->commentaire;
-        // Récupérer les options associées à l'annonce
         $options = $annonce->voiture->options;
         return view('annonces.annonce', compact('annonce', 'options', 'commentaires'));
     }

@@ -21,6 +21,10 @@
                                         <li><i class="mdi mdi-calendar-today mdi-18px"></i> Publiée le :
                                             {{ \Carbon\Carbon::parse($annonce->created_at)->format('d-m-Y') }}</li>
                                     </ul>
+                                    <div class="mb-4">
+                                        <p>Cette annonce a été vue <strong class="bold">{{ $annonce->vues }}</strong>
+                                            fois.</p>
+                                    </div>
                                 </div>
                                 <div class="car-single-slider">
                                     <div class="item-gallery">

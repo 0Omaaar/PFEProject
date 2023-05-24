@@ -2,11 +2,11 @@
 @section('title', 'Afficher l\'annonce')
 @section('content')
 
-    @if (session()->has('success'))
-        <div class="alert alert-success mt-2 text-center">
-            <h5>{{ session()->get('success') }}</h5>
-        </div>
-    @endif
+    {{-- @if (session()->has('success'))
+<div class="alert alert-success mt-2 text-center">
+    <h5>{{ session()->get('success') }}</h5>
+</div>
+@endif --}}
 
     <div class="car-item-single bg pt-4">
         <div class="container">
@@ -243,12 +243,12 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
+                        @include('includes.success')
                         <div class="car-single-widget">
                             <h6>{{ $annonce->voiture->modele->nom }} {{ $annonce->voiture->marque->nom }}
                                 {{ $annonce->voiture->annee }}</h6>
-                                @if ($annonce->prix == null)
-                                <h4 id="appeler-prix" style="cursor: pointer;"><strong a href="#" onclick="afficherNumero(event)"
-                                    style="text-decoration: none;">Appelez pour le prix</strong>
+                            @if ($annonce->prix == null)
+                                <h4 id="appeler-prix" style="cursor: pointer;"><strong>Appelez pour le prix</strong>
                                 </h4>
                                 <h4 id="tel" class="car-single-price" style="display:none;">
                                     <strong>{{ $annonce->user->telephone }}</strong></p>
@@ -293,15 +293,5 @@
             </div>
         </div>
     </div>
-    <script>
-        // Pour afficher le numero de telephone à la place du prix
-        function afficherNumero(event) {
-            event.preventDefault(); // Empêche le déplacement de la page vers le haut
 
-            let appelerPrix = document.getElementById('appeler-prix');
-            let tel = document.getElementById('tel');
-            appelerPrix.style.display = 'none';
-            tel.style.display = 'block';
-        }
-    </script>
 @endsection

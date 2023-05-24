@@ -2,19 +2,16 @@
 @section('title', 'Page d\'acceuil')
 @section('content')
 
-    @if (session()->has('success'))
+    {{-- @if (session()->has('success'))
         <div class="alert alert-success mt-2 text-center">
             <h5>{{ session()->get('success') }}</h5>
         </div>
-    @endif
+    @endif --}}
 
     <!-- Acceuil -->
     <div class="hero-section">
         <div class="hero-slider owl-carousel owl-theme">
             <div class="hero-single">
-                {{-- to add to the previous div : 
-                        style="background: url(assets/img/slider/slider-1.jpg)"
-                        --}}
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-12 col-lg-6">
@@ -26,24 +23,30 @@
                                     Meilleure façon de trouver la voiture <span>de vos rêves</span>
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay=".75s">
-                                    There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour.
+                                    There are many variations of passages orem psum available but the majority have suffered
+                                    alteration in some form by injected humour.
                                 </p>
                                 <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                     <a href="#" class="theme-btn">À propos de nous</a>
                                     <a href="#" class="theme-btn theme-btn2">En savoir plus</a>
                                 </div>
                             </div>
+
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <div class="hero-right">
+                                <div style="margin-bottom: 40px">
+                                    @include('includes.success')
+                                </div>
                                 <div class="hero-img">
+
                                     {{-- <img src="assets/img/slider/hero-1.png" alt data-animation="fadeInRight" data-delay=".25s"> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
             <div class="hero-single">
                 {{-- to add : style="background: url(assets/img/slider/slider-2.jpg)" --}}
                 <div class="container">
@@ -57,7 +60,8 @@
                                     Meilleure façon de trouver la voiture <span>de vos rêves</span>
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay=".75s">
-                                    There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour.
+                                    There are many variations of passages orem psum available but the majority have suffered
+                                    alteration in some form by injected humour.
                                 </p>
                                 <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                     <a href="#" class="theme-btn">
@@ -92,7 +96,8 @@
                                     Meilleure façon de trouver la voiture <span>de vos rêves</span>
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay=".75s">
-                                    There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected humour.
+                                    There are many variations of passages orem psum available but the majority have suffered
+                                    alteration in some form by injected humour.
                                 </p>
                                 <div class="hero-btn" data-animation="fadeInUp" data-delay="1s">
                                     <a href="#" class="theme-btn">
@@ -139,17 +144,17 @@
             </div>
 
             @if ($annonces && $annonces->count() > 0)
-            <div class="row">
-                @foreach ($annonces->chunk(4) as $chunk)
-                @foreach ($chunk as $annonce)
-                @if ($annonce->isActive())
-                @include('includes.bloc_annonce')
-                @endif
-                @endforeach
-                @endforeach
-            </div>
+                <div class="row">
+                    @foreach ($annonces->chunk(4) as $chunk)
+                        @foreach ($chunk as $annonce)
+                            @if ($annonce->isActive())
+                                @include('includes.bloc_annonce')
+                            @endif
+                        @endforeach
+                    @endforeach
+                </div>
             @else
-            <p>Aucune annonce trouvée.</p>
+                <p>Aucune annonce trouvée.</p>
             @endif
         </div>
     </div>
@@ -160,8 +165,8 @@
         $(document).ready(function() {
 
             var loadedBrands = 12;
-            var marquesCount = {{$marques->count()}};
-            
+            var marquesCount = {{ $marques->count() }};
+
             // Quand le bouton suivant est cliqué
             $("#loadMore").click(function(e) {
                 e.preventDefault();

@@ -60,5 +60,8 @@
         @endif
     </div>
 </div>
+<div class="pagin">
+    {{$marques->links()}}
+</div>
 </body>
 @endsection

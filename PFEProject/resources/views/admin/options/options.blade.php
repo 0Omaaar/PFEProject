@@ -55,5 +55,8 @@
         @endif
     </div>
 </div>
+<div class="pagin">
+    {{$options->links()}}
+</div>
 </body>
 @endsection

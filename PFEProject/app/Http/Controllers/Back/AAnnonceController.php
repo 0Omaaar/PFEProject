@@ -40,7 +40,7 @@ class AAnnonceController extends Controller
     }
     public function annonces()
     {
-        $annonces = Annonce::latest()->get();
+        $annonces = Annonce::latest()->paginate(4);
 
         return view('admin.annonces', compact('annonces'));
     }
@@ -87,7 +87,7 @@ class AAnnonceController extends Controller
 
     public function annoncesSupp()
     {
-        $annonces_supprimees = Annonce::onlyTrashed()->get();
+        $annonces_supprimees = Annonce::onlyTrashed()->paginate(3);
 
         return view('admin.annoncesSupp', compact('annonces_supprimees'));
     }

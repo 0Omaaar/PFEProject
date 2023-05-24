@@ -34,9 +34,9 @@
                                         <td>{{ $annonce->description }}</td>
                                         <td>
                                             @if ($annonce->isActive())
-                                                Activé
+                                                <p class="active etat">Activé</p>
                                             @else
-                                                Désactivé
+                                                <p class="desactive etat"> Désactivé</p>
                                             @endif
                                         </td>
                                         <td>{{ $annonce->created_at }}</td>
@@ -66,7 +66,9 @@
             @endif
         </div>
     </div>
-
+    <div class="pagin">
+        {{$annonces_supprimees->links()}}
+    </div>
 
 
     </body>

@@ -50,9 +50,9 @@
                                         <td>{{ $annonce->description }}</td>
                                         <td>
                                             @if ($annonce->isActive())
-                                                <p class="active">Activé</p>
+                                                <p class="active etat">Activé</p>
                                             @else
-                                                <p class="desactive"> Désactivé</p>
+                                                <p class="desactive etat"> Désactivé</p>
                                             @endif
                                         </td>
                                         <td>{{ $annonce->created_at }}</td>
@@ -85,6 +85,10 @@
                 <h3>AUCUNE ANNONCE POUR LE MOMENT</h3>
             @endif
         </div>
+
+    </div>
+    <div class="pagin">
+        {{$annonces->links()}}
     </div>
     </body>
 

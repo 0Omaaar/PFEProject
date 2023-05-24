@@ -42,7 +42,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Annonce::class, 'favoris', 'user_id', 'annonce_id')->withTimestamps();
     }
 
-
+    public function vues()
+    {
+        return $this->belongsToMany(Annonce::class, 'vues', 'user_id', 'annonce_id')->withTimestamps();
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -2,11 +2,8 @@
 @section('title', 'Page d\'acceuil')
 @section('content')
 
-    @if (session()->has('success'))
-        <div class="alert alert-success mt-2 text-center">
-            <h5>{{ session()->get('success') }}</h5>
-        </div>
-    @endif
+
+
 
     <div class="container">
 

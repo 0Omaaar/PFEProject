@@ -496,7 +496,7 @@ label {
 }
 
 .site-title {
-    font-weight: 700;
+    font-weight: 650;
     text-transform: capitalize;
     font-size: 45px;
     color: var(--color-dark);
@@ -565,7 +565,7 @@ label {
     color: var(--color-white);
     padding: 12px 20px;
     transition: all .5s;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     position: relative;
     border-radius: 13px;
     font-weight: 500;
@@ -901,7 +901,7 @@ label {
         color: var(--color-dark);
         position: relative;
         overflow: hidden;
-        text-transform: capitalize;
+        /* text-transform: capitalize; */
         transition: all .3s ease-in-out
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('prix')->nullable();
             $table->string('miniature');
             $table->boolean('etat')->default(false);
+            $table->integer('vues')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('voiture_id');

@@ -1,4 +1,4 @@
-    <input type="hidden" id="data-variable" data-value="{{ json_encode($favorites) }}">
+    <input type="hidden" id="liste-favorites" data-value="{{ json_encode($favorites) }}">
 
     <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="car-item wow fadeInUp" data-wow-delay=".25s">

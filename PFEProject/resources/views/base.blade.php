@@ -161,6 +161,8 @@
         // Get the value of the data attribute and parse it as a JavaScript array
         var dataVariable = JSON.parse(document.getElementById('liste-favorites').getAttribute('data-value'));
 
+        console.log("miaw", dataVariable);
+
         $('.favori-button').each(function() {
             var annonceId = $(this).data('annonce-id');
             // Vérifier si l'annonce est déjà un favori de l'utilisateur

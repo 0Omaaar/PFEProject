@@ -1,6 +1,8 @@
 @extends('base')
 @section('title', 'Page de profil')
 @section('content')
+<input type="hidden" id="liste-favorites" data-value="{{ json_encode($favorites) }}">
+
 <div class="container col-lg-6 my-5">
     <div class="user-profile-card card-body">
         <h4 class="user-profile-card-title">Page de profil</h4>

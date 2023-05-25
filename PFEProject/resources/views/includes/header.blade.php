@@ -5,18 +5,18 @@
                 <div class="header-top-left">
                 </div>
                 @guest
-                    <div class="header-top-right">
-                        <div class="header-top-link">
-                            <a href="{{ route('login') }}">S'authentifier</a>
-                            <a href="{{ route('register-user') }}">Créer un compte</a>
-                        </div>
+                <div class="header-top-right">
+                    <div class="header-top-link">
+                        <a href="{{ route('login') }}">S'authentifier</a>
+                        <a href="{{ route('register-user') }}">Créer un compte</a>
                     </div>
+                </div>
                 @else
-                    <div class="header-top-right">
-                        <div class="header-top-link">
-                            <a href="{{ route('signout') }}">Se déconnecter</a>
-                        </div>
+                <div class="header-top-right">
+                    <div class="header-top-link">
+                        <a href="{{ route('signout') }}">Se déconnecter</a>
                     </div>
+                </div>
                 @endguest
             </div>
         </div>
@@ -31,40 +31,25 @@
                     {{-- <div class="search-btn">
                         <button type="button" class="nav-right-link"></button>
                     </div> --}}
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-mobile-icon"></span>
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="main_nav">
                     @if (Auth::check())
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link padd" href="{{ route('profil.show') }}">Mon compte&nbsp;&nbsp;&nbsp;</a>
-                            </li>
-                        </ul>
-                    @endif
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="#" data-bs-toggle="dropdown">Pages</a>
-                        <ul class="dropdown-menu fade-down">
-                            <li><a class="dropdown-item" href="about.html">À propos de nous</a></li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item " href="#">Contact</a>
-                            </li>
-                            @guest
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-item " href="#">Authentification</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="login.html">Login</a></li>
-                                        <li><a class="dropdown-item" href="register.html">Register</a></li>
-                                        <li><a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            @endguest
-                        </ul>
-                    </li>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link padd" href="#">
+                                <i class="far fa-heart fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link padd" href="{{ route('profil.show') }}">
+                            <i class="fa fa-user"></i> Mon compte
+                            </a>
+                        </li>
                     </ul>
+                    @endif
                     <div class="nav-right">
                         {{-- <div class="search-btn">
                             <button type="button" class="nav-right-link"></button>
@@ -77,6 +62,28 @@
                             <button type="button" class="nav-right-link"></button>
                         </div>
                     </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="#" data-bs-toggle="dropdown">Pages</a>
+                        <ul class="dropdown-menu fade-down">
+                            <li><a class="dropdown-item" href="about.html">À propos de nous</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item " href="#">Contact</a>
+                            </li>
+                            @guest
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item " href="#">Authentification</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                    <li><a class="dropdown-item" href="register.html">Register</a></li>
+                                    <li><a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @endguest
+                        </ul>
+                    </li>
+                    </ul>
+                    
                 </div>
                 <div class="search-area">
                     <form action="#">

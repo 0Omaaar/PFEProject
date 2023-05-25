@@ -2,15 +2,11 @@
 @section('title', 'Page d\'acceuil')
 @section('content')
 
-
-
-
     <div class="container">
 
         {{-- Liste des marques --}}
 
         @include('includes.liste_marques')
-
 
         <h2>Découvrez les dérnières annonces de la marque <strong>{{ $marque_choisie->nom }}</strong></h2>
         <div class="text text-center">
@@ -42,7 +38,6 @@
             tel.style.display = 'block';
         });
     </script>
-
 
     <script>
         function filterModels() {

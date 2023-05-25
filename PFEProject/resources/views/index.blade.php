@@ -9,7 +9,7 @@
     @endif --}}
 
     <!-- Acceuil -->
-    <div class="hero-section">
+    <!-- <div class="hero-section">
         <div class="hero-slider owl-carousel owl-theme">
             <div class="hero-single">
                 <div class="container">
@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Formulaire de recherche -->
     <div class="find-car">
@@ -154,7 +154,7 @@
                     @endforeach
                 </div>
             @else
-                <p>Aucune annonce trouvée.</p>
+                <h4 class="text-center">Aucune annonce pour le moment.</h4>
             @endif
         </div>
     </div>

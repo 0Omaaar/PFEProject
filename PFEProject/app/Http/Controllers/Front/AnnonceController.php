@@ -457,4 +457,25 @@ class AnnonceController extends Controller
             'action' => $action,
         ]);
     }
+
+    public function favorites()
+    {
+        $userId = auth()->user()->id;
+
+        // Récupérer les ID des favoris de l'utilisateur
+        $favorites = Favorite::where('user_id', $userId)->pluck('annonce_id');
+
+        // Récupérer les annonces correspondantes aux favoris
+        $annonces = Annonce::whereIn('id', $favorites)->get();
+
+        // Passer les annonces et les ID des favorites à la vue
+        return view('annonces.favorites', compact('annonces', 'favorites'));
+    }
+
+    public function nombreFavorites()
+    {
+        $userId = auth()->user()->id;
+        $nombreFavorites = Favorite::where('user_id', $userId)->count();
+        return $nombreFavorites;
+    }
 }

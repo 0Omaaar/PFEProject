@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Annonce;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
+use App\Models\Favorite;
 
 
 class ProfilController extends Controller
@@ -34,7 +35,9 @@ class ProfilController extends Controller
     {
         $user = auth()->user();
         $annonces = Annonce::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
-        return view('profil.profil', compact('user', 'annonces'));
+        $favorites = Favorite::where('user_id', $user->id)->pluck('annonce_id');
+
+        return view('profil.profil', compact('user', 'annonces', 'favorites'));
     }
 
 

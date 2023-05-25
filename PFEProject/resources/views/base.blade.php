@@ -159,7 +159,7 @@
 
     <script>
         // Get the value of the data attribute and parse it as a JavaScript array
-        var dataVariable = JSON.parse(document.getElementById('data-variable').getAttribute('data-value'));
+        var dataVariable = JSON.parse(document.getElementById('liste-favorites').getAttribute('data-value'));
 
         $('.favori-button').each(function() {
             var annonceId = $(this).data('annonce-id');

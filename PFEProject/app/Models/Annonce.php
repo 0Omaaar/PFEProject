@@ -46,9 +46,10 @@ class Annonce extends Model
         return $this->hasMany(Commentaire::class);
     }
 
-    public function utilisateurs()
+    public function favorites()
     {
-        return $this->belongsToMany(User::class, 'favoris', 'annonce_id', 'user_id')->withTimestamps();
+        // return $this->belongsToMany(User::class, 'favorites', 'annonce_id', 'user_id')->withTimestamps();
+        return $this->hasMany(Favorite::class);
     }
 
     public function vues()

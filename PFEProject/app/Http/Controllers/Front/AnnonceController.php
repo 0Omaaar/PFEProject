@@ -15,7 +15,7 @@ use App\Models\Marque;
 use App\Models\Modele;
 use App\Models\Option;
 use App\Models\Commentaire;
-use App\Models\Favori;
+use App\Models\Favorite;
 
 
 class AnnonceController extends Controller
@@ -32,8 +32,9 @@ class AnnonceController extends Controller
         $annonces = Annonce::latest()->get();
         $marques = Marque::all();
         $modeles = Modele::all();
+        $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');
 
-        return view('index', compact('annonces', 'marques', 'modeles'));
+        return view('index', compact('annonces', 'marques', 'modeles', 'favorites'));
     }
 
     public function parMarque($id)
@@ -405,11 +406,13 @@ class AnnonceController extends Controller
 
         $marques = Marque::all();
         $modeles = Modele::all();
+        $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');
 
         $parameters = [
             'annonces' => $annonces,
             'marques' => $marques,
             'modeles' => $modeles,
+            'favorites' => $favorites,
             'marque_id' => isset($marque_id) ? $marque_id : null,
             'modele_id' => isset($modele_id) ? $modele_id : null,
             'ville' => isset($ville) ? $ville : null,
@@ -432,7 +435,7 @@ class AnnonceController extends Controller
         $user = auth()->user();
 
         // Vérifie si l'utilisateur a déjà ajouté ce favori
-        $favori = Favori::where('user_id', $user->id)
+        $favori = Favorite::where('user_id', $user->id)
             ->where('annonce_id', $annonceId)
             ->first();
 
@@ -442,7 +445,7 @@ class AnnonceController extends Controller
             $action = 'removed';
         } else {
             // Le favori n'existe pas, donc on le crée
-            Favori::create([
+            Favorite::create([
                 'user_id' => $user->id,
                 'annonce_id' => $annonceId,
             ]);

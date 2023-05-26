@@ -6,11 +6,12 @@
 <div class="container col-lg-6 my-5">
     <div class="user-profile-card card-body">
         <h4 class="user-profile-card-title">Page de profil</h4>
-        @if (session()->has('success'))
+        {{-- @if (session()->has('success'))
         <div class="alert alert-success">
             <h5>{{ session()->get('success') }}</h5>
         </div>
-        @endif
+        @endif --}}
+        @include('includes.success')
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

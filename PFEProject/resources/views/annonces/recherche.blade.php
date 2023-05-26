@@ -2,11 +2,12 @@
 @section('title', 'Page de recherche')
 @section('content')
 
-@if (session()->has('success'))
+{{-- @if (session()->has('success'))
 <div class="alert alert-success mt-2 text-center">
     <h5>{{ session()->get('success') }}</h5>
 </div>
-@endif
+@endif --}}
+@include('includes.success')
 
 <!-- Formulaire de recherche -->
 <div class="find-car my-5">

@@ -2,6 +2,8 @@
 @section('title', 'Page d\'acceuil')
 @section('content')
 
+
+@include('includes.success')
     {{-- @if (session()->has('success'))
         <div class="alert alert-success mt-2 text-center">
             <h5>{{ session()->get('success') }}</h5>
@@ -123,7 +125,7 @@
     </div> -->
 
     <!-- Formulaire de recherche -->
-    <div class="find-car">
+    <div class="find-car mt-5">
         @include('includes.formulaire_recherche')
     </div>
 

@@ -45,10 +45,12 @@ class AnnonceController extends Controller
 
         $marques = Marque::all();
         $modeles = Modele::all();
+        $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');
+
 
         $marque_choisie = Marque::find($id);
 
-        return view('annonces.index', compact('annonces', 'marques', 'modeles', 'marque_choisie'));
+        return view('annonces.index', compact('annonces', 'marques', 'modeles', 'marque_choisie', 'favorites'));
     }
 
 

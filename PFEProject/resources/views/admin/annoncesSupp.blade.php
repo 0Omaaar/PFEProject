@@ -2,7 +2,7 @@
 @section('title', 'Liste des annonces')
 @section('content')
 
-    <div class="container mt-5">
+    <div class="container my-7">
         <h2 class="text-center">LISTE DES ANNONCES SUPPRIMEES</h2>
         <br>
         <div class="container">
@@ -65,9 +65,9 @@
                 <h3>AUCUNE ANNONCE POUR LE MOMENT</h3>
             @endif
         </div>
-    </div>
-    <div class="pagin">
-        {{$annonces_supprimees->links()}}
+        <div class="pagin">
+            {{$annonces_supprimees->links()}}
+        </div>
     </div>
 
 

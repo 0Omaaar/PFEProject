@@ -6,7 +6,7 @@
             display: none;
         }
     </style>
-    <div class="container mt-5">
+    <div class="container my-7">
         <div>
             <form id="searchForm" class="mb-3">
                 <div class="input-group">
@@ -84,9 +84,9 @@
             @endif
         </div>
 
-    </div>
-    <div class="pagin">
-        {{$annonces->links()}}
+        <div class="pagin">
+            {{$annonces->links()}}
+        </div>
     </div>
     </body>
 

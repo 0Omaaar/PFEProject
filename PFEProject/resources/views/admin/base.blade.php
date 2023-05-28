@@ -6,8 +6,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
+    <!-- <script src="{{ asset('admin/plugins/jquery-3.6.0.min.js') }}"></script> -->
     <!-- GOOGLE FONTS -->
-    <link href="{{ asset('admin/https://fonts.googleapis.com/css?family=Karla:400,700|Roboto') }}" rel="stylesheet">
     <link href="{{ asset('admin/plugins/material/css/materialdesignicons.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('admin/plugins/simplebar/simplebar.css') }}" rel="stylesheet" />
 
@@ -80,12 +80,12 @@
                                     </li>
                                     <li>
                                         <a class="sidenav-item-link" href="{{ route('admin.annoncesSupp') }}">
-                                            <span class="nav-text">Liste des annonces supprimées</span>
+                                            <span class="nav-text">Liste des annonces</br>supprimées</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="sidenav-item-link" href="{{ route('admin.annoncesVend') }}">
-                                            <span class="nav-text">Liste des annonces Vendues</span>
+                                            <span class="nav-text">Liste des annonces</br>Vendues</span>
                                         </a>
                                     </li>
                                     <li>
@@ -197,7 +197,6 @@
             </header>
 
             @yield('content')
-
 
             <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
             <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

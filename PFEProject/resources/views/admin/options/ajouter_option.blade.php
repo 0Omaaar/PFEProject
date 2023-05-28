@@ -1,7 +1,7 @@
 @extends('admin.base')
 @section('title', 'Ajouter une option')
 @section('content')
-    <div class="container">
+    <div class="container mt-7">
         <h1 class="text text-center">Ajouter une nouvelle option</h1>
         @if ($errors->any())
             <div class="alert alert-danger">

@@ -6,7 +6,7 @@
             display: none;
         }
     </style>
-    <div class="container mt-5">
+    <div class="container my-7">
         <form id="searchForm" class="mb-3">
             <div class="input-group">
                 <input type="text" id="searchInput" class="recherche" placeholder="Rechercher un utilisateur">
@@ -96,9 +96,6 @@
             {{$users->links()}}
         </div>
     </div>
-    
-
-
     </body>
 
     <script>

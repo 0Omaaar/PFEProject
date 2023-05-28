@@ -2,7 +2,6 @@
 @section('title', 'Statistiques Annonce')
 @section('content')
 
-
     <div class="content-wrapper">
         <div class="content">
             <div class="row">

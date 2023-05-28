@@ -2,7 +2,7 @@
 @section('title', 'Liste des marques')
 @section('content')
 
-<div class="container mt-5">
+<div class="container my-7">
     <h2 class="text-center">LISTE DES MARQUES</h2>
     <br>
     <div class="container">
@@ -59,9 +59,9 @@
             <h3>Aucune marque trouvée</h3>
         @endif
     </div>
-</div>
-<div class="pagin">
-    {{$marques->links()}}
+    <div class="pagin">
+        {{$marques->links()}}
+    </div>
 </div>
 </body>
 @endsection

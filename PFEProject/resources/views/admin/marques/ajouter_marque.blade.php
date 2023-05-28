@@ -1,7 +1,7 @@
 @extends('admin.base')
 @section('title', 'Ajouter une marque')
 @section('content')
-    <div class="container">
+    <div class="container mt-7">
         <h1 class="text text-center">Ajouter une marque</h1>
         @if ($errors->any())
             <div class="alert alert-danger">

@@ -2,7 +2,7 @@
 @section('title', 'Liste des marques')
 @section('content')
 
-<div class="container mt-5">
+<div class="container my-7">
     <div class="text text-center">
         <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
     </div>

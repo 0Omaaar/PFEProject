@@ -1,7 +1,7 @@
 @extends('admin.base')
 @section('title', 'Ajouter un modele')
 @section('content')
-    <div class="container">
+    <div class="container mt-7">
         <div class="text text-center">
             <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
         </div>

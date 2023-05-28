@@ -6,7 +6,7 @@
             display: none;
         }
     </style>
-    <div class="container mt-5">
+    <div class="container my-7">
         <div>
             <form id="searchForm" class="mb-3">
                 <div class="input-group">
@@ -53,7 +53,7 @@
                                             @if ($annonce->isActive())
                                                 <p class="active etat">Activé</p>
                                             @else
-                                                <p class="desactive etat"> Désactivé</p>
+                                                <p class="desactive etat">Désactivé</p>
                                             @endif
                                         </td>
                                         <td>{{ $annonce->created_at }}</td>
@@ -71,7 +71,7 @@
                                                 <form action="{{ route('admin.desactiver', $annonce->id) }}"
                                                     method="POST">
                                                     @csrf
-                                                    <button class="btn btn-danger btn-sm" type="submit">Desactiver
+                                                    <button class="btn btn-danger btn-sm" type="submit">Désactiver
                                                     </button>
                                                 </form>
                                             @endif
@@ -88,9 +88,9 @@
             @endif
         </div>
 
-    </div>
-    <div class="pagin">
-        {{$annonces->links()}}
+        <div class="pagin">
+            {{$annonces->links()}}
+        </div>
     </div>
     </body>
 

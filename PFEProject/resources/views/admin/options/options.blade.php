@@ -2,7 +2,7 @@
 @section('title', 'Liste des options')
 @section('content')
 
-<div class="container mt-5">
+<div class="container my-7">
     <h2 class="text-center">Liste des options</h2>
     <br>
     <div class="container">
@@ -54,9 +54,9 @@
             <h3>Aucune option trouvée</h3>
         @endif
     </div>
-</div>
-<div class="pagin">
-    {{$options->links()}}
+    <div class="pagin">
+        {{$options->links()}}
+    </div>
 </div>
 </body>
 @endsection

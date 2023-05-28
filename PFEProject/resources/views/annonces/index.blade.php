@@ -18,7 +18,7 @@
             <div class="row">
                 @foreach ($annonces->chunk(3) as $chunk)
                     @foreach ($chunk as $annonce)
-                        @if ($annonce->isActive())
+                        @if ($annonce->isActive() && !$annonce->vendu)
                             @include('includes.bloc_annonce')
                         @endif
                     @endforeach

@@ -37,6 +37,8 @@ Route::get('/favorites', [AnnonceController::class, 'favorites'])->name('favorit
 
 Route::post('/annonces/favoris/toggle', [AnnonceController::class, 'toggle'])->name('favoris.toggle');
 
+Route::post('/annonce/{annonce}/vendu', [AnnonceController::Class, 'marquerVendu'])->name('annonce.vendu');
+
 
 
 //Routes de la page de profile
@@ -56,6 +58,7 @@ Route::middleware(['auth', 'admin'])->group(function(){
     //Routes des annonces
     Route::get('/admin/annonces', [AAnnonceController::class, 'annonces'])->name('admin.annonces');
     Route::get('/admin/annoncesSupprimees', [AAnnonceController::class, 'annoncesSupp'])->name('admin.annoncesSupp');
+    Route::get('/admin/annoncesVendues', [AAnnonceController::class, 'annoncesVend'])->name('admin.annoncesVend');
     Route::post('/admin/restore/{annonce}', [AAnnonceController::class, 'restore'])->name('admin.restore');
     Route::delete('/admin/annoncesSupprimees/{annonce}/supprimer', [AAnnonceController::class, 'SupprimerDef'])->name('admin.SupprimerDef');
 

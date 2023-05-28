@@ -67,11 +67,13 @@
                             </button>
                         </form>
                     @else
+                        @if (!$annonce->vendu)
                         <form action="{{ route('admin.desactiver', $annonce->id) }}" method="POST">
                             @csrf
                             <button class="btn btn-danger btn-sm" type="submit">Desactiver
                             </button>
                         </form>
+                        @endif
                     @endif
                 </div>
             </div>

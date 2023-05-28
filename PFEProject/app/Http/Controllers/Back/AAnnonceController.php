@@ -92,6 +92,13 @@ class AAnnonceController extends Controller
         return view('admin.annoncesSupp', compact('annonces_supprimees'));
     }
 
+    public function annoncesVend()
+    {
+        $annonces = Annonce::latest()->paginate(4);
+
+        return view('admin.annoncesVend', compact('annonces'));
+    }
+
     public function restore(Request $request, $id)
     {
         $annonce = Annonce::withTrashed()->find($id);

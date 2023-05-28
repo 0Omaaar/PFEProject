@@ -1,5 +1,5 @@
 @extends('admin.base')
-@section('title', 'Liste des annonces')
+@section('title', 'Liste des annonces vendues')
 @section('content')
     <style>
         .hidden {
@@ -18,7 +18,7 @@
                 </div>
             </form>
         </div>
-        <h2 class="text-center">LISTE DES ANNONCES</h2>
+        <h2 class="text-center">LISTE DES ANNONCES VENDUES</h2>
         <br>
         <div class="container">
             @if ($annonces->count() > 0)
@@ -35,46 +35,42 @@
                                     <th>Id</th>
                                     <th>Titre</th>
                                     <th>Description</th>
-                                    <th>Etat</th>
+                                    {{-- <th>Etat</th> --}}
+                                    <th>Vendu</th>
                                     <th>Crée a</th>
-                                    <th>Mise a jour a</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($annonces as $annonce)
-                                    @if (!$annonce->vendu)
+                                    @if ($annonce->vendu)
                                     <tr class="user user-row" data-titre="{{ $annonce->titre }}"
                                         data-description="{{ $annonce->description }}" data-etat="{{ $annonce->etat }}">
                                         <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $annonce->titre }}</td>
                                         <td>{{ $annonce->description }}</td>
-                                        <td>
+                                        {{-- <td>
                                             @if ($annonce->isActive())
                                                 <p class="active etat">Activé</p>
                                             @else
                                                 <p class="desactive etat"> Désactivé</p>
                                             @endif
+                                        </td> --}}
+                                        <td>
+                                            @if ($annonce->vendu)
+                                                <p class="active etat">Vendu</p>                                                
+                                            @endif
                                         </td>
                                         <td>{{ $annonce->created_at }}</td>
-                                        <td>{{ $annonce->updated_at }}</td>
                                         <td>
                                             <a href="{{ route('admin.afficher_annonce', ['annonce' => $annonce->id]) }}"
                                                 class="btn btn-dark btn-sm mb-1">Afficher</a>
-                                            @if (!$annonce->isActive())
-                                                <form action="{{ route('admin.activer', $annonce->id) }}" method="POST">
-                                                    @csrf
-                                                    <button class="btn btn-success btn-sm" type="submit">Activer
-                                                    </button>
-                                                </form>
-                                            @else
-                                                <form action="{{ route('admin.desactiver', $annonce->id) }}"
+                                                <form action="{{ route('admin.SupprimerDef', ['annonce' => $annonce->id]) }}"
                                                     method="POST">
                                                     @csrf
-                                                    <button class="btn btn-danger btn-sm" type="submit">Desactiver
-                                                    </button>
+                                                    @method('delete')
+                                                    <button class="btn btn-danger btn-sm mt-1" type="submit">Supprimer</button>
                                                 </form>
-                                            @endif
                                         </td>
                                     </tr>
                                     @endif

@@ -84,6 +84,11 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a class="sidenav-item-link" href="{{ route('admin.annoncesVend') }}">
+                                            <span class="nav-text">Liste des annonces Vendues</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a class="sidenav-item-link" href="{{ route('admin.stats.annonce') }}">
                                             <span class="nav-text">Stats Annonces</span>
                                         </a>

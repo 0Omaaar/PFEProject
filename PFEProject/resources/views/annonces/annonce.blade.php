@@ -289,6 +289,15 @@
                                             <input type="hidden" name="_method" value="delete">
                                         </form>
                                     </li>
+                                    @if (!$annonce->vendu)
+                                    <li>
+                                        <form action="{{ route('annonce.vendu', $annonce->id) }}" method="POST">
+                                            @csrf
+                                            <button class="theme-btn" type="submit">Vendu
+                                            </button>
+                                        </form>
+                                    </li>
+                                    @endif
                                 </ul>
                             </div>
                         @endif

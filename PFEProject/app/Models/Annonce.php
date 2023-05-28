@@ -22,6 +22,7 @@ class Annonce extends Model
         'prix',
         'miniature',
         'etat',
+        'vendu',
         'user_id',
         'voiture_id',
     ];

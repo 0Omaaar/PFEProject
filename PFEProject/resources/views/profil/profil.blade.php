@@ -104,11 +104,20 @@
         <div class="row">
             @foreach ($annonces->chunk(4) as $chunk)
             @foreach ($chunk as $annonce)
-            @if ($annonce->isActive())
+            @if ($annonce->isActive() && !$annonce->vendu)
             @include('includes.bloc_annonce')
             @endif
             @endforeach
             @endforeach
+            @foreach ($annonces->chunk(4) as $chunk)
+            @foreach ($chunk as $annonce)
+            @if ($annonce->vendu)
+                <h3 class="text text-center mb-4">Vendu : </h3>
+                @include('includes.bloc_annonce')
+            @endif
+            @endforeach
+            @endforeach
+
         </div>
         @else
         <p>Aucune annonce trouvée.</p>

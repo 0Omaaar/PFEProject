@@ -480,4 +480,11 @@ class AnnonceController extends Controller
         $nombreFavorites = Favorite::where('user_id', $userId)->count();
         return $nombreFavorites;
     }
+
+    public function marquerVendu(Annonce $annonce){
+        $annonce->vendu = true;
+        $annonce->save();
+
+        return redirect()->back()->with('success', 'Votre operation est faite avec succes.');
+    }
 }

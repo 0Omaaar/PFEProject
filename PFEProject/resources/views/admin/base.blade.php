@@ -123,7 +123,7 @@
                                 data-toggle="collapse" data-target="#sousfamilles" aria-expanded="false"
                                 aria-controls="sousfamilles">
                                 <i class="mdi mdi-folder-outline"></i>
-                                <span class="nav-text">Gestion Supplementaire</span> <b class="caret"></b>
+                                <span class="nav-text">Gestion Supplémentaire</span> <b class="caret"></b>
                             </a>
                             <ul class="collapse" id="sousfamilles" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
@@ -174,7 +174,7 @@
                     <button id="sidebar-toggler" class="sidebar-toggle">
                         <span class="sr-only">Toggle navigation</span>
                     </button>
-                    <span class="page-title">dashboard</span>
+                    <span class="page-title">Tableau de board</span>
                     <div class="navbar-right ">
                         <ul class="nav navbar-nav">
                             <!-- User Account -->

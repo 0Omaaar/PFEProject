@@ -10,8 +10,9 @@ class OptionController extends Controller
 {
     public function index(){
         $options = Option::paginate(4);
+        $total_options = Option::count();
 
-        return view('admin.options.options', compact('options'));
+        return view('admin.options.options', compact('options', 'total_options'));
     }
 
     public function create()

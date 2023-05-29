@@ -13,8 +13,9 @@ class MarqueController extends Controller
 {
     public function index(){
         $marques = Marque::paginate(4);
+        $total_marques = Marque::count();
 
-        return view('admin.marques.marques', compact('marques'));
+        return view('admin.marques.marques', compact('marques', 'total_marques'));
     }
 
     public function create()

@@ -7,10 +7,10 @@
     <br>
     <div class="container">
         <div>
-            <h6>Nombre total : {{$options->count()}}</h6>
+            <h6>Nombre total : {{$total_options}}</h6>
         </div>
         <div>
-            <a href="{{ route('admin.ajouter_option') }}" class="btn btn-success mt-2">Ajouter une nouvelle option</a>
+            <a href="{{ route('admin.ajouter_option') }}" class="btn btn-success mt-2"><i class="mdi mdi-plus"></i> Nouvelle option</a>
         </div>
         @if ($options->count() > 0)
             <div class="row">

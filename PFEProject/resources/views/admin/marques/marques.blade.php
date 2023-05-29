@@ -7,10 +7,10 @@
     <br>
     <div class="container">
         <div>
-            <h6>Nombre total : {{$marques->count()}}</h6>
+            <h6>Nombre total : {{$total_marques}}</h6>
         </div>
         <div>
-            <a href="{{ route('admin.ajouter_marque') }}" class="btn btn-success mt-2">Ajouter une nouvelle marque</a>
+            <a href="{{ route('admin.ajouter_marque') }}" class="btn btn-success mt-2"><i class="mdi mdi-plus"></i> Nouvelle marque</a>
         </div>
         @if ($marques->count() > 0)
             <div class="row">

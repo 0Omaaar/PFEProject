@@ -13,7 +13,7 @@
             <h6>Nombre total : {{$modeles->count()}}</h6>
         </div>
         <div>
-            <a href="{{ route('admin.ajouter_modele', $marque->id) }}" class="btn btn-success mt-2">Ajouter un nouveau modèle</a>
+            <a href="{{ route('admin.ajouter_modele', $marque->id) }}" class="btn btn-success mt-2"><i class="mdi mdi-plus"></i> Nouveau modèle</a>
         </div>
         @if ($modeles->count() > 0)
             <div class="row">

@@ -1,6 +1,17 @@
 @extends('base')
 @section('title', 'Afficher l\'annonce')
 @section('content')
+<style>
+    .car-single-meta .theme-btn {
+        padding: 5px 15px;
+        border-radius: 8px;
+    }
+
+    .blog-comments-form .theme-btn{
+        padding: 9px 15px;
+        border-radius: 10px;
+    }
+</style>
 
     {{-- @if (session()->has('success'))
 <div class="alert alert-success mt-2 text-center">
@@ -235,8 +246,9 @@
                                                         <div class="form-group mt-4">
                                                             <textarea class="form-control" rows="5" placeholder="Votre Commentaire*" name="contenu"></textarea>
                                                         </div>
-                                                        <button type="submit" class="theme-btn"><i
-                                                                class="mdi mdi-send"></i> Envoyer</button>
+                                                        <button type="submit" class="theme-btn">
+                                                            <i class="mdi mdi-send"></i> Envoyer
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </form>

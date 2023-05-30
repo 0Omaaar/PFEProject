@@ -2,7 +2,6 @@
 @section('title', 'Page d\'acceuil')
 @section('content')
 
-
 @include('includes.success')
     {{-- @if (session()->has('success'))
         <div class="alert alert-success mt-2 text-center">

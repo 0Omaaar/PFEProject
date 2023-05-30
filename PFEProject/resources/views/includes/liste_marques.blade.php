@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="site-heading text-center">
-                    <span class="site-title-tagline">Explorez les voitures selon votre marque préférée</span>
+                    <!-- <span class="site-title-tagline">Explorez les voitures selon votre marque préférée</span> -->
                     <h2 class="site-title">Voiture par <span>marque</span></h2>
                     <div class="heading-divider"></div>
                 </div>
@@ -25,7 +25,7 @@
         </div>
         @if ($marques->count() > 12)
             <div class="text-center">
-                <a href="#" id="loadMore" class="theme-btn">
+                <a href="#" id="loadMore" class="theme-btn" style="padding: 6px 10px; border-radius: 4px;">
                     Suivant <i class="fa-solid fa-chevron-down"></i>
                     <!-- <i class="mdi mdi-menu-down"></i> -->
                 </a>

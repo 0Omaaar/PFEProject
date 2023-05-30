@@ -3665,6 +3665,12 @@ label {
     gap: 10px
 }
 
+.car-top-statistics{
+    color: white;
+    background: var(--theme-color);;
+    border-radius: 7px;
+}
+
 .car-area.list .car-img {
     width: 360px
 }

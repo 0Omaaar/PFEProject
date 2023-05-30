@@ -252,8 +252,8 @@
                             <h6>{{ $annonce->voiture->modele->nom }} {{ $annonce->voiture->marque->nom }}
                                 {{ $annonce->voiture->annee }}</h6>
                             @if ($annonce->prix == null)
-                                <h4 id="appeler-prix" style="cursor: pointer;"><strong>Appelez pour le prix</strong>
-                                </h4>
+                                <h4 id="appeler-prix" style="cursor: pointer;" onclick="afficherNumero(event)">
+                                    <strong>Appelez pour le prix</strong></h4>
                                 <h4 id="tel" class="car-single-price" style="display:none;">
                                     <strong>{{ $annonce->user->telephone }}</strong></p>
                                 @else
@@ -290,13 +290,13 @@
                                         </form>
                                     </li>
                                     @if (!$annonce->vendu)
-                                    <li>
-                                        <form action="{{ route('annonce.vendu', $annonce->id) }}" method="POST">
-                                            @csrf
-                                            <button class="theme-btn" type="submit">Vendu
-                                            </button>
-                                        </form>
-                                    </li>
+                                        <li>
+                                            <form action="{{ route('annonce.vendu', $annonce->id) }}" method="POST">
+                                                @csrf
+                                                <button class="theme-btn" type="submit">Vendu
+                                                </button>
+                                            </form>
+                                        </li>
                                     @endif
                                 </ul>
                             </div>

@@ -6,6 +6,7 @@
             display: none;
         }
     </style>
+
     <div class="container card col-lg-8 my-5">
         <h3 class="text text-center card-header" id="card-header">Créer une annonce</h3>
         @if ($errors->any())
@@ -22,23 +23,23 @@
             <form action="{{ route('annonces.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="page" id="page1">
-                    <div>
+                    <div class="my-3">
                         <label for="titre">Titre</label>
                         <input type="text" class="form-control nice-select-2" name="titre">
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="description">Description</label>
                         <textarea class="form-control nice-select-2" name="description" id="description" rows="4" cols="50"></textarea>
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="prix">Prix</label>
                         <input type="number" class="form-control nice-select" name="prix" min="0">
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="miniature">Miniature</label>
                         <input type="file" class="form-control " name="miniature">
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="annee">Annee</label>
                         <select name="annee" id="annee" class="nice-select">
                             <option>Sélectionnez l'année</option>
@@ -52,16 +53,16 @@
                     </button>
                 </div>
                 <div class="page" id="page2">
-                    <div class="mt-2">
+                    <div class="my-3">
                         <label for="type">Type</label>
                         <select id="type" name="type" class="nice-select">
                             <option>Sélectionnez le type</option>
-                            @foreach (['CABRIOLET', 'SUV ET 4X4', 'COUPé', 'CITADINE', 'BREAK', 'MONOSPACE', 'BERLINE', 'CC', 'MICRO-CITADINE', 'COMPACT', 'CROSSOVER', 'PICK UP', 'UTILITAIRE (MINIVAN)', 'UTILITAIRE (VAN)'] as $option)
+                            @foreach (["Berline", "SUV", "Break", "Monospace", "Coupé", "Cabriolet", "Limousine", "Crossover", "Hayon", "Fourgon", "Citadine", "Pick Up", "Compact", "Utilitaire (MINIVAN)", "Utilitaire (VAN)"] as $option)
                                 <option value="{{ $option }}">{{ $option }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="carburant">Carburant</label>
                         <select class="nice-select" name="carburant" id="carburant" required>
                             <option value="">Sélectionnez le carburant</option>
@@ -71,7 +72,7 @@
                             <option title="Hybride" value="Hybride">Hybride</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="transmission">Transmission</label>
                         <select class="nice-select" name="transmission" id="transmission" required>
                             <option>Sélectionnez le type de transmission</option>
@@ -81,12 +82,12 @@
                                 Automatique </option>
                         </select>
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="kilometrage">Kilometrage</label>
                         <input type="number" class="form-control" name="kilometrage" min="0"
                             placeholder="Sélectionnez le kilometrage">
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="puissance_fiscale">Puissance Fiscale</label>
                         <select id="puissance_fiscale" name="puissance_fiscale" class="nice-select">
                             <option>Sélectionnez la puissance fiscale</option>
@@ -103,7 +104,7 @@
                     </button>
                 </div>
                 <div class="page" id="page3">
-                    <div>
+                    <div class="my-3">
                         <label for="dedouanee">Dedouané</label>
                         <select class="nice-select" id="dedouanee" name="dedouanee">
                             <option>Sélectionnez la réponse</option>
@@ -113,14 +114,14 @@
                             <option value="Importé neuf">Importé neuf</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="premiere_main">Première main:</label>
                         <select id="premiere_main" name="premiere_main" class="nice-select">
                             <option value="oui">Oui</option>
                             <option value="non">Non</option>
                         </select>
                     </div>
-                    <div class="mt-2">
+                    <div class="my-3">
                         <label for="marque_id">Marque</label>
                         <select id="marque_id" name="marque_id" class="nice-select" onchange="filterModels()">
                             <option>Sélectionnez la marque</option>
@@ -129,7 +130,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="mt-2">
+                    <div class="my-3">
                         <label for="modele_id">Modèle</label>
                         <select id="modele_id" name="modele_id" class="nice-select">
                             <option>Sélectionnez le modèle</option>
@@ -140,7 +141,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="mt-2">
+                    <div class="my-3">
                         <strong>Options :</strong>
                         @foreach ($options as $option)
                             <div class="form-check">
@@ -152,7 +153,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <div>
+                    <div class="my-3">
                         <label for="images[]">Images</label>
                         <input type="file" class="form-control" name="images[]" multiple>
                     </div>

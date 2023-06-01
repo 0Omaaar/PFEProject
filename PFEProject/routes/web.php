@@ -37,7 +37,7 @@ Route::get('/favorites', [AnnonceController::class, 'favorites'])->name('favorit
 
 Route::post('/annonces/favoris/toggle', [AnnonceController::class, 'toggle'])->name('favoris.toggle');
 
-Route::post('/annonce/{annonce}/vendu', [AnnonceController::Class, 'marquerVendu'])->name('annonce.vendu');
+Route::post('/annonce/{annonce}/vendu', [AnnonceController::class, 'marquerVendu'])->name('annonce.vendu');
 
 
 

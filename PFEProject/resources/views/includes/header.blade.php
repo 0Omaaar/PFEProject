@@ -1,3 +1,6 @@
+<style>
+     
+</style>
 <header class="header">
     <div class="header-top">
         <div class="container">
@@ -15,7 +18,7 @@
                 <div class="header-top-right">
                     <div class="header-top-link">
                         <a class="nav-link padd" href="{{ route('profil.show') }}">
-                            <i class="far fa-user"></i>  Mon compte
+                            <i class="fa fa-user fa-sm"></i>  Mon compte
                         </a>
                     </div>
                     <div class="header-top-link">
@@ -49,7 +52,7 @@
                         @endphp
                         <li class="nav-item dropdown">
                             <a class="nav-link padd" href="{{ route('favorites') }}">
-                                <span>{{ $nombreFavorites > 0 ? $nombreFavorites : '' }}</span> <i class="far fa-heart fa-lg"></i>
+                                <span>{{ $nombreFavorites > 0 ? $nombreFavorites : '' }}</span> <i class="far fa-heart fa-lg"></i> Favorites
                             </a>
                             <h4 id="favorite-count" class="favorite-count"></h4>
                         </li>

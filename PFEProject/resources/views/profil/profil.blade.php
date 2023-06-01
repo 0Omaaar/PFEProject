@@ -116,9 +116,11 @@
 
             <div class="col-md-6 col-lg-4 col-xl-3">
                 <div class="car-top-statistics text-center mb-2">
-                    {{ $annonce->commentaire->count() }} <i class="fa-solid fa-comment fa-sm"></i>
-                    |
+                    {{ $annonce->vues }} <i class="fa-solid fa-eye fa-sm"></i> 
+                    &nbsp;&nbsp;
                     {{ $annonce->favorites->count() }} <i class="fa fa-heart fa-sm"></i>
+                    &nbsp;&nbsp;
+                    {{ $annonce->commentaire->count() }} <i class="fa-solid fa-comment fa-sm"></i>
                 </div>
                 <div class="car-item wow fadeInUp" data-wow-delay=".25s">
                     <div class="car-img">

@@ -10,7 +10,7 @@
     --color-dark: #111111;
     --color-green: #11B76B;
     --color-blue: #0049D0;
-    --color-yellow: #FBA707;
+    --color-yellow: #fba707;
     --hero-overlay-color: #01060F;
     --slider-arrow-bg: rgba(255, 255, 255, 0.2);
     --box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
@@ -2782,8 +2782,8 @@ label {
 }
 
 .blog-comments-form {
-    padding: 30px;
-    margin-top: 50px;
+    padding: 25px;
+    margin: 20px 0;
     border-radius: 10px;
     background: var(--theme-bg-light)
 }

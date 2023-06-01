@@ -15,6 +15,7 @@ use App\Models\Marque;
 use App\Models\Modele;
 use App\Models\Option;
 use App\Models\Commentaire;
+use App\Models\Reponse;
 use App\Models\Favorite;
 
 
@@ -46,7 +47,6 @@ class AnnonceController extends Controller
         $marques = Marque::all();
         $modeles = Modele::all();
         $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');
-
 
         $marque_choisie = Marque::find($id);
 
@@ -148,12 +148,12 @@ class AnnonceController extends Controller
             }
         }
 
-        $commentaires = $annonce->commentaire;
+        // $commentaires = $annonce->commentaire;
+        $commentaires = $annonce->commentaire()->with('reponse')->get();
         $options = $annonce->voiture->options;
         return view('annonces.annonce', compact('annonce', 'options', 'commentaires'));
     }
 
-    //creer un commentaire
     public function createCommentaire(Request $request, Annonce $annonce)
     {
         $user_id = Auth::id();
@@ -172,13 +172,45 @@ class AnnonceController extends Controller
 
         return redirect()->route('annonces.show', ['annonce' => $annonce->id])->with('success', 'Commentaire ajouté');
     }
-
+    
     public function deleteCommentaire($id)
     {
         $commentaire = Commentaire::findOrFail($id);
 
         if ($commentaire->user_id === auth()->user()->id) {
             $commentaire->delete();
+            return redirect()->back()->with('success', 'Commentaire supprimé');
+        } else {
+            return redirect()->back()->with('success', 'Vous n\'êtes pas autorisé à supprimer ce commentaire');
+        }
+    }
+
+    public function createReponse(Request $request, Commentaire $commentaire)
+    {
+        $user_id = Auth::id();
+
+        $validated_data = $request->validate([
+            "contenu" => "required|max:300",
+        ]);
+
+        $reponse = new Reponse([
+            'contenu' => $validated_data['contenu'],
+            'commentaire_id' => $commentaire->id,
+            'user_id' => $user_id,
+        ]);
+
+        $commentaire->reponse()->save($reponse);
+
+        // return redirect()->route('annonces.show', ['annonce' => $annonce->id])->with('success', 'Commentaire ajouté');
+        return redirect()->back()->with('success', 'Commentaire ajouté');
+    }
+
+    public function deleteReponse($id)
+    {
+        $reponse = Reponse::findOrFail($id);
+
+        if ($reponse->user_id === auth()->user()->id) {
+            $reponse->delete();
             return redirect()->back()->with('success', 'Commentaire supprimé');
         } else {
             return redirect()->back()->with('success', 'Vous n\'êtes pas autorisé à supprimer ce commentaire');

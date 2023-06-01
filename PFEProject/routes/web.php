@@ -31,7 +31,11 @@ Route::delete('/annonces/{annonce}', [AnnonceController::class, 'destroy'])->nam
 
 Route::post('/commentaire/{annonce}', [AnnonceController::class, 'createCommentaire'])->name('annonces.commentaire');
 
+Route::post('/reponse/{commentaire}', [AnnonceController::class, 'createReponse'])->name('annonces.reponse');
+
 Route::delete('/commentaire/{id}', [AnnonceController::class, 'deleteCommentaire'])->name('annonces.commentaires.delete');
+
+Route::delete('/reponse/{id}', [AnnonceController::class, 'deleteReponse'])->name('annonces.reponse.delete');
 
 Route::get('/favorites', [AnnonceController::class, 'favorites'])->name('favorites');
 

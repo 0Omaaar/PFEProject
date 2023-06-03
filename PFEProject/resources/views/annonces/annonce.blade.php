@@ -239,7 +239,7 @@
                                         <div class="blog-comments-content mb-3">
                                             <h5>
                                                 <i class="mdi mdi-account"></i>
-                                                {{ $commentaire->user->prenom . ' ' . $commentaire->user->prenom }}
+                                                {{ $commentaire->user->prenom }}
                                             </h5>
 
                                             <!-- L'heure du commentaire -->
@@ -272,7 +272,7 @@
                                                 @foreach ($commentaire->reponse as $reponse)
                                                 <h6>
                                                     <i class="mdi mdi-account"></i>
-                                                    {{ $reponse->user->prenom . ' ' . $reponse->user->prenom }}
+                                                    {{ $reponse->user->prenom }}
                                                 </h6>
 
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -302,7 +302,7 @@
                                         </div>
 
                                         <!-- Ecrire une réponse -->
-                                        <div id="repondre{{ $commentaire->id }}" class="collapse ">
+                                        <div id="repondre{{ $commentaire->id }}" class="collapse">
                                             <div class="blog-comments-form">
                                                 <form action="{{route('annonces.reponse', ['commentaire' => $commentaire->id]) }}" method="post">
                                                     @csrf
@@ -360,7 +360,7 @@
                         <h4 class="mb-3">Contact</h4>
                         <ul class="car-list">
                             <li>
-                                <i class="fa-solid fa-user"></i> <strong>{{ $annonce->user->nom }}</strong>
+                                <i class="fa-solid fa-user"></i> <strong>{{ $annonce->user->prenom }}</strong>
                             </li>
                             <li>
                                 <i class="fa-solid fa-phone"></i> <strong>{{ $annonce->user->telephone }}</strong>

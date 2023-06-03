@@ -22,14 +22,14 @@
                 </div>
                 <div class="col-md-6 col-lg-2 ">
                     <div class="footer-widget-box list">
-                        <h4 class="footer-widget-title">Quick Links</h4>
+                        <h4 class="footer-widget-title">Liens rapides</h4>
                         <ul class="footer-list">
-                            <li><a href="#"><i class="fas fa-caret-right"></i> About Us</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Update News</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Testimonials</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Terms Of Service</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Privacy policy</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Our Dealers</a></li>
+                            <li><a href="#"><i class="fas fa-caret-right"></i> Qui sommes-nous</a></li>
+                            <li><a href="#"><i class="fas fa-caret-right"></i> Mise à jour des nouvelles</a></li>
+                            <li><a href="#"><i class="fas fa-caret-right"></i> Témoignages</a></li>
+                            <li><a href="#"><i class="fas fa-caret-right"></i> Conditions d’utilisation</a></li>
+                            <li><a href="#"><i class="fas fa-caret-right"></i> Politique de confidentialité</a></li>
+                            <li><a href="#"><i class="fas fa-caret-right"></i>  Nos concessionnaires</a></li>   
                         </ul>
                     </div>
                 </div>
@@ -39,14 +39,14 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="footer-widget-box list">
-                        <h4 class="footer-widget-title">Newsletter</h4>
+                        <h4 class="footer-widget-title">Journal d'actualités</h4>
                         <div class="footer-newsletter">
-                            <p>Subscribe Our Newsletter To Get Latest Update And News</p>
+                            <p>Abonnez-vous à notre newsletter pour recevoir les dernières mises à jour et nouvelles</p>
                             <div class="subscribe-form">
                                 <form action="#">
-                                    <input type="email" class="form-control" placeholder="Your Email">
+                                    <input type="email" class="form-control" placeholder="Votre Email">
                                     <button class="theme-btn" type="submit">
-                                        Subscribe Now <i class="far fa-paper-plane"></i>
+                                        S'inscrire maintenant <i class="far fa-paper-plane"></i>
                                     </button>
                                 </form>
                             </div>
@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-md-6 align-self-center">
                     <p class="copyright-text">
-                        &copy; Copyright <span id="date"></span> <a href="#"> MOTEX </a> All Rights Reserved.
+                        &copy; 2023
                     </p>
                 </div>
             </div>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Back\AAnnonceController;
+use App\Http\Controllers\Back\AContactController;
+use App\Http\Controllers\Front\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\AnnonceController;
 use App\Http\Controllers\Back\UsersController;
@@ -49,11 +51,15 @@ Route::post('/annonce/{annonce}/vendu', [AnnonceController::class, 'marquerVendu
 Route::get('/profil/profil', [ProfilController::class, 'show'])->name('profil.show');
 Route::put('/profil/modifier', [ProfilController::class, 'update'])->name('profil.update');
 
+// Route de la page de contact
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
 
 
 //Routes d'admin
-Route::middleware(['auth', 'admin'])->group(function(){
-    
+Route::middleware(['auth', 'admin'])->group(function () {
+
     //Routes des utilisateurs
     Route::get('/admin/users', [UsersController::class, 'index'])->name('admin.users');
     Route::post('/admin/users/{user}/rendreAdmin', [UsersController::class, 'rendreAdmin'])->name('users.rendreAdmin');
@@ -93,6 +99,12 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/admin/accueil', [AAnnonceController::class, 'index'])->name('admin.index');
     Route::get('/admin/stats/annonces', [AAnnonceController::class, 'statsAnnonce'])->name('admin.stats.annonce');
     Route::get('/admin/stats/utilisateurs', [AAnnonceController::class, 'statsUser'])->name('admin.stats.users');
+
+
+    Route::get('/admin/contacts', [AContactController::class, 'index'])->name('admin.contacts');
+    Route::get('/admin/{contact}/rendreLu', [AContactController::class, 'rendreLu'])->name('admin.contact.rendreLu');
+    Route::get('/admin/{contact}/rendreNonLu', [AContactController::class, 'rendreNonLu'])->name('admin.contact.rendreNonLu');
+    Route::get('/admin/{contact}/rendretraite', [AContactController::class, 'rendretraite'])->name('admin.contact.rendretraite');
 
 
 });

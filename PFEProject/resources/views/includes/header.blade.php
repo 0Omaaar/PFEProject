@@ -78,9 +78,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="#" data-bs-toggle="dropdown">Pages</a>
                         <ul class="dropdown-menu fade-down">
-                            <li><a class="dropdown-item" href="about.html">À propos de nous</a></li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item " href="#">Contact</a>
+                                <a class="dropdown-item " href="{{route('contact')}}">Contact</a>
                             </li>
                             @guest
                             <li class="dropdown-submenu">

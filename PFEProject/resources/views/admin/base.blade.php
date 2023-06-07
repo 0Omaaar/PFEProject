@@ -150,7 +150,7 @@
                             <ul class="collapse" id="messagerie" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
                                     <li>
-                                        <a class="sidenav-item-link" href="">
+                                        <a class="sidenav-item-link" href="{{route('admin.contacts')}}">
                                             <span class="nav-text">Contacts</span>
                                         </a>
                                     </li>

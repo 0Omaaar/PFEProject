@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('title', 'Statistiques Utilisateur')
+@section('page-title', 'Statistiques des utilisateurs')
 @section('content')
 
     <div class="content-wrapper">

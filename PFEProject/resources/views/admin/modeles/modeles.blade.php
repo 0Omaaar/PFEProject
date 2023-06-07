@@ -1,12 +1,13 @@
 @extends('admin.base')
 @section('title', 'Liste des marques')
+@section('page-title', 'Liste des modèles')
 @section('content')
 
 <div class="container my-7">
     <div class="text text-center">
         <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
     </div>
-    <h2 class="text-center">Liste des modèles de la marque <strong>{{$marque->nom}}</strong></h2>
+    <h2 class="text-center">La marque <strong>{{$marque->nom}}</strong></h2>
     <br>
     <div class="container">
         <div>

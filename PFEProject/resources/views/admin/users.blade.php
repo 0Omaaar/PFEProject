@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('title', 'Liste des utilisateurs')
+@section('page-title', 'Liste des utilisateurs')
 @section('content')
     <style>
         .hidden {
@@ -17,7 +18,7 @@
             </div>
         </form>
 
-        <h2 class="text-center">LISTE DES UTILISATEURS</h2>
+        <!-- <h2 class="text-center">LISTE DES UTILISATEURS</h2> -->
         <br>
         <div class="container">
             @if ($users->count() > 0)

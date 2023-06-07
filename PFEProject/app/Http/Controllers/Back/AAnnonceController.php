@@ -82,7 +82,7 @@ class AAnnonceController extends Controller
         $annonce->etat = 0;
         $annonce->save();
 
-        return redirect()->route('admin.annonces')->with("success", "L'annonce '$annonce->titre' est désormais desactivée");
+        return redirect()->route('admin.annonces')->with("success", "L'annonce '$annonce->titre' est désormais désactivée");
     }
 
     public function annoncesSupp()

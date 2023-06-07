@@ -1,9 +1,10 @@
 @extends('admin.base')
 @section('title', 'Afficher la liste des contacts')
+@section('page-title', 'Liste des contacts')
 @section('content')
 
     <div class="container my-7">
-        <h2 class="text-center">LISTE DES CONTACTS</h2>
+        <!-- <h2 class="text-center">LISTE DES CONTACTS</h2> -->
         <br>
         <div class="container">
             @if ($contacts->count() > 0)

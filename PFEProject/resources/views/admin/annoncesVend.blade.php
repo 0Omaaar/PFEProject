@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('title', 'Liste des annonces vendues')
+@section('page-title', 'Liste des annonces vendues')
 @section('content')
     <style>
         .hidden {
@@ -18,7 +19,7 @@
                 </div>
             </form>
         </div>
-        <h2 class="text-center">LISTE DES ANNONCES VENDUES</h2>
+        <!-- <h2 class="text-center">LISTE DES ANNONCES VENDUES</h2> -->
         <br>
         <div class="container">
             @if ($annonces->count() > 0)

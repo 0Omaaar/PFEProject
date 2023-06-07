@@ -1,9 +1,10 @@
 @extends('admin.base')
 @section('title', 'Liste des annonces')
+@section('page-title', 'Liste des annonces supprimées')
 @section('content')
 
     <div class="container my-7">
-        <h2 class="text-center">LISTE DES ANNONCES SUPPRIMEES</h2>
+        <!-- <h2 class="text-center">LISTE DES ANNONCES SUPPRIMEES</h2> -->
         <br>
         <div class="container">
             @if ($annonces_supprimees->count() > 0)

@@ -1,5 +1,6 @@
 @extends('admin.base')
 @section('title', 'Accueil')
+@section('page-title', 'Tableau de board')
 @section('content')
 
     <div class="content-wrapper">
@@ -23,13 +24,13 @@
                                 <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="chart-wrapper">
                                 <div>
                                     <div id="spline-area-1"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6">
@@ -49,13 +50,13 @@
                                 <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="chart-wrapper">
                                 <div>
                                     <div id="spline-area-3"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6">
@@ -75,13 +76,13 @@
                                 <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="chart-wrapper">
                                 <div>
                                     <div id="spline-area-5"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -103,13 +104,13 @@
                                 <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="chart-wrapper">
                                 <div>
                                     <div id="spline-area-4"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-5 col-sm-6">
@@ -129,13 +130,13 @@
                                 <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="chart-wrapper">
                                 <div>
                                     <div id="spline-area-2"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

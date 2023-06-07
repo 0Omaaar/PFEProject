@@ -1,9 +1,10 @@
 @extends('admin.base')
 @section('title', 'Liste des options')
+@section('page-title', 'Liste des options')
 @section('content')
 
 <div class="container my-7">
-    <h2 class="text-center">Liste des options</h2>
+    <!-- <h2 class="text-center">Liste des options</h2> -->
     <br>
     <div class="container">
         <div>

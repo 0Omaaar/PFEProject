@@ -1,6 +1,3 @@
-<style>
-     
-</style>
 <header class="header">
     <div class="header-top">
         <div class="container">
@@ -29,6 +26,7 @@
             </div>
         </div>
     </div>
+    
     <div class="main-navigation">
         <nav class="navbar navbar-expand-lg">
             <div class="container position-relative">

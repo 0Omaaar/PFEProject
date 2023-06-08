@@ -5,7 +5,7 @@
 
 <div class="content-wrapper">
     <div class="content">
-        <h3 class="mb-3">Ajourd'hui</h3>
+        <h3 class="mb-3">Aujourd'hui</h3>
         <div class="row">
             <div class="col-xl-4 col-sm-6">
                 <div class="card card-default card-mini">

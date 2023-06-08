@@ -1,5 +1,5 @@
 <!-- Liste des marques -->
-<div class="car-category pt-80 pb-80">
+<div class="car-category pt-30 pb-50">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mx-auto">
@@ -35,7 +35,7 @@
                 <div class="col-6 col-md-4 col-lg-2">
                     <a href="{{ route('annonces.parmarque', $marque->id) }}" class="category-item wow fadeInUp" data-wow-delay=".25s">
                         <div class="category-img">
-                            <img src="{{ asset('images/logos/' . $marque->logo) }}" width="50px" alt="{{ $marque->nom }}" />
+                            <img src="{{ asset('images/logos/' . $marque->logo) }}" width="45px" alt="{{ $marque->nom }}" />
                         </div>
                         <h5>{{ $marque->nom }}</h5>
                     </a>

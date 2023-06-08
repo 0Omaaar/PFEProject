@@ -35,7 +35,26 @@ class AnnonceController extends Controller
         $modeles = Modele::all();
         $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');
 
-        return view('index', compact('annonces', 'marques', 'modeles', 'favorites'));
+        $marquesVendues = Marque::select('marques.nom')
+        ->join('modeles', 'modeles.marque_id', '=', 'marques.id')
+        ->join('voitures', 'voitures.modele_id', '=', 'modeles.id')
+        ->join('annonces', 'annonces.voiture_id', '=', 'voitures.id')
+        ->where('annonces.vendu', true)
+        ->groupBy('marques.nom')
+        ->orderByRaw('COUNT(*) DESC')
+        ->limit(6)
+        ->get();
+
+        $modelesVendus = Modele::select('modeles.nom')
+        ->join('voitures', 'voitures.modele_id', '=', 'modeles.id')
+        ->join('annonces', 'annonces.voiture_id', '=', 'voitures.id')
+        ->where('annonces.vendu', true)
+        ->groupBy('modeles.nom')
+        ->orderByRaw('COUNT(*) DESC')
+        ->limit(6)
+        ->get();
+
+        return view('index', compact('annonces', 'marques', 'modeles', 'favorites', 'marquesVendues', 'modelesVendus'));
     }
 
     public function parMarque($id)

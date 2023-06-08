@@ -40,8 +40,8 @@ class AAnnonceController extends Controller
     }
     public function annonces()
     {
-        $annonces = Annonce::latest()->paginate(4);
-        $nombre_annonces = Annonce::count();
+        $annonces = Annonce::latest()->where('vendu', false)->paginate(4);
+        $nombre_annonces = Annonce::where('vendu', false)->count();
 
         return view('admin.annonces', compact('annonces', 'nombre_annonces'));
     }

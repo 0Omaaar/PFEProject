@@ -114,9 +114,31 @@
                         </div> -->
                 </div>
             </div>
-
             <div class="col-xl-4 col-sm-6">
+                <div class="card card-default card-mini">
+                    <div class="card-header">
+                        <div class="sub-title">
+                            <span class="mr-1">Nombre de contacts</span>
+                        </div>
+                        <div class="dropdown">
+                            <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{{route('admin.contacts')}}">Voir Plus</a>
+                            </div>
+                        </div>
+                        <h2>{{$nombre_contacts}}</h2>
+                    </div>
+                    <!-- <div class="card-body">
+                            <div class="chart-wrapper">
+                                <div>
+                                    <div id="spline-area-2"></div>
+                                </div>
+                            </div>
+                        </div> -->
+                </div>
             </div>
+        
 
             <div class="col-xl-4 col-sm-6">
                 <div class="card card-default card-mini">

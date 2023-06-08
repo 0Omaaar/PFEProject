@@ -1,6 +1,6 @@
 @extends('admin.base')
 @section('title', 'Accueil')
-@section('page-title', 'Tableau de board')
+@section('page-title', 'Tableau de bord')
 @section('content')
 
 <div class="content-wrapper">

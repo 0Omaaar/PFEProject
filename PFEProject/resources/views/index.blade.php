@@ -3,14 +3,15 @@
 @section('content')
 
 @include('includes.success')
-    {{-- @if (session()->has('success'))
+
+{{-- @if (session()->has('success'))
         <div class="alert alert-success mt-2 text-center">
             <h5>{{ session()->get('success') }}</h5>
-        </div>
-    @endif --}}
+</div>
+@endif --}}
 
-    <!-- Acceuil -->
-    <!-- <div class="hero-section">
+<!-- Acceuil -->
+<!-- <div class="hero-section">
         <div class="hero-slider owl-carousel owl-theme">
             <div class="hero-single">
                 <div class="container">
@@ -123,45 +124,75 @@
         </div>
     </div> -->
 
-    <!-- Formulaire de recherche -->
-    <div class="find-car mt-5">
-        @include('includes.formulaire_recherche')
-    </div>
+<!-- Formulaire de recherche -->
+<div class="find-car mt-5">
+    @include('includes.formulaire_recherche')
+</div>
 
-    <!-- Liste des marques -->
-    @include('includes.liste_marques')
-
-    <!-- Liste des annonces -->
-    <div class="car-area bg pt-80 pb-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <div class="site-heading text-center">
-                        <span class="site-title-tagline">Découvrez les dérnières annonces</span>
-                        <h2 class="site-title">Liste des <span>annonces</span></h2>
-                        <div class="heading-divider"></div>
-                    </div>
+<div class="container mt-5 mb-3">
+    <div class="row">
+        <div class="user-profile-card col-lg-6">
+            <h3><i class="fa-solid fa-up-long fa-sm" style="color: #29bf6c;"></i> Marques les plus vendues :</h3>
+            <ul class="row text-center my-4">
+                @foreach ($marquesVendues as $marque)
+                <!-- <li><img src="{{ asset('images/logos/' . $marque->logo) }}" width="45px" alt="{{ $marque->nom }}"/></li> -->
+                <div class="col-lg-4">
+                    <li>
+                        <h5>{{ $marque->nom }}</h5>
+                    </li>
                 </div>
-            </div>
-
-            @if ($annonces && $annonces->count() > 0)
-                <div class="row">
-                    @foreach ($annonces->chunk(4) as $chunk)
-                        @foreach ($chunk as $annonce)
-                            @if ($annonce->isActive() && !$annonce->vendu)
-                                @include('includes.bloc_annonce')
-                            @endif
-                        @endforeach
-                    @endforeach
+                @endforeach
+            </ul>
+        </div>
+        <div class="user-profile-card col-lg-6">
+            <h3><i class="fa-solid fa-up-long fa-sm" style="color: #29bf6c;"></i> Modèles les plus vendus :</h3>
+            <ul class="row text-center my-4">
+                @foreach ($modelesVendus as $modele)
+                <div class="col-lg-4">
+                    <li>
+                        <h5>{{ $modele->nom }}</h5>
+                    </li>
                 </div>
-            @else
-                <h4 class="text-center">Aucune annonce pour le moment.</h4>
-            @endif
+                @endforeach
+            </ul>
         </div>
     </div>
+</div>
 
-    <!-- Liste des scripts -->
-    <script>
+<!-- Liste des marques -->
+@include('includes.liste_marques')
+
+<!-- Liste des annonces -->
+<div class="car-area bg pt-60 pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="site-heading text-center">
+                    <span class="site-title-tagline">Découvrez les dérnières annonces</span>
+                    <h2 class="site-title">Liste des <span>annonces</span></h2>
+                    <div class="heading-divider"></div>
+                </div>
+            </div>
+        </div>
+
+        @if ($annonces && $annonces->count() > 0)
+        <div class="row">
+            @foreach ($annonces->chunk(4) as $chunk)
+            @foreach ($chunk as $annonce)
+            @if ($annonce->isActive() && !$annonce->vendu)
+            @include('includes.bloc_annonce')
+            @endif
+            @endforeach
+            @endforeach
+        </div>
+        @else
+        <h4 class="text-center">Aucune annonce pour le moment.</h4>
+        @endif
+    </div>
+</div>
+
+<!-- Liste des scripts -->
+<script>
         // Afficher la liste des marques
         $(document).ready(function() {
 

@@ -21,7 +21,6 @@
                             </div>
                             <div class="sub-title">
                                 <span class="mr-1">Nombre d'annonces</span>
-                                <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
                         <!-- <div class="card-body">
@@ -47,7 +46,6 @@
                             </div>
                             <div class="sub-title">
                                 <span class="mr-1">Nombre d'utilisateurs</span>
-                                <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
                         <!-- <div class="card-body">
@@ -73,7 +71,6 @@
                             </div>
                             <div class="sub-title">
                                 <span class="mr-1">Nombre d'utilisateurs ajoutés ajourd'hui</span>
-                                <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
                         <!-- <div class="card-body">
@@ -101,7 +98,6 @@
                             </div>
                             <div class="sub-title">
                                 <span class="mr-1">Nombre d'annonces ajoutées ajourd'hui</span>
-                                <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
                         <!-- <div class="card-body">
@@ -127,7 +123,6 @@
                             </div>
                             <div class="sub-title">
                                 <span class="mr-1">Nombre d'annonces supprimées ajourd'hui</span>
-                                <i class="mdi mdi-arrow-up-bold text-success"></i>
                             </div>
                         </div>
                         <!-- <div class="card-body">

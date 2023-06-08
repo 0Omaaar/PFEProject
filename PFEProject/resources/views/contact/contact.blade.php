@@ -12,21 +12,23 @@
             </ul>
         </div>
     @endif
-    <main class="main">
+
         <div class="contact-area">
-            <div class="container">
+            <div class="container col-lg-7">
                 <div class="contact-wrapper">
                     <div class="row">
-                        <div class="col-lg-6 align-self-center">
+                    <h3 class="text text-center my-3">Contactez-nous</h3>
+
+                        <!-- <div class="col-lg-6 align-self-center">
                             <div class="contact-img">
                                 <img src="" alt>
                             </div>
-                        </div>
-                        <div class="col-lg-6 align-self-center">
+                        </div> -->
+                        <div class="align-self-center">
                             <div class="contact-form">
-                                <div class="contact-form-header">
-                                    <h2>Entrer En Contact</h2>
-                                </div>
+                                <!-- <div class="contact-form-header">
+                                    <h2>Remplissez le formulaire</h2>
+                                </div> -->
                                 <form method="post" action="{{route('contact.store')}}" id="contact-form">
                                     @csrf
                                     <div class="row">
@@ -50,7 +52,7 @@
                                     <div class="form-group">
                                         <textarea name="message" cols="30" rows="5" class="form-control" placeholder="Votre Message"></textarea>
                                     </div>
-                                    <button type="submit" class="theme-btn">Envoyer Message <i
+                                    <button type="submit" class="theme-btn">Envoyer <i
                                             class="far fa-paper-plane"></i></button>
                                 </form>
                             </div>
@@ -59,5 +61,4 @@
                 </div>
             </div>
         </div>
-    </main>
 @endsection

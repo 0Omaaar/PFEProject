@@ -56,6 +56,16 @@ html {
   /* font-weight: bold; */
 }
 
+.activ.etat {
+  background-color: #e7e6f7;
+  text-align: center;
+  border-radius: 13px;
+  padding: 3px 8px;
+  color: #6259ca;
+  letter-spacing: 0.8px;
+  /* font-weight: bold; */
+}
+
 .desactive.etat {
   background-color: #fdddde;
   text-align: center;

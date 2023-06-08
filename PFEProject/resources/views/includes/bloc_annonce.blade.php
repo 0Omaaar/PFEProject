@@ -26,10 +26,10 @@
                 </ul>
                 <div class="car-footer">
                     @if ($annonce->prix == null)
-                    <p id="appeler-prix" class="cl">
-                        <a href="#" onclick="afficherNumero(event)" style="text-decoration: none;font-size: 14px;"><strong>Appelez pour le prix</strong></a>
+                    <p class="appeler-prix cl">
+                        <a href="#" onclick="afficherNumero(event,  '{{ $annonce->id }}')" style="text-decoration: none;font-size: 14px;"><strong>Appelez pour le prix</strong></a>
                     </p>
-                    <p id="tel" class="car-price" style="display:none;">
+                    <p class="tel car-price" data-annonce-id="{{ $annonce->id }}" style="display:none;">
                         <strong>{{ $annonce->user->telephone }}</strong>
                     </p>
                     @else

@@ -79,7 +79,7 @@
                             <td class="d-flex align-items-center justify-content-center justify-content-between">
                                 <!-- Boutton Afficher -->
                                 <button>
-                                    <a href="{{ route('admin.afficher_annonce', ['annonce' => $annonce->id]) }}" class="mb-1" style="font-size: 18px;">
+                                    <a href="{{ route('admin.afficher_annonce', ['annonce' => $annonce->id]) }}" class="mb-1" style="font-size: 16px;">
                                         <i class="fa-solid fa-eye fa-lg"></i>
                                     </a>
                                 </button>

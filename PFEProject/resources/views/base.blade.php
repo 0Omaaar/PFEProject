@@ -117,11 +117,11 @@
 
     <script>
         // Pour afficher le numero de telephone à la place du prix
-        function afficherNumero(event) {
+        function afficherNumero(event, annonceId) {
             event.preventDefault(); // Empêche le déplacement de la page vers le haut
 
-            let appelerPrix = document.getElementById('appeler-prix');
-            let tel = document.getElementById('tel');
+            let appelerPrix = event.target.parentNode; // Cible l'élément parent (p.appeler-prix)
+            let tel = document.querySelector(`p.tel[data-annonce-id="${annonceId}"]`); // Cible l'élément tel correspondant à l'annonceId
             appelerPrix.style.display = 'none';
             tel.style.display = 'block';
         }

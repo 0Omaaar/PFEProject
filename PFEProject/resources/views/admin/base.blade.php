@@ -87,7 +87,7 @@
                                     </li>
                                     <li>
                                         <a class="sidenav-item-link" href="{{ route('admin.stats.annonce') }}">
-                                            <span class="nav-text"><i class="fa-solid fa-angle-right"></i> Stats Annonces</span>
+                                            <span class="nav-text"><i class="fa-solid fa-angle-right"></i> Statistiques</span>
                                         </a>
                                     </li>
                                 </div>
@@ -107,7 +107,7 @@
                                     </li>
                                     <li>
                                         <a class="sidenav-item-link" href="{{ route('admin.stats.users') }}">
-                                            <span class="nav-text"><i class="fa-solid fa-angle-right"></i> Stats Utilisateurs</span>
+                                            <span class="nav-text"><i class="fa-solid fa-angle-right"></i> Statistiques</span>
                                         </a>
                                     </li>
                                 </div>

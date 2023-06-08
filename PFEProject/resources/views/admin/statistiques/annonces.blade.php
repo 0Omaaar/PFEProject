@@ -21,16 +21,16 @@
                             </div>
                             <div class="sub-title">
                                 <span class="mr-1">Nombre d'annonces</span>
-                                <i class="mdi mdi-arrow-up-bold text-success"></i>
+                                <!-- <i class="mdi mdi-arrow-up-bold text-success"></i> -->
                             </div>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="chart-wrapper">
                                 <div>
                                     <div id="spline-area-1"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6">
@@ -48,16 +48,16 @@
                             </div>
                             <div class="sub-title">
                                 <span class="mr-0">Nombre d'annonces activées</span>
-                                <i class="mdi mdi-arrow-up-bold text-success"></i>
+                                <!-- <i class="mdi mdi-arrow-up-bold text-success"></i> -->
                             </div>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="chart-wrapper">
                                 <div>
                                     <div id="spline-area-2"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6">
@@ -75,16 +75,16 @@
                             </div>
                             <div class="sub-title">
                                 <span class="mr-1">Nombre d'annonces désactivées</span>
-                                <i class="mdi mdi-arrow-up-bold text-success"></i>
+                                <!-- <i class="mdi mdi-arrow-up-bold text-success"></i> -->
                             </div>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="chart-wrapper">
                                 <div>
                                     <div id="spline-area-3"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

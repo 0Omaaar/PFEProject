@@ -6,12 +6,21 @@
     .hidden {
         display: none;
     }
+
+    .total {
+        width: 165px;
+        border: 1px solid #6259ca;
+    }
+
+    .total p {
+        text-align: center;
+        padding: 5px 8px;
+    }
 </style>
 <div class="container my-7">
     <!-- <h2 class="text-center" style="letter-spacing: 1px;">LISTE DES ANNONCES</h2> -->
-
     <div>
-        <form id="searchForm" class="mb-3">
+        <form id="searchForm">
             <div class="input-group">
                 <input type="text" id="searchInput" class="recherche" placeholder="Rechercher une annonce">
                 <div class="input-group-append">
@@ -22,8 +31,13 @@
     </div>
 
     <br>
-    
+
     <div class="container">
+
+        <div class="row total">
+            <p class="col-lg-8" style="background-color: #e7e6f7; color: #6259ca;">Nombre total</p>
+            <p class="col-lg-4" style="background-color: #6259ca; color: #e7e6f7;">{{ $nombre_annonces }}</p>
+        </div>
         @if ($annonces->count() > 0)
         <div class="row">
             <div class="col">
@@ -37,7 +51,8 @@
                         <tr>
                             <th>Id</th>
                             <th>Titre</th>
-                            <th>Description</th>
+                            <th class="text-center">Vues</th>
+                            <th>Propriétaire</th>
                             <th class="text-center">Etat</th>
                             <th>Crée a</th>
                             <th>Mise a jour a</th>
@@ -50,7 +65,8 @@
                         <tr class="user user-row" data-titre="{{ $annonce->titre }}" data-description="{{ $annonce->description }}" data-etat="{{ $annonce->etat }}">
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $annonce->titre }}</td>
-                            <td>{{ $annonce->description }}</td>
+                            <td class="text-center">{{ $annonce->vues }}</td>
+                            <td>{{ $annonce->user->email }}</td>
                             <td>
                                 @if ($annonce->isActive())
                                 <p class="active etat">Activé</p>

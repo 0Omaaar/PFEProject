@@ -41,8 +41,9 @@ class AAnnonceController extends Controller
     public function annonces()
     {
         $annonces = Annonce::latest()->paginate(4);
+        $nombre_annonces = Annonce::count();
 
-        return view('admin.annonces', compact('annonces'));
+        return view('admin.annonces', compact('annonces', 'nombre_annonces'));
     }
 
     public function statsAnnonce()
@@ -88,15 +89,18 @@ class AAnnonceController extends Controller
     public function annoncesSupp()
     {
         $annonces_supprimees = Annonce::onlyTrashed()->paginate(3);
+        $nombre_annonces_supprimees = Annonce::onlyTrashed()->count();
 
-        return view('admin.annoncesSupp', compact('annonces_supprimees'));
+
+        return view('admin.annoncesSupp', compact('annonces_supprimees', 'nombre_annonces_supprimees'));
     }
 
     public function annoncesVend()
     {
-        $annonces = Annonce::latest()->paginate(4);
+        $annonces_vendues = Annonce::where('vendu', true)->paginate(4);
+        $nombre_annonces_vendues = Annonce::where('vendu', true)->get()->count();
 
-        return view('admin.annoncesVend', compact('annonces'));
+        return view('admin.annoncesVend', compact('annonces_vendues', 'nombre_annonces_vendues'));
     }
 
     public function restore(Request $request, $id)

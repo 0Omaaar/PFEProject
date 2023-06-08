@@ -46,7 +46,7 @@
                                         <td>{{ $contact->created_at }}</td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#exampleModal">
+                                                data-target="#exampleModal{{$contact->id}}">
                                                 Afficher
                                             </button>
                                             <a href="{{ route('admin.contact.rendreNonLu', ['contact' => $contact]) }}"
@@ -57,7 +57,7 @@
                                                 class="btn btn-success btn-sm">Traité</a>
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="exampleModal{{ $contact->id }}" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">

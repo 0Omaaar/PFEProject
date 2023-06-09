@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 use App\Models\Annonce;
+use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -30,13 +31,14 @@ class AAnnonceController extends Controller
     {
         $nombre_annonces = Annonce::count();
         $nombre_users = User::count();
+        $nombre_contacts = Contact::count();
 
         $daily_stats = $this->getDailyStats();
         $annonces_ajoutees = $daily_stats['addedCount'];
         $annonces_supprimees = $daily_stats['deletedCount'];
         $added_users = $daily_stats['addedUsers'];
 
-        return view('admin.index', compact('nombre_annonces', 'nombre_users', 'annonces_ajoutees', 'annonces_supprimees', 'added_users'));
+        return view('admin.index', compact('nombre_annonces', 'nombre_users', 'annonces_ajoutees', 'annonces_supprimees', 'added_users', 'nombre_contacts'));
     }
     public function annonces()
     {

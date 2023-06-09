@@ -145,11 +145,6 @@
                                             <span class="nav-text"><i class="fa-solid fa-angle-right"></i> Contacts</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a class="sidenav-item-link" href="">
-                                            <span class="nav-text"><i class="fa-solid fa-angle-right"></i> Réclamations</span>
-                                        </a>
-                                    </li>
                                 </div>
                             </ul>
                         </li>

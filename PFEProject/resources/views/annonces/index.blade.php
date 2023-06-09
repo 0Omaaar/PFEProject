@@ -2,7 +2,7 @@
 @section('title', 'Page d\'acceuil')
 @section('content')
 
-    <div class="container">
+    <div class="container my-5">
 
         {{-- Liste des marques --}}
 
@@ -25,7 +25,7 @@
                 @endforeach
             </div>
         @else
-            <p>Aucune annonce trouvée.</p>
+        <h4 class="text-center my-5">Aucune annonce pour le moment.</h4>
         @endif
     </div>
 

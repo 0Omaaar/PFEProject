@@ -35,24 +35,24 @@ class AnnonceController extends Controller
         $modeles = Modele::all();
         $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');
 
-        $marquesVendues = Marque::select('marques.nom')
-        ->join('modeles', 'modeles.marque_id', '=', 'marques.id')
-        ->join('voitures', 'voitures.modele_id', '=', 'modeles.id')
-        ->join('annonces', 'annonces.voiture_id', '=', 'voitures.id')
-        ->where('annonces.vendu', true)
-        ->groupBy('marques.nom')
-        ->orderByRaw('COUNT(*) DESC')
-        ->limit(6)
-        ->get();
+        $marquesVendues = Marque::select('marques.id', 'marques.nom', 'marques.logo')
+            ->join('modeles', 'modeles.marque_id', '=', 'marques.id')
+            ->join('voitures', 'voitures.modele_id', '=', 'modeles.id')
+            ->join('annonces', 'annonces.voiture_id', '=', 'voitures.id')
+            ->where('annonces.vendu', true)
+            ->groupBy('marques.id', 'marques.nom', 'marques.logo')
+            ->orderByRaw('COUNT(*) DESC')
+            ->limit(6)
+            ->get();
 
-        $modelesVendus = Modele::select('modeles.nom')
-        ->join('voitures', 'voitures.modele_id', '=', 'modeles.id')
-        ->join('annonces', 'annonces.voiture_id', '=', 'voitures.id')
-        ->where('annonces.vendu', true)
-        ->groupBy('modeles.nom')
-        ->orderByRaw('COUNT(*) DESC')
-        ->limit(6)
-        ->get();
+        $modelesVendus = Modele::select('modeles.id', 'modeles.nom')
+            ->join('voitures', 'voitures.modele_id', '=', 'modeles.id')
+            ->join('annonces', 'annonces.voiture_id', '=', 'voitures.id')
+            ->where('annonces.vendu', true)
+            ->groupBy('modeles.id', 'modeles.nom')
+            ->orderByRaw('COUNT(*) DESC')
+            ->limit(6)
+            ->get();
 
         return view('index', compact('annonces', 'marques', 'modeles', 'favorites', 'marquesVendues', 'modelesVendus'));
     }
@@ -191,7 +191,7 @@ class AnnonceController extends Controller
 
         return redirect()->route('annonces.show', ['annonce' => $annonce->id])->with('success', 'Commentaire ajouté');
     }
-    
+
     public function deleteCommentaire($id)
     {
         $commentaire = Commentaire::findOrFail($id);
@@ -532,7 +532,8 @@ class AnnonceController extends Controller
         return $nombreFavorites;
     }
 
-    public function marquerVendu(Annonce $annonce){
+    public function marquerVendu(Annonce $annonce)
+    {
         $annonce->vendu = true;
         $annonce->save();
 

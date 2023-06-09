@@ -132,26 +132,34 @@
 <div class="container mt-5 mb-3">
     <div class="row">
         <div class="user-profile-card col-lg-6">
-            <h3><i class="fa-solid fa-up-long fa-sm" style="color: #29bf6c;"></i> Marques les plus vendues :</h3>
+            <h3><i class="fa-solid fa-up-long fa-sm" style="color: #29bf6c;"></i> Les marques les plus vendues :</h3>
             <ul class="row text-center my-4">
                 @foreach ($marquesVendues as $marque)
                 <!-- <li><img src="{{ asset('images/logos/' . $marque->logo) }}" width="45px" alt="{{ $marque->nom }}"/></li> -->
                 <div class="col-lg-4">
                     <li>
-                        <h5>{{ $marque->nom }}</h5>
+                        <a href="{{ route('annonces.recherche', ['marque_id' => $marque->id]) }}" class="category-item wow fadeInUp" data-wow-delay=".25s">
+                            <div class="category-img">
+                                <img src="{{ asset('images/logos/' . $marque->logo) }}" width="40px" alt="{{ $marque->nom }}" />
+                            </div>
+                            <h6>{{ $marque->nom }}</h6>
+                        </a>
                     </li>
                 </div>
                 @endforeach
             </ul>
         </div>
         <div class="user-profile-card col-lg-6">
-            <h3><i class="fa-solid fa-up-long fa-sm" style="color: #29bf6c;"></i> Modèles les plus vendus :</h3>
+            <h3><i class="fa-solid fa-up-long fa-sm" style="color: #29bf6c;"></i> Les modèles les plus vendus :</h3>
             <ul class="row text-center my-4">
                 @foreach ($modelesVendus as $modele)
                 <div class="col-lg-4">
                     <li>
-                        <h5>{{ $modele->nom }}</h5>
+                        <a href="{{ route('annonces.recherche', ['modele_id' => $modele->id]) }}" class="category-item wow fadeInUp" data-wow-delay=".25s">
+                            <h6>{{ $modele->nom }}</h6>
+                        </a>
                     </li>
+
                 </div>
                 @endforeach
             </ul>
@@ -193,26 +201,30 @@
 
 <!-- Liste des scripts -->
 <script>
-        // Afficher la liste des marques
-        $(document).ready(function() {
+    // Afficher la liste des marques
+    $(document).ready(function() {
 
-            var loadedBrands = 12;
-            var marquesCount = {{ $marques->count() }};
+        var loadedBrands = 12;
+        var marquesCount = {
+            {
+                $marques - > count()
+            }
+        };
 
-            // Quand le bouton suivant est cliqué
-            $("#loadMore").click(function(e) {
-                e.preventDefault();
+        // Quand le bouton suivant est cliqué
+        $("#loadMore").click(function(e) {
+            e.preventDefault();
 
-                $("#marquesHidden").show();
+            $("#marquesHidden").show();
+            $("#loadMore").hide();
+
+            loadedBrands += 12;
+
+            if (loadedBrands >= marquesCount) {
                 $("#loadMore").hide();
-
-                loadedBrands += 12;
-
-                if (loadedBrands >= marquesCount) {
-                    $("#loadMore").hide();
-                }
-            });
+            }
         });
-    </script>
+    });
+</script>
 
 @endsection

@@ -30,7 +30,13 @@ class AnnonceController extends Controller
 
     public function index()
     {
-        $annonces = Annonce::latest()->get();
+        $annonces = Annonce::withCount('vues', 'favorites')
+        ->orderByDesc('vues_count')
+        ->orderByDesc('favorites_count')
+        ->orderByDesc('created_at')
+        ->limit(20)
+        ->get();
+        
         $marques = Marque::all();
         $modeles = Modele::all();
         $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');

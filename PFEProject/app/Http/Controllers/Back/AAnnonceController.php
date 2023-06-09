@@ -109,7 +109,7 @@ class AAnnonceController extends Controller
     {
         $annonce = Annonce::withTrashed()->find($id);
         $annonce->restore();
-        return redirect()->route('admin.annonces')->with("success", "L'annonce est restauree");
+        return redirect()->route('admin.annoncesSupp')->with("success", "L'annonce est restaurée");
     }
 
     public function SupprimerDef($id)

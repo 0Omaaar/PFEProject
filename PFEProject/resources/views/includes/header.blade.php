@@ -81,7 +81,7 @@
                             </li>
                             @guest
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item " href="#">Authentification</a>
+                                <!-- <a class="dropdown-item " href="#">Authentification</a> -->
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="login.html">Login</a></li>
                                     <li><a class="dropdown-item" href="register.html">Register</a></li>

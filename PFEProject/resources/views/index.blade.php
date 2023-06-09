@@ -153,10 +153,10 @@
             <h3><i class="fa-solid fa-up-long fa-sm" style="color: #29bf6c;"></i> Les modèles les plus vendus :</h3>
             <ul class="row text-center my-4">
                 @foreach ($modelesVendus as $modele)
-                <div class="col-lg-4">
+                <div class="col-lg-4 my-3">
                     <li>
                         <a href="{{ route('annonces.recherche', ['modele_id' => $modele->id]) }}" class="category-item wow fadeInUp" data-wow-delay=".25s">
-                            <h6>{{ $modele->nom }}</h6>
+                            <h5>{{ $modele->nom }}</h5>
                         </a>
                     </li>
 

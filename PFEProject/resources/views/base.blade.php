@@ -39,7 +39,7 @@
 
     </main>
 
-    @include('includes.footer')
+    <!-- @include('includes.footer') -->
 
     <script>
         // Afficher les modèles selon la marque séléctionnée

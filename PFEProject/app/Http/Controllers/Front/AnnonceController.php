@@ -42,8 +42,7 @@ class AnnonceController extends Controller
         $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');
 
         $marquesVendues = Marque::select('marques.id', 'marques.nom', 'marques.logo')
-            ->join('modeles', 'modeles.marque_id', '=', 'marques.id')
-            ->join('voitures', 'voitures.modele_id', '=', 'modeles.id')
+            ->join('voitures', 'voitures.marque_id', '=', 'marques.id')
             ->join('annonces', 'annonces.voiture_id', '=', 'voitures.id')
             ->where('annonces.vendu', true)
             ->groupBy('marques.id', 'marques.nom', 'marques.logo')

@@ -201,30 +201,26 @@
 
 <!-- Liste des scripts -->
 <script>
-    // Afficher la liste des marques
-    $(document).ready(function() {
+        // Afficher la liste des marques
+        $(document).ready(function() {
 
-        var loadedBrands = 12;
-        var marquesCount = {
-            {
-                $marques - > count()
-            }
-        };
+            var loadedBrands = 12;
+            var marquesCount = {{ $marques->count() }};
 
-        // Quand le bouton suivant est cliqué
-        $("#loadMore").click(function(e) {
-            e.preventDefault();
+            // Quand le bouton suivant est cliqué
+            $("#loadMore").click(function(e) {
+                e.preventDefault();
 
-            $("#marquesHidden").show();
-            $("#loadMore").hide();
-
-            loadedBrands += 12;
-
-            if (loadedBrands >= marquesCount) {
+                $("#marquesHidden").show();
                 $("#loadMore").hide();
-            }
+
+                loadedBrands += 12;
+
+                if (loadedBrands >= marquesCount) {
+                    $("#loadMore").hide();
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 @endsection

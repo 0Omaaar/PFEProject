@@ -25,7 +25,7 @@
         font-size: 20px;
     }
 
-    .contenu i{
+    .contenu i {
         color: #939fff;
     }
 
@@ -50,7 +50,9 @@
                     <div class="car-single-details">
                         <div class="car-single-widget">
                             <div class="car-single-top">
-                                <h6 class="text-right">{{ $annonce->vues }} <i class="fa-solid fa-eye fa-sm"></i> </h6>
+                                <h6 class="text-right">
+                                    {{ $annonce->vues }} <i class="fa-solid fa-eye fa-sm"></i>
+                                </h6>
                                 <h3 class="car-single-title">{{ $annonce->titre }}</h3>
                                 <ul class="car-single-meta">
                                     <li><i class="mdi mdi-calendar-today mdi-18px"></i> Publiée le :
@@ -255,8 +257,8 @@
 
                                             <!-- contenu du commentaire -->
                                             <div class="d-flex justify-content-between align-items-center">
-                                                 <p class="contenu mb-3"><i class="fa-solid fa-caret-right"></i> {{ $commentaire->contenu }}</p>
-                                                
+                                                <p class="contenu mb-3"><i class="fa-solid fa-caret-right"></i> {{ $commentaire->contenu }}</p>
+
                                                 <!-- Supprimer un commentaie -->
                                                 @if (Auth::check() && auth()->user()->id === $commentaire->user_id)
                                                 <form action="{{ route('annonces.commentaires.delete', ['id' => $commentaire->id]) }}" method="post" class="float-right">
@@ -295,7 +297,7 @@
                                             <div class="text-right">
                                                 <a href="#" class="repondre-btn mt-2" data-toggle="collapse" data-target="#repondre{{ $commentaire->id }}">
                                                     <button class="theme-btn">
-                                                    <i class="fa-solid fa-reply"></i> Répondre
+                                                        <i class="fa-solid fa-reply"></i> Répondre
                                                     </button>
                                                 </a>
                                             </div>
@@ -334,11 +336,12 @@
                             {{ $annonce->voiture->annee }}
                         </h6>
                         @if ($annonce->prix == null)
-                        <h4 id="appeler-prix" class="car-single-price" style="cursor: pointer;" onclick="afficherNumero(event)">Prix non spécifié</h4>
-
-                        <h4 id="tel" class="car-single-price" style="display:none;">
-                            {{ $annonce->user->telephone }}
-                        </h4>
+                        <h3 class="appeler-prix cl">
+                            <a href="#" onclick="afficherNumero(event,  '{{ $annonce->id }}')" style="text-decoration: none;font-size: 14px;">Prix non spécifié</a>
+                        </h3>
+                        <p class="tel car-price" data-annonce-id="{{ $annonce->id }}" style="display:none;">
+                            <strong>{{ $annonce->user->telephone }}</strong>
+                        </p>
                         @else
                         <h4 class="car-single-price">{{ $annonce->prix }} DH</h4>
                         @endif

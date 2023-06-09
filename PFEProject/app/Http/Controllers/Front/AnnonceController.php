@@ -170,6 +170,8 @@ class AnnonceController extends Controller
         // $commentaires = $annonce->commentaire;
         $commentaires = $annonce->commentaire()->with('reponse')->get();
         $options = $annonce->voiture->options;
+        // $favorites = Favorite::where('user_id', Auth::id())->pluck('annonce_id');
+
         return view('annonces.annonce', compact('annonce', 'options', 'commentaires'));
     }
 
@@ -348,6 +350,7 @@ class AnnonceController extends Controller
             Storage::disk('public')->delete('images/images/' . $image->chemin);
             $image->delete();
         }
+        $annonce->favorites()->delete();
         $annonce->delete();
 
         return redirect()->route('annonces.index')->with('success', "Votre annonce '$annonce->titre' a été supprimée avec succès");

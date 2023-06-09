@@ -179,10 +179,10 @@
         @if ($annonces && $annonces->count() > 0)
         <div class="row">
             <input type="hidden" id="liste-favorites" data-value="{{ json_encode($favorites) }}">
+            <h3 class="text text-center mb-4">Voitures vendues</h3>
             @foreach ($annonces->chunk(4) as $chunk)
             @foreach ($chunk as $annonce)
             @if ($annonce->vendu)
-            <h3 class="text text-center mb-4">Voitures vendues</h3>
             @include('includes.bloc_annonce')
             @endif
             @endforeach
